@@ -53,8 +53,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="PlayersClientTests.cs" />
-    <Compile Include="GamesClientTests.cs" />
+    <Compile Include="ClientTestsBase.cs" />
+    <Compile Include="Games\GameFilterGreaterThanTests.cs" />
+    <Compile Include="Games\GameFilterGreaterOrEqualToThanTests.cs" />
+    <Compile Include="Games\GameFilterLessThanOrEqualToTests.cs" />
+    <Compile Include="Games\GameFilterLessThanTests.cs" />
+    <Compile Include="Games\GameFilterNotEqualsTests.cs" />
+    <Compile Include="Games\GameFilterEqualsTests.cs" />
+    <Compile Include="Games\GameSortTests.cs" />
+    <Compile Include="Players\PlayersClientTests.cs" />
+    <Compile Include="Games\GameClientTests.cs" />
+    <Compile Include="Players\PlayersSortTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

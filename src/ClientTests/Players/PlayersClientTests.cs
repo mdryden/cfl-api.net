@@ -5,17 +5,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using mdryden.cflapi.v1.Client.Players;
 
-namespace mdryden.cflapi.v1.ClientTests
+namespace mdryden.cflapi.v1.ClientTests.Players
 {
 	[TestClass]
-	public class PlayersClientTests
+	public class PlayersClientTests : ClientTestsBase
 	{
 
 		private PlayersClient GetClient()
 		{
-			var apiKey = ConfigurationManager.AppSettings["apiKey"];
-
-			return new PlayersClient(apiKey);
+			return new PlayersClient(GetApiKey());
 		}
 		
 

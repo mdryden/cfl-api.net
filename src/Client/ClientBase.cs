@@ -37,6 +37,24 @@ namespace mdryden.cflapi.v1.Client
 			}
 		}
 
+		protected void AppendSorts(ref string url, IEnumerable<Sort> sorts)
+		{
+			var sortStrings = new List<string>();
+			foreach (var sort in sorts)
+			{
+				sortStrings.Add(sort.GetSortString());
+			}
+
+			if (sortStrings.Count == 0)
+			{
+				return;
+			}
+			else
+			{
+				url += $"&sort={string.Join(",", sortStrings)}";
+			}
+		}
+
 		protected void AppendParameter(ref string url, string parameter)
 		{
 			url += $"&{parameter}";
@@ -51,7 +69,12 @@ namespace mdryden.cflapi.v1.Client
 				response = client.DownloadString(url);
 			}
 
-			return JsonConvert.DeserializeObject<T>(response);
+			var settings = new JsonSerializerSettings
+			{
+				NullValueHandling = NullValueHandling.Ignore,
+			};
+
+			return JsonConvert.DeserializeObject<T>(response, settings);
 		}
 
 		

@@ -15,12 +15,18 @@ namespace mdryden.cflapi.v1.Client.Players
 
 		}
 
-		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize, params PlayerFilter[] filters)
+		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize)
+		{
+			return GetPlayers(pageNumber, pageSize, new PlayersRequestOptions());
+		}
+
+		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize, PlayersRequestOptions options)
 		{
 			const string path = "/v1/players";
 
 			var url = GetUrl(path);
-			AppendFilters(ref url, filters);
+			AppendFilters(ref url, options.Filters);
+			AppendSorts(ref url, options.Sorts);
 			AppendParameter(ref url, $"page[number]={pageNumber}");
 			AppendParameter(ref url, $"page[size]={pageSize}");
 

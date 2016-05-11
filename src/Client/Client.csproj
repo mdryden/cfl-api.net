@@ -49,7 +49,12 @@
     <Compile Include="Games\GamesClient.cs" />
     <Compile Include="Games\GameSort.cs" />
     <Compile Include="Games\GameSortTypes.cs" />
+    <Compile Include="Games\GamesRequestOptions.cs" />
     <Compile Include="Players\PlayersClient.cs" />
+    <Compile Include="Players\PlayerSort.cs" />
+    <Compile Include="Players\PlayerSortTypes.cs" />
+    <Compile Include="Players\PlayersRequestOptions.cs" />
+    <Compile Include="RequestOptions.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="FilterOperators.cs" />

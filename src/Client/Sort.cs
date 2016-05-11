@@ -10,7 +10,6 @@ namespace mdryden.cflapi.v1.Client
 	{
 
 		private SortOrder order;
-		private string value;
 
 		public Sort(SortOrder order)
 		{
@@ -45,7 +44,7 @@ namespace mdryden.cflapi.v1.Client
 
 		public static string FormatSort(string sortTypes, string order)
 		{
-			return $"sort={order}{sortTypes}";
+			return $"{order}{sortTypes}";
 		}
 	}
 

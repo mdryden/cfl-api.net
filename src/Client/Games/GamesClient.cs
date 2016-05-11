@@ -15,14 +15,19 @@ namespace mdryden.cflapi.v1.Client.Games
 		{
 
 		}
+		public IList<Game> GetGames(int pageNumber, int pageSize)
+		{
+			return GetGames(pageNumber, pageSize, new GamesRequestOptions());
+		}
 
-		public IEnumerable<Game> GetGames(int pageNumber, int pageSize, params GameFilter[] filters)
+		public IList<Game> GetGames(int pageNumber, int pageSize, GamesRequestOptions options)
 		{
 			const string path = "/v1/games";
 
 			var url = GetUrl(path);
 
-			AppendFilters(ref url, filters);
+			AppendFilters(ref url, options.Filters);
+			AppendSorts(ref url, options.Sorts);
 			AppendParameter(ref url, $"page[number]={pageNumber}");
 			AppendParameter(ref url, $"page[size]={pageSize}");
 
@@ -30,11 +35,17 @@ namespace mdryden.cflapi.v1.Client.Games
 			return GetResponse<GamesContainer>(url).Data;
 		}
 
-		public IEnumerable<Game> GetGames(int season, params GameFilter[] filters)
+		public IList<Game> GetGames(int season)
+		{
+			return GetGames(season, new GamesRequestOptions());
+		}
+
+		public IList<Game> GetGames(int season, GamesRequestOptions options)
 		{
 			var path = $"/v1/games/{season}";
 			var url = GetUrl(path);
-			AppendFilters(ref url, filters);
+			AppendFilters(ref url, options.Filters);
+			AppendSorts(ref url, options.Sorts);
 
 			return GetResponse<GamesContainer>(url).Data;
 		}
