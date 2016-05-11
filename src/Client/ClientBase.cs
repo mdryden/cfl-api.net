@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -23,6 +24,8 @@ namespace mdryden.cflapi.v1.Client
 			this.apiKey = apiKey;
 			this.host = host;
 		}
+
+		public string LastRequestUrl { get; private set; }
 
 		protected string GetUrl(string path)
 		{
@@ -66,6 +69,7 @@ namespace mdryden.cflapi.v1.Client
 
 			using (var client = new WebClient())
 			{
+				LastRequestUrl = url;
 				response = client.DownloadString(url);
 			}
 

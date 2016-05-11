@@ -13,7 +13,7 @@ namespace mdryden.cflapi.v1.Models.Players
 		public int PositionId { get; set; }
 
 		[JsonProperty(PropertyName = "offence_defence_or_special")]
-		public string OffenseDefenceOrSpecial { get; set; }
+		public string OffenceDefenceOrSpecial { get; set; }
 
 		[JsonProperty(PropertyName = "abbreviation")]
 		public string Abbreviation { get; set; }

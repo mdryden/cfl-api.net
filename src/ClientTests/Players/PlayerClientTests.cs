@@ -8,7 +8,7 @@ using mdryden.cflapi.v1.Client.Players;
 namespace mdryden.cflapi.v1.ClientTests.Players
 {
 	[TestClass]
-	public class PlayersClientTests : ClientTestsBase
+	public class PlayerClientTests : ClientTestsBase
 	{
 
 		private PlayersClient GetClient()

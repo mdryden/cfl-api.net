@@ -15,6 +15,8 @@ namespace mdryden.cflapi.v1.Client.Games
 		{
 
 		}
+
+
 		public IList<Game> GetGames(int pageNumber, int pageSize)
 		{
 			return GetGames(pageNumber, pageSize, new GamesRequestOptions());

@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace mdryden.cflapi.v1.ClientTests.Games
 {
 	[TestClass]
-	public class GameFilterNotEqualsTests : ClientTestsBase
+	public class GameFilterNotEqualTests : ClientTestsBase
 	{
 
 		private GamesClient GetClient()

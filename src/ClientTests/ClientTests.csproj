@@ -58,12 +58,18 @@
     <Compile Include="Games\GameFilterGreaterOrEqualToThanTests.cs" />
     <Compile Include="Games\GameFilterLessThanOrEqualToTests.cs" />
     <Compile Include="Games\GameFilterLessThanTests.cs" />
-    <Compile Include="Games\GameFilterNotEqualsTests.cs" />
+    <Compile Include="Games\GameFilterNotEqualTests.cs" />
     <Compile Include="Games\GameFilterEqualsTests.cs" />
     <Compile Include="Games\GameSortTests.cs" />
-    <Compile Include="Players\PlayersClientTests.cs" />
+    <Compile Include="Players\PlayerFilterGreaterThanOrEqualToTests.cs" />
+    <Compile Include="Players\PlayerFilterLessThanOrEqualToTests.cs" />
+    <Compile Include="Players\PlayerFilterLessThanTests.cs" />
+    <Compile Include="Players\PlayerFilterGreaterThanTests.cs" />
+    <Compile Include="Players\PlayerFilterNotEqualTests.cs" />
+    <Compile Include="Players\PlayerFilterEqualsTests.cs" />
+    <Compile Include="Players\PlayerClientTests.cs" />
     <Compile Include="Games\GameClientTests.cs" />
-    <Compile Include="Players\PlayersSortTests.cs" />
+    <Compile Include="Players\PlayerSortTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

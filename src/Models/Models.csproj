@@ -94,12 +94,14 @@
     <Compile Include="Players\GamePunts.cs" />
     <Compile Include="Players\GameReceiving.cs" />
     <Compile Include="Players\GameRushing.cs" />
+    <Compile Include="Players\OffenceDefenceOrSpecialValues.cs" />
     <Compile Include="Players\Passing.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerGames.cs" />
     <Compile Include="Players\PlayersContainer.cs" />
     <Compile Include="Players\PlayerTeam.cs" />
     <Compile Include="Players\Position.cs" />
+    <Compile Include="Players\PositionAbbreviations.cs" />
     <Compile Include="Players\PositionIds.cs" />
     <Compile Include="Players\Punts.cs" />
     <Compile Include="Players\Receiving.cs" />
