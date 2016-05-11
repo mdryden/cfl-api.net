@@ -57,9 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="appSettings.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="appSettings.config" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>

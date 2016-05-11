@@ -5,6 +5,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using mdryden.cflapi.v1.Models;
+using mdryden.cflapi.v1.Models.Games;
+using mdryden.cflapi.v1.Models.Players;
 using Newtonsoft.Json;
 
 namespace mdryden.cflapi.v1.Client
@@ -50,18 +52,8 @@ namespace mdryden.cflapi.v1.Client
 			return JsonConvert.DeserializeObject<T>(response);
 		}
 
-
-
-
-
-		public IEnumerable<Game> GetGames(params GameFilter[] filters)
-		{
-			const int defaultPage = 1;
-			const int defaultSize = 20;
-
-			return GetGames(defaultPage, defaultSize, filters);
-		}
-
+		
+		
 		public IEnumerable<Game> GetGames(int pageNumber, int pageSize, params GameFilter[] filters)
 		{
 			const string path = "/v1/games";
@@ -84,8 +76,8 @@ namespace mdryden.cflapi.v1.Client
 
 			return GetResponse<GamesContainer>(url).Data;
 		}
-
-		public string GetGameUrl(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
+		
+		public Game GetGame(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
 		{
 			var path = $"/v1/games/{season}/game/{gameId}";
 			var url = GetUrl(path);
@@ -107,26 +99,50 @@ namespace mdryden.cflapi.v1.Client
 				AppendParameter(ref url, includesString);
 			}
 
-			return url;
-		}
-
-		public Game GetGame(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
-		{
-			var url = GetGameUrl(season, gameId, includeBoxscore, includePlayByPlay);
+			
 			var response = GetResponse<GamesContainer>(url).Data;
 
 			return response[0];
 		}
 
-		public IEnumerable<Player> GetPlayers()
+		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize, params PlayerFilter[] filters)
 		{
-			throw new NotImplementedException();
+			const string path = "/v1/players";
 
+			var url = GetUrl(path);
+			AppendFilters(ref url, filters);
+			AppendParameter(ref url, $"page[number]={pageNumber}");
+			AppendParameter(ref url, $"page[size]={pageSize}");
+
+			return GetResponse<PlayersContainer>(url).Data;
 		}
 
-		public Player GetPlayer(int cflCentralId)
+		public Player GetPlayer(int cflCentralId, bool includeSeasons, bool includeGameByGame)
 		{
-			throw new NotImplementedException();
+			var path = $"/v1/players/{cflCentralId}";
+
+			var url = GetUrl(path);
+
+			var includes = new List<string>();
+			if (includeSeasons)
+			{
+				includes.Add("seasons");
+			}
+
+			if (includeGameByGame)
+			{
+				includes.Add("game_by_game");
+			}
+
+			if (includes.Count > 0)
+			{
+				var includesString = $"include={string.Join(",", includes)}";
+				AppendParameter(ref url, includesString);
+			}
+
+			var response = GetResponse<PlayersContainer>(url).Data;
+
+			return response[0];
 
 		}
 	}
