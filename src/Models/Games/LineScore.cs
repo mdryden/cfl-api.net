@@ -10,7 +10,7 @@ namespace mdryden.cflapi.v1.Models.Games
 	public class LineScore
 	{
 		[JsonProperty(PropertyName = "quarter")]
-		public int Quarter { get; set; }
+		public Quarters Quarter { get; set; }
 
 		[JsonProperty(PropertyName = "score")]
 		public int Score { get; set; }
