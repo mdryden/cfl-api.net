@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mdryden.cflapi.v1.Client
+namespace mdryden.cflapi.v1.Client.Players
 {
 	public class PlayerFilter : Filter<PlayerFilterTypes>
 	{

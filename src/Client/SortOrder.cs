@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	class LeaderFilterTypes
+	public enum SortOrder
 	{
+		Ascending,
+		Descending
 	}
 }

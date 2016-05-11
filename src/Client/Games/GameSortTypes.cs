@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mdryden.cflapi.v1.Client
+namespace mdryden.cflapi.v1.Client.Games
 {
-	public enum GameFilterTypes
+	public enum GameSortTypes
 	{
 		DateStart,
 		Season,
@@ -14,6 +14,6 @@ namespace mdryden.cflapi.v1.Client
 		Temperature,
 		Attendance,
 		Team1,
-		Team2,
+		Team2
 	}
 }

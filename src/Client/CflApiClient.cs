@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using mdryden.cflapi.v1.Client.Games;
+using mdryden.cflapi.v1.Client.Players;
 using mdryden.cflapi.v1.Models;
 using mdryden.cflapi.v1.Models.Games;
 using mdryden.cflapi.v1.Models.Players;

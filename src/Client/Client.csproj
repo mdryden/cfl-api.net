@@ -46,18 +46,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CflApiClient.cs" />
+    <Compile Include="Games\GameSort.cs" />
+    <Compile Include="Games\GameSortTypes.cs" />
+    <Compile Include="Sort.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="FilterOperators.cs" />
-    <Compile Include="FilterCollection.cs" />
-    <Compile Include="GameFilter.cs" />
-    <Compile Include="GameFilterTypes.cs" />
-    <Compile Include="LeaderFilter.cs" />
-    <Compile Include="LeaderFilterTypes.cs" />
-    <Compile Include="PlayerFilter.cs" />
-    <Compile Include="PlayerFilterTypes.cs" />
+    <Compile Include="Games\GameFilter.cs" />
+    <Compile Include="Games\GameFilterTypes.cs" />
+    <Compile Include="Leaders\LeaderFilter.cs" />
+    <Compile Include="Leaders\LeaderFilterTypes.cs" />
+    <Compile Include="Players\PlayerFilter.cs" />
+    <Compile Include="Players\PlayerFilterTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeamLeaderFilter.cs" />
-    <Compile Include="TeamLeaderFilterTypes.cs" />
+    <Compile Include="SortOrder.cs" />
+    <Compile Include="TeamLeaders\TeamLeaderFilter.cs" />
+    <Compile Include="TeamLeaders\TeamLeaderFilterTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
