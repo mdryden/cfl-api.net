@@ -21,7 +21,7 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty(PropertyName = "tackles_specialteams")]
 		public int TacklesSpecialTeams { get; set; }
 
-		[JsonProperty(PropertyName = "tackes_for_loss")]
+		[JsonProperty(PropertyName = "tackles_for_loss")]
 		public int TacklesForLoss { get; set; }
 
 		[JsonProperty(PropertyName = "sacks_qb_made")]
@@ -39,7 +39,7 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty(PropertyName = "interceptions_touchdowns")]
 		public int InterceptionsTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "interceptinos_touchdowns_long")]
+		[JsonProperty(PropertyName = "interceptions_touchdowns_long")]
 		public int InterceptionsTouchdownsLong { get; set; }
 
 		[JsonProperty(PropertyName = "fumbles_forced")]

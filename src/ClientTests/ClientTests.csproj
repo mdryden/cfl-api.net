@@ -53,7 +53,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CflApiClientTests.cs" />
+    <Compile Include="PlayersClientTests.cs" />
+    <Compile Include="GamesClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

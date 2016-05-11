@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CflApiClient.cs" />
+    <Compile Include="ClientBase.cs" />
+    <Compile Include="Games\GamesClient.cs" />
     <Compile Include="Games\GameSort.cs" />
     <Compile Include="Games\GameSortTypes.cs" />
+    <Compile Include="Players\PlayersClient.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="FilterOperators.cs" />

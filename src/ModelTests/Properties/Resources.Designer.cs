@@ -70,6 +70,33 @@ namespace mdryden.cflapi.v1.ModelTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;cfl_central_id&quot;:148766,&quot;first_name&quot;:&quot;Odell&quot;,&quot;middle_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;WILLIS&quot;,&quot;birth_date&quot;:&quot;1984-12-28&quot;,&quot;birth_place&quot;:&quot;Meridian, Mississippi&quot;,&quot;height&quot;:6.02,&quot;weight&quot;:265,&quot;rookie_year&quot;:2009,&quot;foreign_player&quot;:true,&quot;image_url&quot;:&quot;http:\/\/d3ham790trbkqy.cloudfront.net\/wp-content\/uploads\/players\/o\/odell-willis-148766.png&quot;,&quot;school&quot;:{&quot;school_id&quot;:729,&quot;name&quot;:&quot;West Georgia&quot;},&quot;position&quot;:{&quot;position_id&quot;:13,&quot;offence_defence_or_special&quot;:&quot;D&quot;,&quot;abbreviation&quot;:&quot;DL&quot;,&quot;description&quot;:&quot;Defensive Lineman&quot;},&quot;team&quot;:{&quot;i [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PlayerDefensiveLine {
+            get {
+                return ResourceManager.GetString("PlayerDefensiveLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;cfl_central_id&quot;:159141,&quot;first_name&quot;:&quot;Anthony&quot;,&quot;middle_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;ALIX&quot;,&quot;birth_date&quot;:&quot;1986-08-12&quot;,&quot;birth_place&quot;:&quot;Saint-Vallier, France&quot;,&quot;height&quot;:6,&quot;weight&quot;:187,&quot;rookie_year&quot;:2012,&quot;foreign_player&quot;:false,&quot;image_url&quot;:&quot;http:\/\/d3ham790trbkqy.cloudfront.net\/wp-content\/uploads\/players\/a\/anthony-alix-159141.png&quot;,&quot;school&quot;:{&quot;school_id&quot;:616,&quot;name&quot;:&quot;St. Francis Xavier&quot;},&quot;position&quot;:{&quot;position_id&quot;:16,&quot;offence_defence_or_special&quot;:&quot;S&quot;,&quot;abbreviation&quot;:&quot;K&quot;,&quot;description&quot;:&quot;Kicker&quot;},&quot;team&quot;:{&quot;is_set&quot;:t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PlayerKicker {
+            get {
+                return ResourceManager.GetString("PlayerKicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;cfl_central_id&quot;:127305,&quot;first_name&quot;:&quot;Brian&quot;,&quot;middle_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;CLAYBOURN&quot;,&quot;birth_date&quot;:&quot;1981-10-21&quot;,&quot;birth_place&quot;:&quot;Evansville, Indiana&quot;,&quot;height&quot;:6.01,&quot;weight&quot;:185,&quot;rookie_year&quot;:2006,&quot;foreign_player&quot;:true,&quot;image_url&quot;:&quot;http:\/\/d3ham790trbkqy.cloudfront.net\/wp-content\/uploads\/players\/b\/brian-claybourn-127305.png&quot;,&quot;school&quot;:{&quot;school_id&quot;:739,&quot;name&quot;:&quot;Western  Kentucky&quot;},&quot;position&quot;:{&quot;position_id&quot;:14,&quot;offence_defence_or_special&quot;:&quot;S&quot;,&quot;abbreviation&quot;:&quot;P&quot;,&quot;description&quot;:&quot;Punter&quot;},&quot;team&quot;:{&quot;is_s [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PlayerPunter {
+            get {
+                return ResourceManager.GetString("PlayerPunter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;cfl_central_id&quot;:15850,&quot;first_name&quot;:&quot;Henry&quot;,&quot;middle_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;BURRIS&quot;,&quot;birth_date&quot;:&quot;1975-05-04&quot;,&quot;birth_place&quot;:&quot;Spiro, Oklahoma&quot;,&quot;height&quot;:6.01,&quot;weight&quot;:190,&quot;rookie_year&quot;:1997,&quot;foreign_player&quot;:true,&quot;image_url&quot;:&quot;http:\/\/d3ham790trbkqy.cloudfront.net\/wp-content\/uploads\/players\/h\/henry-burris-15850.png&quot;,&quot;school&quot;:{&quot;school_id&quot;:632,&quot;name&quot;:&quot;Temple&quot;},&quot;position&quot;:{&quot;position_id&quot;:1,&quot;offence_defence_or_special&quot;:&quot;O&quot;,&quot;abbreviation&quot;:&quot;QB&quot;,&quot;description&quot;:&quot;Quarterback&quot;},&quot;team&quot;:{&quot;is_set&quot;:true,&quot;team_id&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PlayerQuarterback {
@@ -84,6 +111,15 @@ namespace mdryden.cflapi.v1.ModelTests.Properties {
         internal static string PlayerRunningBack {
             get {
                 return ResourceManager.GetString("PlayerRunningBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;cfl_central_id&quot;:117995,&quot;first_name&quot;:&quot;T.J.&quot;,&quot;middle_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;ACREE&quot;,&quot;birth_date&quot;:&quot;1982-07-21&quot;,&quot;birth_place&quot;:&quot;Pocatello, Idaho&quot;,&quot;height&quot;:5.11,&quot;weight&quot;:174,&quot;rookie_year&quot;:2005,&quot;foreign_player&quot;:true,&quot;image_url&quot;:&quot;http:\/\/d3ham790trbkqy.cloudfront.net\/wp-content\/uploads\/players\/t\/t-j--acree-117995.png&quot;,&quot;school&quot;:{&quot;school_id&quot;:55,&quot;name&quot;:&quot;Boise State&quot;},&quot;position&quot;:{&quot;position_id&quot;:8,&quot;offence_defence_or_special&quot;:&quot;O&quot;,&quot;abbreviation&quot;:&quot;WR&quot;,&quot;description&quot;:&quot;Wide Receiver&quot;},&quot;team&quot;:{&quot;is_set&quot;:true,&quot;tea [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PlayerWideReceiver {
+            get {
+                return ResourceManager.GetString("PlayerWideReceiver", resourceCulture);
             }
         }
     }

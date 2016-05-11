@@ -54,5 +54,61 @@ namespace mdryden.cflapi.v1.ModelTests
 
 		}
 
+		[TestMethod]
+		public void WideReceiverTest()
+		{
+			var input = Properties.Resources.PlayerWideReceiver;
+
+			var settings = new JsonSerializerSettings
+			{
+				MissingMemberHandling = MissingMemberHandling.Error,
+			};
+
+			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+
+		}
+
+		[TestMethod]
+		public void DefensiveLinemanTest()
+		{
+			var input = Properties.Resources.PlayerDefensiveLine;
+
+			var settings = new JsonSerializerSettings
+			{
+				MissingMemberHandling = MissingMemberHandling.Error,
+			};
+
+			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+
+		}
+
+		[TestMethod]
+		public void PunterTest()
+		{
+			var input = Properties.Resources.PlayerPunter;
+
+			var settings = new JsonSerializerSettings
+			{
+				MissingMemberHandling = MissingMemberHandling.Error,
+			};
+
+			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+
+		}
+
+		[TestMethod]
+		public void KickerTest()
+		{
+			var input = Properties.Resources.PlayerKicker;
+
+			var settings = new JsonSerializerSettings
+			{
+				MissingMemberHandling = MissingMemberHandling.Error,
+			};
+
+			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+
+		}
+
 	}
 }
