@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("cfl-api.Net")]
+[assembly: AssemblyDescription(".Net implementation of the Canadian Football League's public API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Core")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Michael Dryden")]
+[assembly: AssemblyProduct("cfl-api.Net")]
+[assembly: AssemblyCopyright("Copyright Michael Dryden ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
