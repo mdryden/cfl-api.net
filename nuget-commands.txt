@@ -1,0 +1,9 @@
+NuGet api key must be set before running commands:
+
+	nuget setApiKey <key> -source https://www.nuget.org/api/v2/package
+
+Build as release before running
+
+	nuget pack src/Core/Core.csproj -includeReferencedProjects -Prop Configuration=Release
+
+	nuget push src/Core/<createdPackage>.nupkg -source https://www.nuget.org/api/v2/package
