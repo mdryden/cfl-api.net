@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="appSettings.template.config" />
     <None Include="appSettings.config" />
     <None Include="packages.config" />
   </ItemGroup>
