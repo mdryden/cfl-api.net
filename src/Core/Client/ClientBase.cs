@@ -62,8 +62,8 @@ namespace mdryden.cflapi.v1.Client
 		{
 			url += $"&{parameter}";
 		}
-		
-		public T GetResponse<T>(string url)
+
+		private DataContainer<T> GetResponse<T>(string url)
 		{
 			string response;
 
@@ -78,10 +78,28 @@ namespace mdryden.cflapi.v1.Client
 				NullValueHandling = NullValueHandling.Ignore,
 			};
 
-			return JsonConvert.DeserializeObject<T>(response, settings);
+			return JsonConvert.DeserializeObject<DataContainer<T>>(response, settings);
+		}
+		
+		public T GetItemResponse<T>(string url)
+		{
+			var response = GetResponse<T>(url);
+			
+			if (response == null || response.Data.Count() < 1)
+			{
+				throw new InvalidResponseException($"No items in api response", url);
+			}
+
+			return response.Data[0];
 		}
 
-		
-		
+		public T[] GetCollectionResponse<T>(string url)
+		{
+			var response = GetResponse<T>(url);
+
+			return response != null ? response.Data : new T[] { };
+		}
+
+
 	}
 }

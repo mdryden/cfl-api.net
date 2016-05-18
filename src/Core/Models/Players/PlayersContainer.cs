@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Models.Players
 {
-	public class PlayersContainer : DataContainer<Player[]>
+	public class PlayersContainer : DataContainer<Player>
 	{
 	}
 }

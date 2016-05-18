@@ -53,6 +53,7 @@
     <Compile Include="Client\Games\GameSort.cs" />
     <Compile Include="Client\Games\GameSortTypes.cs" />
     <Compile Include="Client\Games\GamesRequestOptions.cs" />
+    <Compile Include="Client\InvalidResponseException.cs" />
     <Compile Include="Client\Leaders\LeaderFilter.cs" />
     <Compile Include="Client\Leaders\LeaderFilterTypes.cs" />
     <Compile Include="Client\Players\PlayerFilter.cs" />

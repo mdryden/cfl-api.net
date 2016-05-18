@@ -10,7 +10,7 @@ namespace mdryden.cflapi.v1.Models
 	public class DataContainer<T>
 	{
 		[JsonProperty(PropertyName = "data")]
-		public T Data { get; set; }
+		public T[] Data { get; set; }
 
 		[JsonProperty(PropertyName = "errors")]
 		public IList<object> Errors {  get; set; }

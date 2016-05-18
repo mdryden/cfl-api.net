@@ -34,7 +34,7 @@ namespace mdryden.cflapi.v1.Client.Games
 			AppendParameter(ref url, $"page[size]={pageSize}");
 
 
-			return GetResponse<GamesContainer>(url).Data;
+			return GetCollectionResponse<Game>(url);
 		}
 
 		public IList<Game> GetGames(int season)
@@ -49,7 +49,7 @@ namespace mdryden.cflapi.v1.Client.Games
 			AppendFilters(ref url, options.Filters);
 			AppendSorts(ref url, options.Sorts);
 
-			return GetResponse<GamesContainer>(url).Data;
+			return GetCollectionResponse<Game>(url);
 		}
 
 		public Game GetGame(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
@@ -73,11 +73,8 @@ namespace mdryden.cflapi.v1.Client.Games
 				var includesString = $"include={string.Join(",", includes)}";
 				AppendParameter(ref url, includesString);
 			}
-
-
-			var response = GetResponse<GamesContainer>(url).Data;
-
-			return response[0];
+			
+			return GetItemResponse<Game>(url);
 		}
 
 	}

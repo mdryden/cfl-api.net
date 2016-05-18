@@ -87,5 +87,27 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			Assert.IsNotNull(player.GameByGame);
 		}
 
+		[TestMethod]
+		public void HandleEmptyPayloadTest()
+		{
+			var client = GetClient();
+
+			// make sure the api is working
+			var pageNumber = 133;
+			var players = client.GetPlayers(pageNumber, 20);
+
+			while (true)
+			{
+				pageNumber++;
+				players = client.GetPlayers(pageNumber, 20);
+
+				if (players.Count() == 0)
+				{
+					break;
+				}
+			}
+
+			Assert.IsTrue(true);
+		}
 	}
 }
