@@ -9,6 +9,16 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class PlayerFieldGoalReturns : FieldGoalReturns
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
+
+		[JsonIgnore]
+		public int PlayerId
+		{
+			get { return Player.CflCentralId; }
+			set { Player.CflCentralId = value; }
+		}
+
 		[JsonProperty(PropertyName = "player")]
 		public PlayerSummary Player { get; set; }
 	}

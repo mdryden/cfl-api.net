@@ -30,7 +30,13 @@ namespace mdryden.cflapi.v1.Client.Players
 			AppendParameter(ref url, $"page[number]={pageNumber}");
 			AppendParameter(ref url, $"page[size]={pageSize}");
 
-			return GetCollectionResponse<Player>(url);
+			var players = GetCollectionResponse<Player>(url);
+
+			var idSetter = new IdSetter();
+
+			idSetter.SetIds(players);
+
+			return players;
 		}
 
 		public Player GetPlayer(int cflCentralId, bool includeSeasons, bool includeGameByGame)
@@ -56,7 +62,13 @@ namespace mdryden.cflapi.v1.Client.Players
 				AppendParameter(ref url, includesString);
 			}
 
-			return GetItemResponse<Player>(url);
+			var player = GetItemResponse<Player>(url);
+
+			var idSetter = new IdSetter();
+
+			idSetter.SetIds(player);
+
+			return player;
 
 		}
 	}

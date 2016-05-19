@@ -9,6 +9,14 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Player
 	{
+
+		//[JsonIgnore]
+		//public int PlayerId
+		//{
+		//	get { return CflCentralId; }
+		//	set { CflCentralId = value; }
+		//}
+
 		[JsonProperty(PropertyName = "cfl_central_id")]
 		public int CflCentralId { get; set; }
 

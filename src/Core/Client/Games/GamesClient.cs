@@ -22,6 +22,13 @@ namespace mdryden.cflapi.v1.Client.Games
 			return GetGames(pageNumber, pageSize, new GamesRequestOptions());
 		}
 
+		private void SetIds(IEnumerable<Game> games)
+		{
+			var idSetter = new IdSetter();
+
+			idSetter.SetIds(games);
+		}
+
 		public IList<Game> GetGames(int pageNumber, int pageSize, GamesRequestOptions options)
 		{
 			const string path = "/v1/games";
@@ -34,7 +41,11 @@ namespace mdryden.cflapi.v1.Client.Games
 			AppendParameter(ref url, $"page[size]={pageSize}");
 
 
-			return GetCollectionResponse<Game>(url);
+			var games = GetCollectionResponse<Game>(url);
+
+			SetIds(games);
+
+			return games;
 		}
 
 		public IList<Game> GetGames(int season)
@@ -49,7 +60,11 @@ namespace mdryden.cflapi.v1.Client.Games
 			AppendFilters(ref url, options.Filters);
 			AppendSorts(ref url, options.Sorts);
 
-			return GetCollectionResponse<Game>(url);
+			var games = GetCollectionResponse<Game>(url);
+
+			SetIds(games);
+
+			return games;
 		}
 
 		public Game GetGame(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
@@ -74,7 +89,13 @@ namespace mdryden.cflapi.v1.Client.Games
 				AppendParameter(ref url, includesString);
 			}
 			
-			return GetItemResponse<Game>(url);
+			var game = GetItemResponse<Game>(url);
+
+			var idSetter = new IdSetter();
+
+			idSetter.SetIds(game);
+
+			return game;
 		}
 
 	}

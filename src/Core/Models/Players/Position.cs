@@ -9,6 +9,7 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Position
 	{
+
 		[JsonProperty(PropertyName = "position_id")]
 		public int PositionId { get; set; }
 

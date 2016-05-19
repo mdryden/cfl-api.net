@@ -22,7 +22,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<GamesContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Game>>(input, settings);
 
 		}
 
@@ -36,7 +36,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 
@@ -50,7 +50,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 
@@ -64,7 +64,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 
@@ -78,7 +78,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 
@@ -92,7 +92,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 
@@ -106,7 +106,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 				MissingMemberHandling = MissingMemberHandling.Error,
 			};
 
-			var game = JsonConvert.DeserializeObject<PlayersContainer>(input, settings);
+			var game = JsonConvert.DeserializeObject<DataContainer<Player>>(input, settings);
 
 		}
 

@@ -4,6 +4,7 @@ using mdryden.cflapi.v1.Client;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using mdryden.cflapi.v1.Client.Players;
+using System.Collections.Generic;
 
 namespace mdryden.cflapi.v1.Tests.Client.Players
 {
@@ -15,7 +16,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		{
 			return new PlayersClient(GetApiKey());
 		}
-		
+
 
 		[TestMethod]
 		public void GetFirst20PlayersTest()
@@ -65,7 +66,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			Assert.IsNotNull(player.Seasons);
 		}
-		
+
 		[TestMethod]
 		public void GetHenryBurrisGameByGameTest()
 		{
@@ -109,5 +110,47 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			Assert.IsTrue(true);
 		}
+
+		[TestMethod]
+		public void ManualIdsTest()
+		{
+			var client = GetClient();
+
+			var playerId = 15850;
+
+			var player = client.GetPlayer(playerId, true, true);
+
+			Assert.AreEqual(playerId, player.GameByGame.PlayerId);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.Defence);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.FieldGoals);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.Passing);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.Punts);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.Receiving);
+			PlayerObjectCollectionAsserts(playerId, player.GameByGame.Rushing);
+
+			Assert.AreEqual(playerId, player.Seasons.PlayerId);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.Defence);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.FieldGoals);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.Passing);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.Punts);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.Receiving);
+			PlayerObjectCollectionAsserts(playerId, player.Seasons.Rushing);
+		}
+
+		private void PlayerObjectCollectionAsserts(int playerId, IEnumerable<object> collection)
+		{
+			if (collection != null && collection.Count() > 0)
+			{
+				var type = collection.First().GetType();
+				var property = type.GetProperty("PlayerId");
+
+				foreach (var item in collection)
+				{
+					var value = property.GetValue(item, null);
+					Assert.AreEqual(playerId, value);
+				}
+			}
+		}
+
 	}
 }

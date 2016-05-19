@@ -9,7 +9,6 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Passing
 	{
-
 		[JsonProperty(PropertyName = "pass_attempts")]
 		public int PassAttempts { get; set; }
 

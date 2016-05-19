@@ -9,6 +9,8 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class CoinToss
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
 
 		[JsonProperty(PropertyName = "coin_toss_winner")]
 		public string CoinTossWinner { get; set; }

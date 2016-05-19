@@ -9,6 +9,9 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Team
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
+
 		[JsonProperty(PropertyName = "team_id")]
 		public int TeamId { get; set; }
 
@@ -22,7 +25,7 @@ namespace mdryden.cflapi.v1.Models.Games
 		public string Abbreviation { get; set; }
 
 		[JsonProperty(PropertyName = "score")]
-		public int score { get; set; }
+		public int Score { get; set; }
 
 		[JsonProperty(PropertyName = "venue_id")]
 		public int VenueId { get; set; }

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mdryden.cflapi.v1.Models.Players
+namespace mdryden.cflapi.v1
 {
-	public class PlayersContainer : DataContainer<Player>
+	public static class CurrentVersion
 	{
+
+		public const string Version = "0.3.0.0";
+
 	}
 }

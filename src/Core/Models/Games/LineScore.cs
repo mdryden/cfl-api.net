@@ -9,6 +9,9 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class LineScore
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
+		
 		[JsonProperty(PropertyName = "quarter")]
 		public Quarters Quarter { get; set; }
 

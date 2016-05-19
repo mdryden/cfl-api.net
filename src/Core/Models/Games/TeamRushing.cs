@@ -7,19 +7,12 @@ using Newtonsoft.Json;
 
 namespace mdryden.cflapi.v1.Models.Games
 {
-	public class PlayerDefence : Defence
+	public class TeamRushing : Rushing
 	{
 		[JsonIgnore]
 		public int GameId { get; set; }
 
 		[JsonIgnore]
-		public int PlayerId
-		{
-			get { return Player.CflCentralId; }
-			set { Player.CflCentralId = value; }
-		}
-
-		[JsonProperty(PropertyName = "player")]
-		public PlayerSummary Player { get; set; }
+		public int TeamId { get; set; }
 	}
 }

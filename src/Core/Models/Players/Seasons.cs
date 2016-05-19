@@ -9,6 +9,9 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Seasons
 	{
+		[JsonIgnore]
+		public int PlayerId { get; set; }
+
 		[JsonProperty(PropertyName = "passing")]
 		public IList<SeasonPassing> Passing { get; set; }
 

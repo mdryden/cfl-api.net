@@ -9,6 +9,8 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class BoxscoreTeams
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
 
 		[JsonProperty(PropertyName = "team_1")]
 		public BoxscoreTeam Team1 { get; set; }

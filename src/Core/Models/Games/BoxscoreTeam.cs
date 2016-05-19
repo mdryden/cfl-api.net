@@ -9,6 +9,8 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class BoxscoreTeam
 	{
+		[JsonIgnore]
+		public int GameId { get; set; }
 
 		[JsonProperty(PropertyName = "abbreviation")]
 		public string Abbreviation { get; set; }
@@ -17,31 +19,31 @@ namespace mdryden.cflapi.v1.Models.Games
 		public int TeamId { get; set; }
 
 		[JsonProperty(PropertyName = "passing")]
-		public Passing Passing { get; set; }
+		public TeamPassing Passing { get; set; }
 
 		[JsonProperty(PropertyName = "rushing")]
-		public Rushing Rushing { get; set; }
+		public TeamRushing Rushing { get; set; }
 
 		[JsonProperty(PropertyName = "receiving")]
-		public Receiving Receiving { get; set; }
+		public TeamReceiving Receiving { get; set; }
 
 		[JsonProperty(PropertyName = "punts")]
-		public Punts Punts { get; set; }
+		public TeamPunts Punts { get; set; }
 
 		[JsonProperty(PropertyName = "punt_returns")]
-		public PuntReturns PuntReturns { get; set; }
+		public TeamPuntReturns PuntReturns { get; set; }
 
 		[JsonProperty(PropertyName = "kick_returns")]
-		public KickReturns KickReturns { get; set; }
+		public TeamKickReturns KickReturns { get; set; }
 
 		[JsonProperty(PropertyName = "field_goal_returns")]
-		public FieldGoalReturns FieldGoalReturns { get; set; }
+		public TeamFieldGoalReturns FieldGoalReturns { get; set; }
 
 		[JsonProperty(PropertyName = "kicking")]
-		public Kicking Kicking { get; set; }
+		public TeamKicking Kicking { get; set; }
 
 		[JsonProperty(PropertyName = "defence")]
-		public Defence Defence { get; set; }
+		public TeamDefence Defence { get; set; }
 
 		[JsonProperty(PropertyName = "players")]
 		public BoxscorePlayers Players { get; set; }

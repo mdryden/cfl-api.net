@@ -9,6 +9,13 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class PlayerTeam
 	{
+		//[JsonIgnore]
+		//public int PlayerTeamId
+		//{
+		//	get { return TeamId; }
+		//	set { TeamId = value; }
+		//}
+
 		[JsonProperty(PropertyName = "is_set")]
 		public bool IsSet { get; set; }
 

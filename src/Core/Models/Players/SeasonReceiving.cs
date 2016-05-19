@@ -9,6 +9,9 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class SeasonReceiving : Receiving
 	{
+		[JsonIgnore]
+		public int PlayerId { get; set; }
+
 		[JsonProperty(PropertyName = "season")]
 		public int Season { get; set; }
 

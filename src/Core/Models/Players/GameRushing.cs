@@ -9,6 +9,9 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class GameRushing : Rushing
 	{
+		[JsonIgnore]
+		public int PlayerId { get; set; }
+
 		[JsonProperty(PropertyName = "game_id")]
 		public int GameId { get; set; }
 
