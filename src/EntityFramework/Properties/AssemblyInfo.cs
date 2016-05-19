@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EntityFramework")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("cfl-api.Net-EntityFramework")]
+[assembly: AssemblyDescription("Entity Framework helpers for cfl-api.Net")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EntityFramework")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Michael Dryden")]
+[assembly: AssemblyProduct("cfl-api.Net-EntityFramework")]
+[assembly: AssemblyCopyright("Copyright Michael Dryden ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
