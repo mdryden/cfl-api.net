@@ -29,14 +29,14 @@ namespace mdryden.cflapi.v1.Client
 
 		protected string GetUrl(string path)
 		{
-			return $"{host}{path}?key={apiKey}";			
-        }
+			return $"{host}{path}?key={apiKey}";
+		}
 
 		protected void AppendFilters(ref string url, IEnumerable<Filter> filters)
 		{
 			foreach (var filter in filters)
 			{
-				url += $"&{filter.GetFilterString()}";				
+				url += $"&{filter.GetFilterString()}";
 			}
 		}
 
@@ -63,14 +63,55 @@ namespace mdryden.cflapi.v1.Client
 			url += $"&{parameter}";
 		}
 
-		private DataContainer<T> GetResponse<T>(string url)
+		private TContainer GetResponse<TContainer>(string url)
+		{
+			var token = RequestBuffer.CreateRequest();
+			var delay = token.TimeToStart.Subtract(DateTime.Now);
+
+			TContainer response;
+			try
+			{
+				if (delay.TotalMilliseconds > 0)
+				{
+					var t = Task.Factory
+						.StartNew(() => Task.Delay(delay).Wait())
+						.ContinueWith((pre) => DoGetResponse<TContainer>(url));
+
+					response = t.Result.Result;
+				}
+				else
+				{
+					response = DoGetResponse<TContainer>(url).Result;
+				}
+			}
+			catch (WebException ex)
+			{
+				if (ex.Message.Contains("(429) Unknown"))
+				{
+					var t = Task.Factory
+						.StartNew(() => Task.Delay(RequestBuffer.DelaySeconds).Wait())
+						.ContinueWith((pre) => DoGetResponse<TContainer>(url));
+
+					response = t.Result.Result;
+				}
+				else
+				{
+					throw;
+				}
+			}
+
+			RequestBuffer.RemoveCompletedRequest(token);
+			return response;
+		}
+
+		private async Task<TContainer> DoGetResponse<TContainer>(string url)
 		{
 			string response;
 
 			using (var client = new WebClient())
 			{
 				LastRequestUrl = url;
-				response = client.DownloadString(url);
+				response = client.DownloadString(new Uri(url));
 			}
 
 			var settings = new JsonSerializerSettings
@@ -78,13 +119,13 @@ namespace mdryden.cflapi.v1.Client
 				NullValueHandling = NullValueHandling.Ignore,
 			};
 
-			return JsonConvert.DeserializeObject<DataContainer<T>>(response, settings);
+			return await Task.Run(() => JsonConvert.DeserializeObject<TContainer>(response, settings));
 		}
-		
-		public T GetItemResponse<T>(string url)
+
+		protected T GetFirstItemResponse<T>(string url)
 		{
-			var response = GetResponse<T>(url);
-			
+			var response = GetResponse<DataArrayContainer<T>>(url);
+
 			if (response == null || response.Data.Count() < 1)
 			{
 				throw new InvalidResponseException($"No items in api response", url);
@@ -93,9 +134,21 @@ namespace mdryden.cflapi.v1.Client
 			return response.Data[0];
 		}
 
-		public T[] GetCollectionResponse<T>(string url)
+		protected T GetItemResponse<T>(string url)
 		{
-			var response = GetResponse<T>(url);
+			var response = GetResponse<DataContainer<T>>(url);
+
+			if (response == null || response.Data == null)
+			{
+				throw new InvalidResponseException($"No item in api response", url);
+			}
+
+			return response.Data;
+		}
+
+		protected T[] GetCollectionResponse<T>(string url)
+		{
+			var response = GetResponse<DataArrayContainer<T>>(url);
 
 			return response != null ? response.Data : new T[] { };
 		}

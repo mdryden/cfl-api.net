@@ -15,31 +15,34 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int TeamId { get; set; }
 
-		[JsonProperty(PropertyName = "passing")]
+		[JsonProperty("passing")]
 		public IList<PlayerPassing> Passing { get; set; }
 
-		[JsonProperty(PropertyName = "rushing")]
+		[JsonProperty("rushing")]
 		public IList<PlayerRushing> Rushing { get; set; }
 
-		[JsonProperty(PropertyName = "receiving")]
+		[JsonProperty("receiving")]
 		public IList<PlayerReceiving> Receiving { get; set; }
 
-		[JsonProperty(PropertyName = "punts")]
+		[JsonProperty("punts")]
 		public IList<PlayerPunts> Punts { get; set; }
 
-		[JsonProperty(PropertyName = "punt_returns")]
+		[JsonProperty("punt_returns")]
 		public IList<PlayerPuntReturns> PuntReturns { get; set; }
 
-		[JsonProperty(PropertyName = "kick_returns")]
+		[JsonProperty("kick_returns")]
 		public IList<PlayerKickReturns> KickReturns { get; set; }
 
-		[JsonProperty(PropertyName = "field_goal_returns")]
+		[JsonProperty("field_goals")]
+		public IList<PlayerFieldGoals> FieldGoals { get; set; }
+
+		[JsonProperty("field_goal_returns")]
 		public IList<PlayerFieldGoalReturns> FieldGoalReturns { get; set; }
 
-		[JsonProperty(PropertyName = "kicking")]
+		[JsonProperty("kicking")]
 		public IList<PlayerKicking> Kicking { get; set; }
 
-		[JsonProperty(PropertyName = "defence")]
+		[JsonProperty("defence")]
 		public IList<PlayerDefence> Defence { get; set; }
 	}
 }

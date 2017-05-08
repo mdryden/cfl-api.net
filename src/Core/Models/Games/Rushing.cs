@@ -9,19 +9,19 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Rushing
 	{
-		[JsonProperty(PropertyName = "rush_attempts")]
+		[JsonProperty("rush_attempts")]
 		public int RushAttempts { get; set; }
 
-		[JsonProperty(PropertyName = "rush_net_yards")]
+		[JsonProperty("rush_net_yards")]
 		public int RushNetYards { get; set; }
 
-		[JsonProperty(PropertyName = "rush_long")]
+		[JsonProperty("rush_long")]
 		public int RushLong { get; set; }
 
-		[JsonProperty(PropertyName = "rush_touchdowns")]
+		[JsonProperty("rush_touchdowns")]
 		public int RushTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "rush_long_touchdowns")]
+		[JsonProperty("rush_long_touchdowns")]
 		public int RushLongTouchdowns { get; set; }
 	}
 }

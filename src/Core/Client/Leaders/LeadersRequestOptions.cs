@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client.Leaders
 {
-	class LeaderFilterTypes
+	public class LeadersRequestOptions
 	{
+		public IEnumerable<LeadersFilter> Filters { get; set; } = new List<LeadersFilter>();
 	}
 }

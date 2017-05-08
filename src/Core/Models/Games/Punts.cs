@@ -9,31 +9,31 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Punts
 	{
-		[JsonProperty(PropertyName = "punts")]
+		[JsonProperty("punts")]
 		public int PuntsCount { get; set; }
 
-		[JsonProperty(PropertyName = "punt_yards")]
+		[JsonProperty("punt_yards")]
 		public int PuntYards { get; set; }
 
-		[JsonProperty(PropertyName = "punt_net_yards")]
+		[JsonProperty("punt_net_yards")]
 		public int PuntNetYards { get; set; }
 
-		[JsonProperty(PropertyName = "punt_long")]
+		[JsonProperty("punt_long")]
 		public int PuntLong { get; set; }
 
-		[JsonProperty(PropertyName = "punt_singles")]
+		[JsonProperty("punt_singles")]
 		public int PuntSingles { get; set; }
 
-		[JsonProperty(PropertyName = "punts_blocked")]
+		[JsonProperty("punts_blocked")]
 		public int PuntsBlocked { get; set; }
 
-		[JsonProperty(PropertyName = "punts_in_10")]
+		[JsonProperty("punts_in_10")]
 		public int PuntsIn10 { get; set; }
 
-		[JsonProperty(PropertyName = "punts_in_20")]
+		[JsonProperty("punts_in_20")]
 		public int PuntsIn20 { get; set; }
 
-		[JsonProperty(PropertyName = "punts_returned")]
+		[JsonProperty("punts_returned")]
 		public int PuntsReturned { get; set; }
 
 	}

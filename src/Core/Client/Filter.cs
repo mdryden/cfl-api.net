@@ -18,6 +18,16 @@ namespace mdryden.cflapi.v1.Client
 			this.value = value;
 		}
 
+		public Filter(FilterOperators @operator, DateTime value)
+		{
+			var eastern = TimeZoneInfo.ConvertTimeFromUtc(value, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
+			var offset = eastern.IsDaylightSavingTime() ? "-04:00" : "-05:00";
+			var valueString = eastern.ToString("yyyy-MM-ddTHH:mm:ss") + offset;
+
+			this.@operator = @operator;
+			this.value = valueString;
+		}
+
 		public string GetFilterString()
 		{
 			return FormatFilter(GetFilterTypeString(), GetOperatorString(@operator), value);
@@ -68,6 +78,11 @@ namespace mdryden.cflapi.v1.Client
 		private TFilterType filter;
 
 		public Filter(TFilterType filter, FilterOperators @operator, string value)
+			: base(@operator, value)
+		{
+			this.filter = filter;
+		}
+		public Filter(TFilterType filter, FilterOperators @operator, DateTime value)
 			: base(@operator, value)
 		{
 			this.filter = filter;

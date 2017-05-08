@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace mdryden.cflapi.v1.Client.Leaders
+namespace mdryden.cflapi.v1.Client.TeamLeaders
 {
-	class LeaderFilter
+	public enum TeamLeadersFilterTypes
 	{
+		TeamId,
+		EndDate,
+		Week
 	}
 }

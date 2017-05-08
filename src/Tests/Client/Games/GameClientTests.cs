@@ -20,16 +20,37 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		}
 
 		[TestMethod]
+		[Ignore]
+		public void RateLimitTest()
+		{
+			var client = GetClient();
+			var start = DateTime.Now;
+			var expected = 60;
+			var actual = 0;
+
+			for (var x = 1; x <= expected; x++)
+			{
+				var games = client.GetGames(pageNumber: x, pageSize: 1);
+				actual++;
+
+			}
+			var end = DateTime.Now;
+			var duration = start - end;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[TestMethod]
 		public void GetFirst20GamesTest()
 		{
 			var client = GetClient();
 
-			var games = client.GetGames(1, 20);
+			var games = client.GetGames(pageNumber: 1, pageSize: 20);
 
 			var expected = 20;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -37,12 +58,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		{
 			var client = GetClient();
 
-			var games = client.GetGames(2, 20);
+			var games = client.GetGames(pageNumber: 2, pageSize: 20);
 
 			var expected = 40;
 			var actual = games.Last().GameNumber;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -50,12 +71,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		{
 			var client = GetClient();
 
-			var game = client.GetGame(2015, 2221, false, false);
+			var game = client.GetGame(2015, 2221, false, false, false);
 
 			var expected = 2221;
 			var actual = game.GameId;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -63,7 +84,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		{
 			var client = GetClient();
 
-			var game = client.GetGame(2015, 2221, true, false);
+			var game = client.GetGame(2015, 2221, includeBoxscore: true);
 
 			Assert.IsNotNull(game.Boxscore);
 		}
@@ -73,22 +94,32 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		{
 			var client = GetClient();
 
-			var game = client.GetGame(2015, 2221, false, true);
+			var game = client.GetGame(2015, 2221, includePlayByPlay: true);
 
 			Assert.IsNotNull(game.PlayByPlay);
 		}
 
 		[TestMethod]
-		public void GetGame2221BoxscoreAndPlayByPlayTest()
+		public void GetGame2221RostersTest()
 		{
 			var client = GetClient();
 
-			var game = client.GetGame(2015, 2221, true, true);
+			var game = client.GetGame(2015, 2221, includeRosters: true);
+
+			Assert.IsNotNull(game.Rosters);
+		}
+
+		[TestMethod]
+		public void GetGame2221AllDataTest()
+		{
+			var client = GetClient();
+
+			var game = client.GetGame(2015, 2221, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
 
 			Assert.IsNotNull(game.Boxscore);
 			Assert.IsNotNull(game.PlayByPlay);
 		}
-		
+
 		[TestMethod]
 		public void ManualIdsTest()
 		{
@@ -96,11 +127,11 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var gameId = 2221;
 
-			var game = client.GetGame(2015, gameId, true, true);
+			var game = client.GetGame(2015, gameId, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
 
 			Assert.AreEqual(gameId, game.Team1.GameId);
 			Assert.AreEqual(gameId, game.Team2.GameId);
-			
+
 			Assert.AreEqual(gameId, game.Boxscore.GameId);
 			Assert.AreEqual(gameId, game.Boxscore.Teams.GameId);
 
@@ -152,6 +183,51 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			}
 		}
 
+		[TestMethod]
+		public void TestGame2267()
+		{
+			var client = GetClient();
 
+			var game = client.GetGame(2016, 2267, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
+		}
+
+		[TestMethod]
+		public void GetGame2221DefensiveTouchdownsTest()
+		{
+			var client = GetClient();
+
+			var game = client.GetGame(2015, 2221, includeBoxscore: true);
+
+			var expected = 1;
+			var actual = game.Boxscore.Teams.Team1.Defence.DefensiveTouchdowns;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[TestMethod]
+		public void GetGame2225DefensiveSafetiesTest()
+		{
+			var client = GetClient();
+
+			var game = client.GetGame(2015, 2225, includeBoxscore: true);
+
+			var expected = 1;
+			var actual = game.Boxscore.Teams.Team1.Defence.DefensiveSafeties;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[TestMethod]
+		public void GetGame2361EventTitleTest()
+		{
+			var client = GetClient();
+
+			var game = client.GetGame(2016, 2361);
+
+			var expected = "104th Grey Cup";
+			var actual = game.EventType.Title;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 	}
 }

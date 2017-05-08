@@ -12,22 +12,22 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonIgnore]
 		public int PlayerGamesId { get; set; }
 
-		[JsonProperty(PropertyName = "passing")]
+		[JsonProperty("passing")]
 		public IList<Passing> Passing { get; set; }
 
-		[JsonProperty(PropertyName = "receiving")]
+		[JsonProperty("receiving")]
 		public IList<Receiving> Receiving { get; set; }
 
-		[JsonProperty(PropertyName = "rushing")]
+		[JsonProperty("rushing")]
 		public IList<Rushing> Rushing { get; set; }
 
-		[JsonProperty(PropertyName = "defence")]
+		[JsonProperty("defence")]
 		public IList<Defence> Defence { get; set; }
 
-		[JsonProperty(PropertyName = "field_goals")]
+		[JsonProperty("field_goals")]
 		public IList<FieldGoals> FieldGoals { get; set; }
 
-		[JsonProperty(PropertyName = "punts")]
+		[JsonProperty("punts")]
 		public IList<Punts> Punts { get; set; }
 
 

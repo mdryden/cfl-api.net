@@ -25,10 +25,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.DateStart, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.DateStart, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().DateStart;
 			var lowest = gamesAscending.First().DateStart;
@@ -36,7 +36,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -45,10 +45,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Season, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Season, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Season;
 			var lowest = gamesAscending.First().Season;
@@ -56,7 +56,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -65,10 +65,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Week, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Week, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Week;
 			var lowest = gamesAscending.First().Week;
@@ -76,7 +76,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -85,10 +85,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Temperature, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Temperature, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Weather.Temperature;
 			var lowest = gamesAscending.First().Weather.Temperature;
@@ -96,7 +96,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -105,10 +105,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Attendance, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Attendance, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Attendance;
 			var lowest = gamesAscending.First().Attendance;
@@ -116,7 +116,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -125,10 +125,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Team1, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Team1, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Team1.TeamId;
 			var lowest = gamesAscending.First().Team1.TeamId;
@@ -136,7 +136,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -145,10 +145,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var client = GetClient();
 
 			var descendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Team2, SortOrder.Descending) } };
-			var gamesDescending = client.GetGames(1, 20, descendingOptions);
+			var gamesDescending = client.GetGames(options: descendingOptions);
 
 			var ascendingOptions = new GamesRequestOptions { Sorts = new[] { new GameSort(GameSortTypes.Team2, SortOrder.Ascending) } };
-			var gamesAscending = client.GetGames(1, 20, ascendingOptions);
+			var gamesAscending = client.GetGames(options: ascendingOptions);
 
 			var highest = gamesDescending.First().Team2.TeamId;
 			var lowest = gamesAscending.First().Team2.TeamId;
@@ -156,7 +156,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 

@@ -12,31 +12,31 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int GameId { get; set; }
 
-		[JsonProperty(PropertyName = "team_id")]
+		[JsonProperty("team_id")]
 		public int TeamId { get; set; }
 
-		[JsonProperty(PropertyName = "location")]
+		[JsonProperty("location")]
 		public string Location { get; set; }
 
-		[JsonProperty(PropertyName = "nickname")]
+		[JsonProperty("nickname")]
 		public string Nickname { get; set; }
 
-		[JsonProperty(PropertyName = "abbreviation")]
+		[JsonProperty("abbreviation")]
 		public string Abbreviation { get; set; }
 
-		[JsonProperty(PropertyName = "score")]
+		[JsonProperty("score")]
 		public int Score { get; set; }
 
-		[JsonProperty(PropertyName = "venue_id")]
+		[JsonProperty("venue_id")]
 		public int VenueId { get; set; }
 
-		[JsonProperty(PropertyName = "linescores")]
+		[JsonProperty("linescores")]
 		public IList<LineScore> LineScores { get; set; }
 
-		[JsonProperty(PropertyName = "is_at_home")]
+		[JsonProperty("is_at_home")]
 		public bool IsAtHome { get; set; }
 
-		[JsonProperty(PropertyName = "is_winner")]
+		[JsonProperty("is_winner")]
 		public bool IsWinner { get; set; }
 	}
 }

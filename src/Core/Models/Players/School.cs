@@ -9,10 +9,10 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class School
 	{
-		[JsonProperty(PropertyName = "school_id")]
+		[JsonProperty("school_id")]
 		public int SchoolId { get; set; }
 
-		[JsonProperty(PropertyName = "name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 	}
 }

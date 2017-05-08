@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,15 @@ namespace mdryden.cflapi.v1.EntityFramework
 
 			builder.Entity<Boxscore>()
 				.HasKey(b => b.GameId)
-				.ToTable($"{tablePrefix}BoxScore");
+				.ToTable($"{tablePrefix}BoxScore")
+				.Property(b => b.GameId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<BoxscoreTeams>()
 				.HasKey(b => b.GameId)
-				.ToTable($"{tablePrefix}BoxScoreTeams");
+				.ToTable($"{tablePrefix}BoxScoreTeams")
+				.Property(b => b.GameId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<BoxscoreTeam>()
 				.HasKey(b => new { b.GameId, b.TeamId })
@@ -70,11 +75,15 @@ namespace mdryden.cflapi.v1.EntityFramework
 
 			builder.Entity<PlayPlayers>()
 				.HasKey(p => p.PlayId)
-				.ToTable($"{tablePrefix}PlayPlayers");
+				.ToTable($"{tablePrefix}PlayPlayers")
+				.Property(p => p.PlayId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<LineScore>()
 				.HasKey(l => l.GameId)
-				.ToTable($"{tablePrefix}LineScore");
+				.ToTable($"{tablePrefix}LineScore")
+				.Property(l => l.GameId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<TeamDefence>()
 				.HasKey(p => new { p.GameId, p.TeamId })

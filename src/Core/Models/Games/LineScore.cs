@@ -12,10 +12,10 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int GameId { get; set; }
 		
-		[JsonProperty(PropertyName = "quarter")]
+		[JsonProperty("quarter")]
 		public Quarters Quarter { get; set; }
 
-		[JsonProperty(PropertyName = "score")]
+		[JsonProperty("score")]
 		public int Score { get; set; }
 
 	}

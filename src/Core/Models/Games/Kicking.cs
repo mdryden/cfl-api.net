@@ -9,25 +9,25 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Kicking
 	{
-		[JsonProperty(PropertyName = "kicks")]
+		[JsonProperty("kicks")]
 		public int Kicks { get; set; }
 
-		[JsonProperty(PropertyName = "kick_yards")]
+		[JsonProperty("kick_yards")]
 		public int KickYards { get; set; }
 
-		[JsonProperty(PropertyName = "kicks_net_yards")]
+		[JsonProperty("kicks_net_yards")]
 		public int KicksNetYards { get; set; }
 
-		[JsonProperty(PropertyName = "kicks_long")]
+		[JsonProperty("kicks_long")]
 		public int KicksLong { get; set; }
 
-		[JsonProperty(PropertyName = "kicks_singles")]
+		[JsonProperty("kicks_singles")]
 		public int KicksSingles { get; set; }
 
-		[JsonProperty(PropertyName = "kicks_out_of_end_zone")]
+		[JsonProperty("kicks_out_of_end_zone")]
 		public int KicksOutOfEndZone { get; set; }
 
-		[JsonProperty(PropertyName = "kicks_onside")]
+		[JsonProperty("kicks_onside")]
 		public int KicksOnside { get; set; }
 	}
 }

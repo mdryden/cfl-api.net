@@ -64,6 +64,8 @@
     <Compile Include="Client\Games\GameFilterLessThanTests.cs" />
     <Compile Include="Client\Games\GameFilterNotEqualTests.cs" />
     <Compile Include="Client\Games\GameSortTests.cs" />
+    <Compile Include="Client\TeamLeaders\TeamLeadersClientTests.cs" />
+    <Compile Include="Client\Leaders\LeadersClientTests.cs" />
     <Compile Include="Client\Players\PlayerClientTests.cs" />
     <Compile Include="Client\Players\PlayerFilterEqualsTests.cs" />
     <Compile Include="Client\Players\PlayerFilterGreaterThanOrEqualToTests.cs" />

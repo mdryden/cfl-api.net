@@ -12,7 +12,7 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int GameId { get; set; }
 
-		[JsonProperty(PropertyName = "teams")]
+		[JsonProperty("teams")]
 		public BoxscoreTeams Teams { get; set; }
 	}
 }

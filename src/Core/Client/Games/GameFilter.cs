@@ -15,12 +15,15 @@ namespace mdryden.cflapi.v1.Client.Games
 
 		}
 
+		private GameFilter(GameFilterTypes filter, FilterOperators @operator, DateTime value)
+			: base(filter, @operator, value)
+		{
+
+		}
+
 		public static GameFilter DateStart(FilterOperators  @operator, DateTime dateStart)
 		{
-			var eastern = TimeZoneInfo.ConvertTimeFromUtc(dateStart, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
-			var offset = eastern.IsDaylightSavingTime() ? "-04:00" : "-05:00";
-			var value = eastern.ToString("yyyy-MM-ddTHH:mm:ss") + offset;
-			return new GameFilter(GameFilterTypes.DateStart, @operator, value);
+			return new GameFilter(GameFilterTypes.DateStart, @operator, dateStart);
 		}
 
 		public static GameFilter Season(FilterOperators @operator, int season)

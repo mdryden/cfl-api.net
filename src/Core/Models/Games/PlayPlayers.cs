@@ -12,13 +12,13 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int PlayId { get; set; }
 
-		[JsonProperty(PropertyName = "quarterback")]
+		[JsonProperty("quarterback")]
 		public PlayerSummary Quarterback { get; set; }
 
-		[JsonProperty(PropertyName = "ball_carrier")]
+		[JsonProperty("ball_carrier")]
 		public PlayerSummary BallCarrier { get; set; }
 
-		[JsonProperty(PropertyName = "primary_defender")]
+		[JsonProperty("primary_defender")]
 		public PlayerSummary PrimaryDefender { get; set; }
 	}
 }

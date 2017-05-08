@@ -20,15 +20,24 @@ namespace mdryden.cflapi.v1.Client.Players
 			return GetPlayers(pageNumber, pageSize, new PlayersRequestOptions());
 		}
 
-		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize, PlayersRequestOptions options)
+		public IEnumerable<Player> GetPlayers(int pageNumber = 1, int? pageSize = null, PlayersRequestOptions options  = null)
 		{
 			const string path = "/v1/players";
 
 			var url = GetUrl(path);
-			AppendFilters(ref url, options.Filters);
-			AppendSorts(ref url, options.Sorts);
+
+			if (options != null)
+			{
+				AppendFilters(ref url, options.Filters);
+				AppendSorts(ref url, options.Sorts);
+			}
+
 			AppendParameter(ref url, $"page[number]={pageNumber}");
-			AppendParameter(ref url, $"page[size]={pageSize}");
+
+			if (pageSize != null)
+			{
+				AppendParameter(ref url, $"page[size]={pageSize}");
+			}
 
 			var players = GetCollectionResponse<Player>(url);
 
@@ -39,7 +48,7 @@ namespace mdryden.cflapi.v1.Client.Players
 			return players;
 		}
 
-		public Player GetPlayer(int cflCentralId, bool includeSeasons, bool includeGameByGame)
+		public Player GetPlayer(int cflCentralId, bool includeSeasons = false, bool includeGameByGame = false)
 		{
 			var path = $"/v1/players/{cflCentralId}";
 
@@ -62,7 +71,7 @@ namespace mdryden.cflapi.v1.Client.Players
 				AppendParameter(ref url, includesString);
 			}
 
-			var player = GetItemResponse<Player>(url);
+			var player = GetFirstItemResponse<Player>(url);
 
 			var idSetter = new IdSetter();
 

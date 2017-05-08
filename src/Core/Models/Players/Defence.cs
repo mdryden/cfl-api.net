@@ -9,58 +9,58 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Defence
 	{
-		[JsonProperty(PropertyName = "tackles_total")]
+		[JsonProperty("tackles_total")]
 		public int TacklesTotal { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_yards")]
+		[JsonProperty("tackles_yards")]
 		public int Tackles_Yards { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_defensive")]
+		[JsonProperty("tackles_defensive")]
 		public int TacklesDefensive { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_specialteams")]
+		[JsonProperty("tackles_specialteams")]
 		public int TacklesSpecialTeams { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_for_loss")]
+		[JsonProperty("tackles_for_loss")]
 		public int TacklesForLoss { get; set; }
 
-		[JsonProperty(PropertyName = "sacks_qb_made")]
+		[JsonProperty("sacks_qb_made")]
 		public int SacksQbMade { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions_made")]
+		[JsonProperty("interceptions_made")]
 		public int InterceptionsMade { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions_yards")]
+		[JsonProperty("interceptions_yards")]
 		public int InterceptionsYards { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions_long")]
+		[JsonProperty("interceptions_long")]
 		public int InterceptionsLong { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions_touchdowns")]
+		[JsonProperty("interceptions_touchdowns")]
 		public int InterceptionsTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions_touchdowns_long")]
+		[JsonProperty("interceptions_touchdowns_long")]
 		public int InterceptionsTouchdownsLong { get; set; }
 
-		[JsonProperty(PropertyName = "fumbles_forced")]
+		[JsonProperty("fumbles_forced")]
 		public int FumblesForced {  get; set; }
 
-		[JsonProperty(PropertyName = "fumble_returns")]
+		[JsonProperty("fumble_returns")]
 		public int FumbleReturns { get; set; }
 
-		[JsonProperty(PropertyName = "fumble_returns_yards")]
+		[JsonProperty("fumble_returns_yards")]
 		public int FumbleReturnYards { get; set; }
 
-		[JsonProperty(PropertyName = "fumble_returns_long")]
+		[JsonProperty("fumble_returns_long")]
 		public int FumbleReturnsLong { get; set; }
 
-		[JsonProperty(PropertyName = "fumble_returns_touchdowns")]
+		[JsonProperty("fumble_returns_touchdowns")]
 		public int FumbleReturnsTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "fumble_returns_touchdowns_long")]
+		[JsonProperty("fumble_returns_touchdowns_long")]
 		public int FumbleReturnsTouchdownsLong { get; set; }
 
-		[JsonProperty(PropertyName = "passes_knocked_down")]
+		[JsonProperty("passes_knocked_down")]
 		public int PassesKnockedDown { get; set; }
 
 	}

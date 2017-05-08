@@ -9,19 +9,19 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class KickReturns
 	{
-		[JsonProperty(PropertyName = "kick_returns")]
+		[JsonProperty("kick_returns")]
 		public int KickReturnsCount { get; set; }
 
-		[JsonProperty(PropertyName = "kick_returns_yards")]
+		[JsonProperty("kick_returns_yards")]
 		public int KickReturnsYards { get; set; }
 
-		[JsonProperty(PropertyName = "kick_returns_touchdowns")]
+		[JsonProperty("kick_returns_touchdowns")]
 		public int KickReturnsTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "kick_returns_long")]
+		[JsonProperty("kick_returns_long")]
 		public int KickReturnsLong { get; set; }
 
-		[JsonProperty(PropertyName = "kick_returns_touchdowns_long")]
+		[JsonProperty("kick_returns_touchdowns_long")]
 		public int KickReturnsTouchdownsLong { get; set; }
 	}
 }

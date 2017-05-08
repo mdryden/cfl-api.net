@@ -9,7 +9,7 @@ namespace mdryden.cflapi.v1
 	public static class CurrentVersion
 	{
 
-		public const string Version = "0.3.0.0";
+		public const string Version = "0.4.0.0";
 
 	}
 }

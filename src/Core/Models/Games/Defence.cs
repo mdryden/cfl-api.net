@@ -9,28 +9,28 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Defence
 	{
-		[JsonProperty(PropertyName = "tackles_total")]
+		[JsonProperty("tackles_total")]
 		public int TacklesTotal { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_defensive")]
+		[JsonProperty("tackles_defensive")]
 		public int TacklesDefensive { get; set; }
 
-		[JsonProperty(PropertyName = "tackles_special_teams")]
+		[JsonProperty("tackles_special_teams")]
 		public int TacklesSpecialTeams { get; set; }
 
-		[JsonProperty(PropertyName = "sacks_qb_made")]
+		[JsonProperty("sacks_qb_made")]
 		public int SacksQbMade { get; set; }
 
-		[JsonProperty(PropertyName = "interceptions")]
+		[JsonProperty("interceptions")]
 		public int Interceptions { get; set; }
 
-		[JsonProperty(PropertyName = "fumbles_forced")]
+		[JsonProperty("fumbles_forced")]
 		public int FumblesForced {  get; set; }
 
-		[JsonProperty(PropertyName = "fumbles_recovered")]
+		[JsonProperty("fumbles_recovered")]
 		public int FumblesRecovered { get; set; }
 
-		[JsonProperty(PropertyName = "passes_knocked_down")]
+		[JsonProperty("passes_knocked_down")]
 		public int PassesKnockedDown { get; set; }
 
 	}

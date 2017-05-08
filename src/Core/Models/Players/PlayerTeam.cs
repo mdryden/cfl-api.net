@@ -16,22 +16,22 @@ namespace mdryden.cflapi.v1.Models.Players
 		//	set { TeamId = value; }
 		//}
 
-		[JsonProperty(PropertyName = "is_set")]
+		[JsonProperty("is_set")]
 		public bool IsSet { get; set; }
 
-		[JsonProperty(PropertyName = "team_id")]
+		[JsonProperty("team_id")]
 		public int TeamId { get; set; }
 
-		[JsonProperty(PropertyName = "location")]
+		[JsonProperty("location")]
 		public string Location { get; set; }
 
-		[JsonProperty(PropertyName = "nickname")]
+		[JsonProperty("nickname")]
 		public string Nickname { get; set; }
 
-		[JsonProperty(PropertyName = "abbreviation")]
+		[JsonProperty("abbreviation")]
 		public string Abbreviation { get; set; }
 
-		[JsonProperty(PropertyName = "season")]
+		[JsonProperty("season")]
 		public int Season { get; set; }
 	}
 }

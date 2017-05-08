@@ -12,22 +12,40 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonIgnore]
 		public int PlayerId { get; set; }
 
-		[JsonProperty(PropertyName = "passing")]
+		[JsonProperty("passing")]
 		public IList<GamePassing> Passing { get; set; }
 
-		[JsonProperty(PropertyName = "receiving")]
+		[JsonProperty("receiving")]
 		public IList<GameReceiving> Receiving { get; set; }
 
-		[JsonProperty(PropertyName = "rushing")]
+		[JsonProperty("rushing")]
 		public IList<GameRushing> Rushing { get; set; }
 
-		[JsonProperty(PropertyName = "defence")]
+		[JsonProperty("defence")]
 		public IList<GameDefence> Defence { get; set; }
 
-		[JsonProperty(PropertyName = "field_goals")]
+		[JsonProperty("field_goals")]
 		public IList<GameFieldGoals> FieldGoals { get; set; }
 
-		[JsonProperty(PropertyName = "punts")]
+		[JsonProperty("punts")]
 		public IList<GamePunts> Punts { get; set; }
+
+		/// <summary>
+		/// Added in v1.17
+		/// </summary>
+		[JsonProperty("punt_returns")]
+		public IList<GamePuntReturns> PuntReturns { get; set; }
+
+		/// <summary>
+		/// Added in v1.17
+		/// </summary>
+		[JsonProperty("kickoff_returns")]
+		public IList<GameKickoffReturns> KickoffReturns { get; set; }
+
+		/// <summary>
+		/// Added in v1.17
+		/// </summary>
+		[JsonProperty("missed_fg_returns")]
+		public IList<GameMissedFieldGoalReturns> MissedFieldGoalReturns { get; set; }
 	}
 }

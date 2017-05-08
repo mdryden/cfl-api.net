@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,15 @@ namespace mdryden.cflapi.v1.EntityFramework
 		{
 			builder.Entity<Player>()
 				.HasKey(p => p.CflCentralId)
-				.ToTable($"{tablePrefix}Player");
+				.ToTable($"{tablePrefix}Player")
+				.Property(p => p.CflCentralId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<GameByGame>()
 				.HasKey(g => g.PlayerId)
-				.ToTable($"{tablePrefix}GameByGame");
+				.ToTable($"{tablePrefix}GameByGame")
+				.Property(p => p.PlayerId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<GameDefence>()
 				.HasKey(i => new { i.PlayerId, i.GameId })
@@ -47,7 +52,9 @@ namespace mdryden.cflapi.v1.EntityFramework
 
 			builder.Entity<Seasons>()
 				.HasKey(i => i.PlayerId)
-				.ToTable($"{tablePrefix}Seasons");
+				.ToTable($"{tablePrefix}Seasons")
+				.Property(p => p.PlayerId)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
 			builder.Entity<SeasonDefence>()
 				.HasKey(i => new { i.PlayerId, i.Season })

@@ -9,10 +9,10 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Venue
 	{
-		[JsonProperty(PropertyName = "venue_id")]
+		[JsonProperty("venue_id")]
 		public int VenueId { get; set; }
 
-		[JsonProperty(PropertyName = "name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 	}
 }

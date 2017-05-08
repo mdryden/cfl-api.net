@@ -14,5 +14,17 @@ namespace mdryden.cflapi.v1.Models.Games
 
 		[JsonIgnore]
 		public int TeamId { get; set; }
+
+		/// <summary>
+		/// Added in v1.20
+		/// </summary>
+		[JsonProperty("defensive_touchdowns")]
+		public int DefensiveTouchdowns { get; set; }
+
+		/// <summary>
+		/// Added in v1.20
+		/// </summary>
+		[JsonProperty("defensive_safeties")]
+		public int DefensiveSafeties { get; set; }
 	}
 }

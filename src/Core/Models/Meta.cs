@@ -9,7 +9,7 @@ namespace mdryden.cflapi.v1.Models
 {
 	public class Meta
 	{
-		[JsonProperty(PropertyName = "copyright")]
+		[JsonProperty("copyright")]
 		public string Copyright { get; set; }
 	}
 }

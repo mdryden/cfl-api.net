@@ -9,19 +9,19 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class PlayerSummary
 	{
-		[JsonProperty(PropertyName = "cfl_central_id")]
+		[JsonProperty("cfl_central_id")]
 		public int CflCentralId { get; set; }
 
-		[JsonProperty(PropertyName = "first_name")]
+		[JsonProperty("first_name")]
 		public string FirstName { get; set; }
 
-		[JsonProperty(PropertyName = "middle_name")]
+		[JsonProperty("middle_name")]
 		public string MiddleName { get; set; }
 
-		[JsonProperty(PropertyName = "last_name")]
+		[JsonProperty("last_name")]
 		public string LastName { get; set; }
 
-		[JsonProperty(PropertyName = "birth_date")]
+		[JsonProperty("birth_date")]
 		public string BirthDate { get; set; }
 	}
 }

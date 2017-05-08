@@ -9,19 +9,19 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Weather
 	{
-		[JsonProperty(PropertyName = "temperature")]
+		[JsonProperty("temperature")]
 		public int Temperature { get; set; }
 
-		[JsonProperty(PropertyName = "sky")]
+		[JsonProperty("sky")]
 		public string Sky { get; set; }
 
-		[JsonProperty(PropertyName = "wind_speed")]
+		[JsonProperty("wind_speed")]
 		public string WindSpeed { get; set; }
 
-		[JsonProperty(PropertyName = "wind_direction")]
+		[JsonProperty("wind_direction")]
 		public string WindDirection { get; set; }
 
-		[JsonProperty(PropertyName = "field_conditions")]
+		[JsonProperty("field_conditions")]
 		public string FieldConditions { get; set; }
 	}
 }

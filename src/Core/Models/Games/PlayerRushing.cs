@@ -19,7 +19,7 @@ namespace mdryden.cflapi.v1.Models.Games
 			set { Player.CflCentralId = value; }
 		}
 
-		[JsonProperty(PropertyName = "player")]
+		[JsonProperty("player")]
 		public PlayerSummary Player { get; set; }
 	}
 }

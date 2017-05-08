@@ -12,19 +12,19 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonIgnore]
 		public int PlayerId { get; set; }
 
-		[JsonProperty(PropertyName = "game_id")]
+		[JsonProperty("game_id")]
 		public int GameId { get; set; }
 
-		[JsonProperty(PropertyName = "game_date")]
+		[JsonProperty("game_date")]
 		public string GameDate { get; set; }
 
-		[JsonProperty(PropertyName = "week")]
+		[JsonProperty("week")]
 		public int Week { get; set; }
 
-		[JsonProperty(PropertyName = "season")]
+		[JsonProperty("season")]
 		public int Season { get; set; }
 
-		[JsonProperty(PropertyName = "opponent_team_abbreviation")]
+		[JsonProperty("opponent_team_abbreviation")]
 		public string OpponentTeamAbbreviation { get; set; }
 	}
 }

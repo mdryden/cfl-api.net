@@ -29,12 +29,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.DateStart(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = games.First().DateStart >= filterValue && games.Last().DateStart >= filterValue;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -47,12 +47,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Season(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = games.First().Season >= filterValue && games.Last().Season >= filterValue;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -65,12 +65,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Week(FilterOperators.GreaterThan, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = games.First().Week >= filterValue && games.Last().Week >= filterValue;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -83,12 +83,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Temperature(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = games.First().Weather.Temperature >= filterValue && games.Last().Weather.Temperature >= filterValue;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -101,12 +101,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Attendance(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = games.First().Attendance >= filterValue && games.Last().Attendance >= filterValue;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -119,12 +119,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Team1(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = string.Compare(games.First().Team1.Abbreviation, filterValue) >= 0 && string.Compare(games.Last().Team1.Abbreviation, filterValue) >= 0;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
 
@@ -137,12 +137,12 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var options = new GamesRequestOptions { Filters = new[] { GameFilter.Team2(FilterOperators.GreaterThanOrEqualTo, filterValue) } };
 
-			var games = client.GetGames(1, 20, options);
+			var games = client.GetGames(options: options);
 
 			var expected = true;
 			var actual = string.Compare(games.First().Team2.Abbreviation, filterValue) >= 0 && string.Compare(games.Last().Team2.Abbreviation, filterValue) >= 0;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 

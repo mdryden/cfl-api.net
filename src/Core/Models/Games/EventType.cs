@@ -10,12 +10,17 @@ namespace mdryden.cflapi.v1.Models.Games
 	public class EventType
 	{
 
-		[JsonProperty(PropertyName = "event_type_id")]
+		[JsonProperty("event_type_id")]
 		public int EventTypeId { get; set; }
 
-		[JsonProperty(PropertyName = "name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
+		/// <summary>
+		/// Added in v1.21
+		/// </summary>
+		[JsonProperty("title")]
+		public string Title { get; set; }
 
 	}
 }

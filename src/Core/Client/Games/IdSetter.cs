@@ -37,23 +37,24 @@ namespace mdryden.cflapi.v1.Client.Games
 		{
 			team.GameId = gameId;
 
-			team.Defence.GameId = gameId;
-			//team.FieldGoalReturns.GameId = gameId; // I assume this will be added, but this property is currently missing from api responses.
-			team.Kicking.GameId = gameId;
-			team.KickReturns.GameId = gameId;
-			team.Passing.GameId = gameId;
-			team.Players.GameId = gameId;
-			team.PuntReturns.GameId = gameId;
-			team.Punts.GameId = gameId;
-			team.Receiving.GameId = gameId;
-			team.Rushing.GameId = gameId;
+			if (team.Defence != null) team.Defence.GameId = gameId;			//team.FieldGoalReturns.GameId = gameId; // I assume this will be added, but this property is currently missing from api responses.
 
-			SetBoxscorePlayerIds(team.Players, gameId);
+			if (team.Kicking != null) team.Kicking.GameId = gameId;
+			if (team.KickReturns != null) team.KickReturns.GameId = gameId;
+			if (team.Passing != null) team.Passing.GameId = gameId;
+			if (team.Players != null) team.Players.GameId = gameId;
+			if (team.PuntReturns != null) team.PuntReturns.GameId = gameId;
+			if (team.Punts != null) team.Punts.GameId = gameId;
+			if (team.Receiving != null) team.Receiving.GameId = gameId;
+			if (team.Rushing != null) team.Rushing.GameId = gameId;
+
+			SetBoxscorePlayerIds(team.Players, gameId, team.TeamId);
 		}
 
-		private void SetBoxscorePlayerIds(BoxscorePlayers players, int gameId)
+		private void SetBoxscorePlayerIds(BoxscorePlayers players, int gameId, int teamId)
 		{
 			players.GameId = gameId;
+			players.TeamId = teamId;
 
 			SetCollectionIds(players.Defence, gameId);
 			SetCollectionIds(players.FieldGoalReturns, gameId);

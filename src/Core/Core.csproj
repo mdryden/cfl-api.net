@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>mdryden.cflapi.v1</RootNamespace>
     <AssemblyName>mdryden.cflapi.v1</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,8 +56,14 @@
     <Compile Include="Client\Games\GamesRequestOptions.cs" />
     <Compile Include="Client\Games\IdSetter.cs" />
     <Compile Include="Client\InvalidResponseException.cs" />
-    <Compile Include="Client\Leaders\LeaderFilter.cs" />
-    <Compile Include="Client\Leaders\LeaderFilterTypes.cs" />
+    <Compile Include="Client\TeamLeaders\TeamLeadersClient.cs" />
+    <Compile Include="Client\TeamLeaders\TeamLeadersFilter.cs" />
+    <Compile Include="Client\TeamLeaders\TeamLeadersFilterTypes.cs" />
+    <Compile Include="Client\TeamLeaders\TeamLeadersRequestOptions.cs" />
+    <Compile Include="Client\Leaders\LeadersFilter.cs" />
+    <Compile Include="Client\Leaders\LeadersFilterTypes.cs" />
+    <Compile Include="Client\Leaders\LeadersClient.cs" />
+    <Compile Include="Client\Leaders\LeadersRequestOptions.cs" />
     <Compile Include="Client\Players\IdSetter.cs" />
     <Compile Include="Client\Players\PlayerFilter.cs" />
     <Compile Include="Client\Players\PlayerFilterTypes.cs" />
@@ -67,9 +74,8 @@
     <Compile Include="Client\RequestOptions.cs" />
     <Compile Include="Client\Sort.cs" />
     <Compile Include="Client\SortOrder.cs" />
-    <Compile Include="Client\TeamLeaders\TeamLeaderFilter.cs" />
-    <Compile Include="Client\TeamLeaders\TeamLeaderFilterTypes.cs" />
     <Compile Include="CurrentVersion.cs" />
+    <Compile Include="Models\DataArrayContainer.cs" />
     <Compile Include="Models\DataContainer.cs" />
     <Compile Include="Models\Games\Boxscore.cs" />
     <Compile Include="Models\Games\BoxscorePlayers.cs" />
@@ -83,11 +89,21 @@
     <Compile Include="Models\Games\EventTypeIds.cs" />
     <Compile Include="Models\Games\FieldGoalReturns.cs" />
     <Compile Include="Models\Games\Game.cs" />
+    <Compile Include="Models\Games\FieldGoals.cs" />
     <Compile Include="Models\Games\Kicking.cs" />
     <Compile Include="Models\Games\KickReturns.cs" />
     <Compile Include="Models\Games\LineScore.cs" />
+    <Compile Include="Models\Games\Offence.cs" />
+    <Compile Include="Models\Games\OffenseDowns.cs" />
     <Compile Include="Models\Games\Passing.cs" />
+    <Compile Include="Models\Games\Penalties.cs" />
     <Compile Include="Models\Games\Play.cs" />
+    <Compile Include="Models\Games\RosterPlayer.cs" />
+    <Compile Include="Models\Games\Rosters.cs" />
+    <Compile Include="Models\Games\RosterTeam.cs" />
+    <Compile Include="Models\Games\RosterTeams.cs" />
+    <Compile Include="Models\Games\TeamFieldGoals.cs" />
+    <Compile Include="Models\Games\PlayerFieldGoals.cs" />
     <Compile Include="Models\Games\TeamDefence.cs" />
     <Compile Include="Models\Games\PlayerDefence.cs" />
     <Compile Include="Models\Games\TeamFieldGoalReturns.cs" />
@@ -114,10 +130,58 @@
     <Compile Include="Models\Games\Receiving.cs" />
     <Compile Include="Models\Games\Rushing.cs" />
     <Compile Include="Models\Games\Team.cs" />
+    <Compile Include="Models\Games\Turnovers.cs" />
     <Compile Include="Models\Games\Venue.cs" />
     <Compile Include="Models\Games\VenueIds.cs" />
     <Compile Include="Models\Games\Weather.cs" />
     <Compile Include="Models\InterfaceConverter.cs" />
+    <Compile Include="Models\TeamLeaders\TeamAll.cs" />
+    <Compile Include="Models\TeamLeaders\TeamPassesDefended.cs" />
+    <Compile Include="Models\TeamLeaders\TeamFumblesForced.cs" />
+    <Compile Include="Models\TeamLeaders\TeamInterceptions.cs" />
+    <Compile Include="Models\TeamLeaders\TeamLeader.cs" />
+    <Compile Include="Models\TeamLeaders\TeamPassingTouchdowns.cs" />
+    <Compile Include="Models\TeamLeaders\TeamTotalYards.cs" />
+    <Compile Include="Models\TeamLeaders\TeamPassingYards.cs" />
+    <Compile Include="Models\TeamLeaders\TeamRushingTouchdowns.cs" />
+    <Compile Include="Models\TeamLeaders\TeamRushingYards.cs" />
+    <Compile Include="Models\TeamLeaders\TeamSacks.cs" />
+    <Compile Include="Models\Leaders\ReturnsExtendedData.cs" />
+    <Compile Include="Models\Leaders\RushingExtendedData.cs" />
+    <Compile Include="Models\Leaders\ReceivingExtendedData.cs" />
+    <Compile Include="Models\Leaders\PassingExtraData.cs" />
+    <Compile Include="Models\Leaders\InterceptionsExtendedData.cs" />
+    <Compile Include="Models\Leaders\FieldGoalsExtendedData.cs" />
+    <Compile Include="Models\Leaders\KickingExtendedData.cs" />
+    <Compile Include="Models\Leaders\PlayerConverts1.cs" />
+    <Compile Include="Models\Leaders\PlayerConverts2.cs" />
+    <Compile Include="Models\Leaders\PlayerFieldGoals.cs" />
+    <Compile Include="Models\Leaders\PlayerKicking.cs" />
+    <Compile Include="Models\Leaders\PlayerLeaderExtraData.cs" />
+    <Compile Include="Models\Leaders\PlayerReturns.cs" />
+    <Compile Include="Models\Leaders\PlayerFieldGoalMissedReturnYards.cs" />
+    <Compile Include="Models\Leaders\PlayerFumblesForced.cs" />
+    <Compile Include="Models\Leaders\PlayerFumblesRecoveries.cs" />
+    <Compile Include="Models\Leaders\PlayerInterceptions.cs" />
+    <Compile Include="Models\Leaders\PlayerKickoffYards.cs" />
+    <Compile Include="Models\Leaders\PlayerKicksBlocked.cs" />
+    <Compile Include="Models\Leaders\PlayerKickoffReturnYards.cs" />
+    <Compile Include="Models\Leaders\PlayerPassingTouchdowns.cs" />
+    <Compile Include="Models\Leaders\PlayerReceivingTouchdowns.cs" />
+    <Compile Include="Models\Leaders\PlayerReceivingYards.cs" />
+    <Compile Include="Models\Leaders\PlayerReceivingCaught.cs" />
+    <Compile Include="Models\Leaders\PlayerReceivingTargeted.cs" />
+    <Compile Include="Models\Leaders\PlayerReturnYards.cs" />
+    <Compile Include="Models\Leaders\PlayerRushingTouchdowns.cs" />
+    <Compile Include="Models\Leaders\PlayerRushingYards.cs" />
+    <Compile Include="Models\Leaders\PlayerSacks.cs" />
+    <Compile Include="Models\Leaders\PlayerTacklesDefensive.cs" />
+    <Compile Include="Models\Leaders\PlayerSpecialTeamsTackles.cs" />
+    <Compile Include="Models\Leaders\Offence.cs" />
+    <Compile Include="Models\Leaders\Defence.cs" />
+    <Compile Include="Models\Leaders\SpecialTeams.cs" />
+    <Compile Include="Models\Leaders\PlayerPassingYards.cs" />
+    <Compile Include="Models\Leaders\PlayerLeader.cs" />
     <Compile Include="Models\Meta.cs" />
     <Compile Include="Models\Players\Defence.cs" />
     <Compile Include="Models\Players\FieldGoals.cs" />
@@ -125,9 +189,13 @@
     <Compile Include="Models\Players\GameDefence.cs" />
     <Compile Include="Models\Players\GameFieldGoals.cs" />
     <Compile Include="Models\Players\GamePassing.cs" />
+    <Compile Include="Models\Players\GameMissedFieldGoalReturns.cs" />
+    <Compile Include="Models\Players\GameKickoffReturns.cs" />
     <Compile Include="Models\Players\GamePunts.cs" />
+    <Compile Include="Models\Players\GamePuntReturns.cs" />
     <Compile Include="Models\Players\GameReceiving.cs" />
     <Compile Include="Models\Players\GameRushing.cs" />
+    <Compile Include="Models\Players\MissedFieldGoalReturns.cs" />
     <Compile Include="Models\Players\OffenceDefenceOrSpecialValues.cs" />
     <Compile Include="Models\Players\Passing.cs" />
     <Compile Include="Models\Players\Player.cs" />
@@ -136,13 +204,18 @@
     <Compile Include="Models\Players\Position.cs" />
     <Compile Include="Models\Players\PositionAbbreviations.cs" />
     <Compile Include="Models\Players\PositionIds.cs" />
+    <Compile Include="Models\Players\KickoffReturns.cs" />
     <Compile Include="Models\Players\Punts.cs" />
+    <Compile Include="Models\Players\PuntReturns.cs" />
     <Compile Include="Models\Players\Receiving.cs" />
     <Compile Include="Models\Players\Rushing.cs" />
     <Compile Include="Models\Players\School.cs" />
     <Compile Include="Models\Players\SeasonDefence.cs" />
     <Compile Include="Models\Players\SeasonFieldGoals.cs" />
     <Compile Include="Models\Players\SeasonPassing.cs" />
+    <Compile Include="Models\Players\SeasonPuntReturns.cs" />
+    <Compile Include="Models\Players\SeasonMissedFieldGoalReturns.cs" />
+    <Compile Include="Models\Players\SeasonKickoffReturns.cs" />
     <Compile Include="Models\Players\SeasonPunts.cs" />
     <Compile Include="Models\Players\SeasonReceiving.cs" />
     <Compile Include="Models\Players\SeasonRushing.cs" />
@@ -150,6 +223,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TeamAbbreviations.cs" />
     <Compile Include="Models\TeamIds.cs" />
+    <Compile Include="Client\Request.cs" />
+    <Compile Include="Client\RequestBuffer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

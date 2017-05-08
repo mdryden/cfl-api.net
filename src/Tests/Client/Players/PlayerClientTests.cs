@@ -28,7 +28,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 20;
 			var actual = players.Count();
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -41,7 +41,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 20;
 			var actual = players.Count();
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -54,7 +54,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 15850;
 			var actual = player.CflCentralId;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -86,6 +86,24 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			Assert.IsNotNull(player.Seasons);
 			Assert.IsNotNull(player.GameByGame);
+		}
+
+
+		[TestMethod]
+		public void GetChadOwensSeasonsAndGameByGameTest()
+		{
+			var client = GetClient();
+
+			var player = client.GetPlayer(115154, true, true);
+
+			Assert.IsNotNull(player.Seasons);
+			Assert.IsNotNull(player.GameByGame);
+			Assert.IsNotNull(player.Seasons.KickoffReturns);
+			Assert.IsNotNull(player.Seasons.MissedFieldGoalReturns);
+			Assert.IsNotNull(player.Seasons.PuntReturns);
+			Assert.IsNotNull(player.GameByGame.KickoffReturns);
+			Assert.IsNotNull(player.GameByGame.MissedFieldGoalReturns);
+			Assert.IsNotNull(player.GameByGame.PuntReturns);
 		}
 
 		[TestMethod]

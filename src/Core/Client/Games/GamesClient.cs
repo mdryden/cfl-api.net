@@ -16,29 +16,32 @@ namespace mdryden.cflapi.v1.Client.Games
 
 		}
 
-
-		public IList<Game> GetGames(int pageNumber, int pageSize)
-		{
-			return GetGames(pageNumber, pageSize, new GamesRequestOptions());
-		}
-
 		private void SetIds(IEnumerable<Game> games)
 		{
 			var idSetter = new IdSetter();
 
 			idSetter.SetIds(games);
 		}
+		
 
-		public IList<Game> GetGames(int pageNumber, int pageSize, GamesRequestOptions options)
+		public IList<Game> GetGames(int? season = null, int pageNumber = 1, int? pageSize = null, GamesRequestOptions options = null)
 		{
-			const string path = "/v1/games";
+			var path = season != null ? $"/v1/games/{season}" : "/v1/games";
 
 			var url = GetUrl(path);
 
-			AppendFilters(ref url, options.Filters);
-			AppendSorts(ref url, options.Sorts);
+			if (options != null)
+			{
+				AppendFilters(ref url, options.Filters);
+				AppendSorts(ref url, options.Sorts);
+			}
+
 			AppendParameter(ref url, $"page[number]={pageNumber}");
-			AppendParameter(ref url, $"page[size]={pageSize}");
+
+			if (pageSize != null)
+			{
+				AppendParameter(ref url, $"page[size]={pageSize}");
+			}
 
 
 			var games = GetCollectionResponse<Game>(url);
@@ -48,26 +51,8 @@ namespace mdryden.cflapi.v1.Client.Games
 			return games;
 		}
 
-		public IList<Game> GetGames(int season)
-		{
-			return GetGames(season, new GamesRequestOptions());
-		}
 
-		public IList<Game> GetGames(int season, GamesRequestOptions options)
-		{
-			var path = $"/v1/games/{season}";
-			var url = GetUrl(path);
-			AppendFilters(ref url, options.Filters);
-			AppendSorts(ref url, options.Sorts);
-
-			var games = GetCollectionResponse<Game>(url);
-
-			SetIds(games);
-
-			return games;
-		}
-
-		public Game GetGame(int season, int gameId, bool includeBoxscore, bool includePlayByPlay)
+		public Game GetGame(int season, int gameId, bool includeBoxscore = false, bool includePlayByPlay = false, bool includeRosters = false)
 		{
 			var path = $"/v1/games/{season}/game/{gameId}";
 			var url = GetUrl(path);
@@ -83,13 +68,18 @@ namespace mdryden.cflapi.v1.Client.Games
 				includes.Add("play_by_play");
 			}
 
+			if (includeRosters)
+			{
+				includes.Add("rosters");
+			}
+
 			if (includes.Count > 0)
 			{
 				var includesString = $"include={string.Join(",", includes)}";
 				AppendParameter(ref url, includesString);
 			}
-			
-			var game = GetItemResponse<Game>(url);
+
+			var game = GetFirstItemResponse<Game>(url);
 
 			var idSetter = new IdSetter();
 
@@ -97,6 +87,5 @@ namespace mdryden.cflapi.v1.Client.Games
 
 			return game;
 		}
-
 	}
 }

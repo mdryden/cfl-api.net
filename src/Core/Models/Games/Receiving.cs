@@ -9,22 +9,22 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class Receiving
 	{
-		[JsonProperty(PropertyName = "receive_attempts")]
+		[JsonProperty("receive_attempts")]
 		public int ReceiveAttempts { get; set; }
 
-		[JsonProperty(PropertyName = "receive_caught")]
+		[JsonProperty("receive_caught")]
 		public int ReceiveCaught { get; set; }
 
-		[JsonProperty(PropertyName = "receive_yards")]
+		[JsonProperty("receive_yards")]
 		public int ReceiveYards { get; set; }
 
-		[JsonProperty(PropertyName = "receive_long")]
+		[JsonProperty("receive_long")]
 		public int ReceiveLong { get; set; }
 
-		[JsonProperty(PropertyName = "receive_touchdowns")]
+		[JsonProperty("receive_touchdowns")]
 		public int ReceiveTouchdowns { get; set; }
 
-		[JsonProperty(PropertyName = "receive_long_touchdowns")]
+		[JsonProperty("receive_long_touchdowns")]
 		public int ReceiveLongTouchdowns { get; set; }
 	}
 }

@@ -9,13 +9,13 @@ namespace mdryden.cflapi.v1.Models
 {
 	public class DataContainer<T>
 	{
-		[JsonProperty(PropertyName = "data")]
-		public T[] Data { get; set; }
+		[JsonProperty("data")]
+		public T Data { get; set; }
 
-		[JsonProperty(PropertyName = "errors")]
+		[JsonProperty("errors")]
 		public IList<object> Errors {  get; set; }
 
-		[JsonProperty(PropertyName = "meta")]
+		[JsonProperty("meta")]
 		public Meta Meta { get; set; }
 	}
 }

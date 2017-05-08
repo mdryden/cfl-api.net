@@ -32,7 +32,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().CflCentralId;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -49,7 +49,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().FirstName;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -66,7 +66,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().MiddleName;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -83,7 +83,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue.ToUpper();
 			var actual = players.First().LastName;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -100,7 +100,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue.ToString("yyyy-MM-dd");
 			var actual = players.First().BirthDate;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -115,10 +115,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			var players = client.GetPlayers(1, 20, options);
 
-			var expected = decimal.Parse($"{feet}.{inches.ToString("00")}");
+			var expected = $"{feet}.{inches.ToString("00")}";
             var actual = players.First().Height;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -135,7 +135,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().Weight;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -152,7 +152,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().RookieYear;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -169,7 +169,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().ForeignPlayer;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -186,7 +186,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().School.SchoolId;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -203,7 +203,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().School.Name;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -220,7 +220,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().Position.PositionId;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -237,7 +237,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().Position.Abbreviation;
 
-			Assert.AreEqual(expected, actual);
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 		[Ignore] // broken = http://api.cfl.ca/v1/players?filter[offence_defence_or_special][eq]=O

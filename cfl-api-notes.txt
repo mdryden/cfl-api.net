@@ -1,0 +1,57 @@
+Bugs reported:
+
+bug - Typo in Season receiving: "receieve_"
+
+
+bug - games - date_start filter requires full date and time, makes it less useful, I think, than matching the date and not the time would be
+	- actually, I'm not sure if it works at all...
+
+bug - player filter "offence_defence_or_special" equals (any) always returns empty collection
+	http://api.cfl.ca/v1/players?filter[offence_defence_or_special][eq]=O
+
+bug - Why does this query fail?
+	http://api.cfl.ca/v1/players?key=12345&sort=cfl_central_id&page[number]=77&page[size]=20
+When this one works?
+	http://api.cfl.ca/v1/players?key=12345&sort=cfl_central_id&page[number]=78&page[size]=20
+
+
+Documentation errors:
+docs error - Players - Additional Data: typo in descriptions (says boxscore is ignored)
+
+docs error - Seasons data is included even when doing a general search (no player id), counter to documentation
+
+
+Questions:
+
+missing docs- Is there a request limit?  Should be documented.
+
+suggestion - Paging - no indicator of how many players are available, or now many more pages are left.
+
+question - Players - include seasons: how do totals appear when traded mid-season? (See alex hall 143197) - data shows up once per team
+
+suggestion - Players season stat data is inconsistent with game stats:
+	rush_yards vs rush_net_yards
+	rush_long_touchdowns vs rush_touchdowns_long
+	tackles_specialteams vs tackles_special_teams
+
+
+suggestion - Lookup methods for ids would be useful.  For instance, a resource to get the list of position ids
+
+suggestion - I think team_abbreviation would be useful on the game_by_game objects, to help with players who've been traded mid-season
+
+suggestion - A filter to only download players who have been active on a roster for a given season would be useful.
+
+
+
+Questions/suggestions for later:
+
+suggestion - games date_start would be nice as a UTC to avoid timezone complications
+
+question - Will new players always have a higher ID?
+
+suggestion - Would be nice if all entities had an ID property.
+
+kickoff time is not in game payload
+game over time is not in game payload
+officials are not in payload
+roster data does not include positions

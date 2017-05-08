@@ -10,16 +10,16 @@ namespace mdryden.cflapi.v1.Models.Players
 	public class Position
 	{
 
-		[JsonProperty(PropertyName = "position_id")]
+		[JsonProperty("position_id")]
 		public int PositionId { get; set; }
 
-		[JsonProperty(PropertyName = "offence_defence_or_special")]
+		[JsonProperty("offence_defence_or_special")]
 		public string OffenceDefenceOrSpecial { get; set; }
 
-		[JsonProperty(PropertyName = "abbreviation")]
+		[JsonProperty("abbreviation")]
 		public string Abbreviation { get; set; }
 
-		[JsonProperty(PropertyName = "description")]
+		[JsonProperty("description")]
 		public string Description { get; set; }
 
 	}

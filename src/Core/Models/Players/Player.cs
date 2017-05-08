@@ -17,52 +17,55 @@ namespace mdryden.cflapi.v1.Models.Players
 		//	set { CflCentralId = value; }
 		//}
 
-		[JsonProperty(PropertyName = "cfl_central_id")]
+		[JsonProperty("cfl_central_id")]
 		public int CflCentralId { get; set; }
 
-		[JsonProperty(PropertyName = "first_name")]
+		[JsonProperty("first_name")]
 		public string FirstName { get; set; }
 
-		[JsonProperty(PropertyName = "middle_name")]
+		[JsonProperty("middle_name")]
 		public string MiddleName { get; set; }
 
-		[JsonProperty(PropertyName = "last_name")]
+		[JsonProperty("last_name")]
 		public string LastName { get; set; }
 
-		[JsonProperty(PropertyName = "birth_date")]
+		[JsonProperty("birth_date")]
 		public string BirthDate { get; set; }
 
-		[JsonProperty(PropertyName = "birth_place")]
+		[JsonProperty("birth_place")]
 		public string BirthPlace { get; set; }
 
-		[JsonProperty(PropertyName = "height")]
-		public decimal Height { get; set; }
+		[JsonProperty("height")]
+		public string Height { get; set; }
 
-		[JsonProperty(PropertyName = "weight")]
+		[JsonProperty("weight")]
 		public int Weight { get; set; }
 
-		[JsonProperty(PropertyName = "rookie_year")]
-		public int RookieYear { get; set; }
+		/// <summary>
+		/// Changed from int to int? in v1.15
+		/// </summary>
+		[JsonProperty("rookie_year")]
+		public int? RookieYear { get; set; }
 
-		[JsonProperty(PropertyName = "foreign_player")]
+		[JsonProperty("foreign_player")]
 		public bool ForeignPlayer { get; set; }
 
-		[JsonProperty(PropertyName = "image_url")]
+		[JsonProperty("image_url")]
 		public string ImageUrl { get; set; }
 
-		[JsonProperty(PropertyName = "school")]
+		[JsonProperty("school")]
 		public School School { get; set; }
 
-		[JsonProperty(PropertyName = "position")]
+		[JsonProperty("position")]
 		public Position Position { get; set; }
 
-		[JsonProperty(PropertyName = "team")]
+		[JsonProperty("team")]
 		public PlayerTeam Team { get; set; }
 
-		[JsonProperty(PropertyName = "seasons")]
+		[JsonProperty("seasons")]
 		public Seasons Seasons { get; set; }
 
-		[JsonProperty(PropertyName = "game_by_game")]
+		[JsonProperty("game_by_game")]
 		public GameByGame GameByGame { get; set; }
 	}
 }

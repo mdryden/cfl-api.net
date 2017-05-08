@@ -9,28 +9,28 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class EventStatus
 	{
-		[JsonProperty(PropertyName = "event_status_id")]
+		[JsonProperty("event_status_id")]
 		public int EventStatusId { get; set; }
 
-		[JsonProperty(PropertyName = "name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
-		[JsonProperty(PropertyName = "is_active")]
+		[JsonProperty("is_active")]
 		public bool IsActive { get; set; }
 
-		[JsonProperty(PropertyName = "quarter")]
+		[JsonProperty("quarter")]
 		public int Quarter { get; set; }
 
-		[JsonProperty(PropertyName = "minutes")]
+		[JsonProperty("minutes")]
 		public int Minutes { get; set; }
 
-		[JsonProperty(PropertyName = "seconds")]
+		[JsonProperty("seconds")]
 		public int Seconds { get; set; }
 
-		[JsonProperty(PropertyName = "down")]
+		[JsonProperty("down")]
 		public int Down { get; set; }
 
-		[JsonProperty(PropertyName = "yards_to_go")]
+		[JsonProperty("yards_to_go")]
 		public int YardsToGo { get; set; }
 
 	}

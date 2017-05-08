@@ -12,10 +12,10 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonIgnore]
 		public int GameId { get; set; }
 
-		[JsonProperty(PropertyName = "coin_toss_winner")]
+		[JsonProperty("coin_toss_winner")]
 		public string CoinTossWinner { get; set; }
 
-		[JsonProperty(PropertyName = "coin_toss_winner_election")]
+		[JsonProperty("coin_toss_winner_election")]
 		public string CoinTossWinnerElection { get; set; }
 
 	}
