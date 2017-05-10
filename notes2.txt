@@ -1,4 +1,4 @@
-Filter games temp = value, not working
+Filter games temp = value, not working - update - they work, but only when searching within a specific season.  
 http://api.cfl.ca/v1/games?key=<key>&filter[temperature][eq]=11&page[number]=1&page[size]=20
 
 When I do "lt" 11, it works, but not eq.

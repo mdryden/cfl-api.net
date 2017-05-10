@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1", "v1", "{245394FA-F57E-47FB-A34C-F6D180FEAC7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{F54E5384-F44F-46E7-90AC-8BF2E466CAC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\v1\Core\Core.csproj", "{F54E5384-F44F-46E7-90AC-8BF2E466CAC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "src\Tests\Tests.csproj", "{9A05993D-D37C-43C4-80D3-0FD3C00D949A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "src\v1\Tests\Tests.csproj", "{9A05993D-D37C-43C4-80D3-0FD3C00D949A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "src\EntityFramework\EntityFramework.csproj", "{447C5CD6-6022-48BE-B716-890DC5392198}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "src\v1\EntityFramework\EntityFramework.csproj", "{447C5CD6-6022-48BE-B716-890DC5392198}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91047F58-D1C3-48FA-A37E-D64AAD5FB9BB}"
+	ProjectSection(SolutionItems) = preProject
+		gulpfile.js = gulpfile.js
+		package.json = package.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

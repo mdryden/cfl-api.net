@@ -105,11 +105,11 @@ N/A - Add the Play-by-Play test system and documentation.
 
 
 v1.02 (Apr 6, 2016)
-Add the Team Leaders endpoint.
+Complete - Add the Team Leaders endpoint.
 
 
 v1.01 (Apr 1, 2016)
-Add the Leaders endpoint.
+Complete - Add the Leaders endpoint.
 
 
 v1.00 (Mar 15, 2016)
