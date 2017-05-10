@@ -1,4 +1,4 @@
-# cfl-api.net
+# cfl-api.net v1.2
 .Net Implementation of the Canadian Football League (CFL) public API.
 
 For information on the underlying API, see http://api.cfl.ca/docs
