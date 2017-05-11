@@ -151,8 +151,5 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
-
-
-
 	}
 }

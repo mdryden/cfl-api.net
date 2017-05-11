@@ -40,19 +40,17 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		[TestMethod]
 		public void RookieYearInTest()
 		{
-			//var client = GetClient();
+			var client = GetClient();
+			
+			var options = new PlayersRequestOptions { Filters = new[] { PlayersFilterFactory.RookieYear.In(1999,2000) } };
 
-			//var filterValue = "Durant,Muamba";
+			var players = client.GetPlayers(options: options);
 
-			//var options = new PlayersRequestOptions { Filters = new[] { PlayerFilter.RookieYear(FilterOperators.In, filterValue) } };
+			var player99 = players.FirstOrDefault(p => p.RookieYear == 1999);
+			var player00 = players.FirstOrDefault(p => p.RookieYear == 2000);
 
-			//var players = client.GetPlayers(options: options);
-
-			//var durant = players.FirstOrDefault(p => string.Equals(p.LastName, "Durant", StringComparison.InvariantCultureIgnoreCase));
-			//var muamba = players.FirstOrDefault(p => string.Equals(p.LastName, "Muamba", StringComparison.InvariantCultureIgnoreCase));
-
-			//Assert.IsNotNull(durant, client.LastRequestUrl);
-			//Assert.IsNotNull(muamba, client.LastRequestUrl);
+			Assert.IsNotNull(player99, client.LastRequestUrl);
+			Assert.IsNotNull(player00, client.LastRequestUrl);
 
 		}
 

@@ -22,7 +22,7 @@ namespace mdryden.cflapi.v1.Client.Players
 		public static PlayersFilterCreator<int> PositionId { get; private set; } = new Lazy<PlayersFilterCreator<int>>(() => new PlayersFilterCreator<int>("position_id")).Value;
 		public static PlayersFilterCreator<string> PositionAbbreviation { get; private set; } = new Lazy<PlayersFilterCreator<string>>(() => new PlayersFilterCreator<string>("position_abbreviation")).Value;
 		public static PlayersFilterCreator<string> OffenceDefenceOrSpecial { get; private set; } = new Lazy<PlayersFilterCreator<string>>(() => new PlayersFilterCreator<string>("offence_defence_or_special")).Value;
-		public static PlayersFilterCreator<int> Season { get; private set; } = new Lazy<PlayersFilterCreator<int>>(() => new PlayersFilterCreator<int>("_season")).Value;
+		public static PlayersFilterCreator<int> Season { get; private set; } = new Lazy<PlayersFilterCreator<int>>(() => new PlayersFilterCreator<int>("season")).Value;
 		public static PlayersFilterCreator<int> GameId { get; private set; } = new Lazy<PlayersFilterCreator<int>>(() => new PlayersFilterCreator<int>("game_id")).Value;
 		public static PlayersFilterCreator<DateTime> GameDate { get; private set; } = new Lazy<PlayersFilterCreator<DateTime>>(() => new PlayersFilterCreator<DateTime>("game_date")).Value;
 	

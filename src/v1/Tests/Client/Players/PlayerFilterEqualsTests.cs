@@ -257,5 +257,23 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
+
+		[TestMethod]
+		public void SeasonTest()
+		{
+			var client = GetClient();
+
+			var filterValue = 2015;
+
+			var options = new PlayersRequestOptions { Filters = new[] { PlayersFilterFactory.Season.EqualTo(filterValue) } };
+
+			var players = client.GetPlayers(options: options);
+
+			var expected = 161500; // Chris Ackie - there's no good way to test the result here, because the season doesn't actually appear in the response data
+			var actual = players.First().CflCentralId;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
 	}
 }
