@@ -27,6 +27,8 @@ namespace mdryden.cflapi.v1.Client
 
 		public string LastRequestUrl { get; private set; }
 
+		public string LastResponse { get; private set; }
+
 		protected string GetUrl(string path)
 		{
 			return $"{host}{path}?key={apiKey}";
@@ -112,6 +114,7 @@ namespace mdryden.cflapi.v1.Client
 			{
 				LastRequestUrl = url;
 				response = client.DownloadString(new Uri(url));
+				LastResponse = response;
 			}
 
 			var settings = new JsonSerializerSettings

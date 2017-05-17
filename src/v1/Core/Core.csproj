@@ -66,6 +66,10 @@
     <Compile Include="Client\Leaders\LeadersFilterCreator.cs" />
     <Compile Include="Client\Players\PlayersHeightFilterCreator.cs" />
     <Compile Include="Client\Players\PlayersFilterCreator.cs" />
+    <Compile Include="Client\Standings\StandingsClient.cs" />
+    <Compile Include="Client\Standings\StandingsFilterCreator.cs" />
+    <Compile Include="Client\Standings\StandingsFilterFactory.cs" />
+    <Compile Include="Client\Standings\StandingsRequestOptions.cs" />
     <Compile Include="Client\TeamLeaders\TeamLeadersClient.cs" />
     <Compile Include="Client\TeamLeaders\TeamLeadersFilterFactory.cs" />
     <Compile Include="Client\TeamLeaders\TeamLeadersFilterCreator.cs" />
@@ -143,6 +147,12 @@
     <Compile Include="Models\Games\VenueIds.cs" />
     <Compile Include="Models\Games\Weather.cs" />
     <Compile Include="Models\InterfaceConverter.cs" />
+    <Compile Include="Models\Standings\Division.cs" />
+    <Compile Include="Models\Standings\CrossoverStandings.cs" />
+    <Compile Include="Models\Standings\CrossoverContainer.cs" />
+    <Compile Include="Models\Standings\SeasonStandings.cs" />
+    <Compile Include="Models\Standings\DivisionStanding.cs" />
+    <Compile Include="Models\Standings\SeasonContainer.cs" />
     <Compile Include="Models\TeamLeaders\TeamAll.cs" />
     <Compile Include="Models\TeamLeaders\TeamPassesDefended.cs" />
     <Compile Include="Models\TeamLeaders\TeamFumblesForced.cs" />

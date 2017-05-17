@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/pudds/cfl-api.net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Updated to support API v1.02</releaseNotes>
-    <copyright>Copyright 2016 Michael Dryden</copyright>
+    <releaseNotes>Updated to support API v1.07</releaseNotes>
+    <copyright>Copyright 2017 Michael Dryden</copyright>
     <tags>cfl .net canadian football</tags>
   </metadata>
 </package>

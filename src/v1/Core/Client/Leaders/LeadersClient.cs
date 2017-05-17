@@ -10,8 +10,8 @@ namespace mdryden.cflapi.v1.Client.Leaders
 	public class LeadersClient : ClientBase
 	{
 
-		public LeadersClient(string apiKey)
-			: base(apiKey)
+		public LeadersClient(string apiKey, string host = "http://api.cfl.ca")
+			: base(apiKey, host)
 		{
 
 		}

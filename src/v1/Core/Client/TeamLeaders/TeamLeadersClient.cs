@@ -11,8 +11,8 @@ namespace mdryden.cflapi.v1.Client.TeamLeaders
 	{
 
 
-		public TeamLeadersClient(string apiKey)
-			: base(apiKey)
+		public TeamLeadersClient(string apiKey, string host = "http://api.cfl.ca")
+			: base(apiKey, host)
 		{
 
 		}

@@ -5,12 +5,28 @@ using mdryden.cflapi.v1.Models.Players;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using mdryden.cflapi.v1.Client.Standings;
+using System.Configuration;
 
 namespace mdryden.cflapi.v1.Tests.Models
 {
 	[TestClass]
 	public class DeserializationTests
 	{
+		private string GetApiKey()
+		{
+			return ConfigurationManager.AppSettings["apiKey"];
+		}
+
+		private void TryDeserialize<T>(string response)
+		{
+			var settings = new JsonSerializerSettings
+			{
+				MissingMemberHandling = MissingMemberHandling.Error,
+			};
+
+			var game = JsonConvert.DeserializeObject<T>(response, settings);
+		}
 
 		[TestMethod]
 		public void FullGameTest()
@@ -108,6 +124,16 @@ namespace mdryden.cflapi.v1.Tests.Models
 
 			var game = JsonConvert.DeserializeObject<DataArrayContainer<Player>>(input, settings);
 
+		}
+
+		[TestMethod]
+		public void StandingsTest()
+		{
+			var client = new StandingsClient(GetApiKey());
+
+			client.GetStandings(2015);
+
+			TryDeserialize<DataContainer<v1.Models.Standings.SeasonContainer>>(client.LastResponse);
 		}
 
 	}

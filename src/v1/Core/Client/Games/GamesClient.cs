@@ -10,8 +10,8 @@ namespace mdryden.cflapi.v1.Client.Games
 	public class GamesClient : ClientBase
 	{
 
-		public GamesClient(string apiKey)
-			: base(apiKey)
+		public GamesClient(string apiKey, string host = "http://api.cfl.ca")
+			: base(apiKey, host)
 		{
 
 		}
