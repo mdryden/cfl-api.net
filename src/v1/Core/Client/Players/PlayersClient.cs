@@ -48,11 +48,17 @@ namespace mdryden.cflapi.v1.Client.Players
 			return players;
 		}
 
-		public Player GetPlayer(int cflCentralId, bool includeSeasons = false, bool includeGameByGame = false)
+		public Player GetPlayer(int cflCentralId, bool includeSeasons = false, bool includeGameByGame = false, PlayersRequestOptions options = null)
 		{
 			var path = $"/v1/players/{cflCentralId}";
 
 			var url = GetUrl(path);
+
+			if (options != null)
+			{
+				AppendFilters(ref url, options.Filters);
+				AppendSorts(ref url, options.Sorts);
+			}
 
 			var includes = new List<string>();
 			if (includeSeasons)

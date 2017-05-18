@@ -257,5 +257,22 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			//Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
+
+		[TestMethod]
+		public void GameDateEllingsonTest()
+		{
+			var client = GetClient();
+
+			var filterValue = new DateTime(2015, 06, 25);
+
+			var options = new PlayersRequestOptions { Filters = new[] { PlayersFilterFactory.GameDate.GreaterThanOrEqualTo(filterValue) } };
+
+			var player = client.GetPlayer(159820, includeGameByGame: true, options: options);
+
+			var expected = filterValue.ToString("yyyy-MM-dd");
+			var actual = player.GameByGame?.Receiving?.FirstOrDefault().GameDate;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 	}
 }

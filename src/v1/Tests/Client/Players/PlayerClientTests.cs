@@ -16,7 +16,21 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		{
 			return new PlayersClient(GetApiKey());
 		}
+		
+		private void PlayerObjectCollectionAsserts(int playerId, IEnumerable<object> collection)
+		{
+			if (collection != null && collection.Count() > 0)
+			{
+				var type = collection.First().GetType();
+				var property = type.GetProperty("PlayerId");
 
+				foreach (var item in collection)
+				{
+					var value = property.GetValue(item, null);
+					Assert.AreEqual(playerId, value);
+				}
+			}
+		}
 
 		[TestMethod]
 		public void GetFirst20PlayersTest()
@@ -154,20 +168,17 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			PlayerObjectCollectionAsserts(playerId, player.Seasons.Receiving);
 			PlayerObjectCollectionAsserts(playerId, player.Seasons.Rushing);
 		}
-
-		private void PlayerObjectCollectionAsserts(int playerId, IEnumerable<object> collection)
+		[TestMethod]
+		public void GetHenryBurrisStatsIncIdTest()
 		{
-			if (collection != null && collection.Count() > 0)
-			{
-				var type = collection.First().GetType();
-				var property = type.GetProperty("PlayerId");
+			var client = GetClient();
 
-				foreach (var item in collection)
-				{
-					var value = property.GetValue(item, null);
-					Assert.AreEqual(playerId, value);
-				}
-			}
+			var player = client.GetPlayer(15850, false, false);
+
+			var expected = 25875;
+			var actual = player.StatsIncId;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
 	}

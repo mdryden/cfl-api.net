@@ -229,5 +229,18 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
+
+		[TestMethod]
+		public void GetGame2361Team1YACTest()
+		{
+			var client = GetClient();
+
+			var game = client.GetGame(2016, 2361, includeBoxscore: true);
+
+			var expected = 163;
+			var actual = game.Boxscore.Teams.Team1.Receiving.ReceiveYardsAfterCatch;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 	}
 }

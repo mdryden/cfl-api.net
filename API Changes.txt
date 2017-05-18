@@ -1,17 +1,17 @@
 
 
 v1.24 (April 16, 2017)
-Added receive_yards_after_catch to the team and player box scores of Games.
+Complete - Added receive_yards_after_catch to the team and player box scores of Games.
 
 
 v1.23 (April 6, 2017)
-The team element for Players is now more accurate; previously the team a Player was on was determined by the last Game they played in; now we examine their current contract status and check what team it's with. 
+n/a The team element for Players is now more accurate; previously the team a Player was on was determined by the last Game they played in; now we examine their current contract status and check what team it's with. 
 
-Added an stats_inc_id element to Players to signify the unique numeric identifier Stats Inc uses for CFL players; this data is retrieved once a day from the file Stats Inc provides to the league.
+Complete - Added an stats_inc_id element to Players to signify the unique numeric identifier Stats Inc uses for CFL players; this data is retrieved once a day from the file Stats Inc provides to the league.
 
 
 v1.22 (March 27, 2017)
-Added game_date to the list of filters that can be passed to a Player; this allows for the retrieval of game-by-game or season statistics for a player but limited to a specified date range.
+Complete - Added game_date to the list of filters that can be passed to a Player; this allows for the retrieval of game-by-game or season statistics for a player but limited to a specified date range.
 
 
 v1.21 (October 26, 2016)
@@ -23,15 +23,11 @@ Complete - Added defensive_touchdowns and defensive_safeties elements to the tea
 
 
 v1.19 (September 19, 2016)
-Updated the endpoint at /
-
-v1/standings/crossover/YYYY , adding an out_of_playoffs "division" that always contains the teams currently outside of a playoff berth, and removed the now unnecessary qualifies_for_playoffs elements. See the Endpoint example at Standings for more information.
+Complete - Updated the endpoint at /v1/standings/crossover/YYYY , adding an out_of_playoffs "division" that always contains the teams currently outside of a playoff berth, and removed the now unnecessary qualifies_for_playoffs elements. See the Endpoint example at Standings for more information.
 
 
 v1.18 (September 13, 2016)
-Added a new endpoint at /
-
-v1/standings/crossover/YYYY , returning league standings with the crossover rule factored in (and with an additional qualifies_for_playoffs Boolean value to make it easy to tell who's in and who isn't). See the Endpoint example at Standings for more information.
+Complete - Added a new endpoint at /v1/standings/crossover/YYYY , returning league standings with the crossover rule factored in (and with an additional qualifies_for_playoffs Boolean value to make it easy to tell who's in and who isn't). See the Endpoint example at Standings for more information.
 
 
 v1.17 (September 6, 2016)
@@ -51,15 +47,15 @@ Complete - Added field_goal_missed_list to the field_goals element of a Game's b
 
 
 v1.14 (July 12, 2016)
-Updated documentation for Play-by-Play, adding four new play_success_id values (900 through 903). Also added a play_success_id of 78 so a quarterback sack can be identified in the list of Team Losses.
+n/a Updated documentation for Play-by-Play, adding four new play_success_id values (900 through 903). Also added a play_success_id of 78 so a quarterback sack can be identified in the list of Team Losses.
 
 
 v1.13 (July 5, 2016)
-Updated documentation for Play-by-Play, adding two new play_type_id values and updating the logic for play_success_id to ensure a value gets set for those two new play types.
+n/a Updated documentation for Play-by-Play, adding two new play_type_id values and updating the logic for play_success_id to ensure a value gets set for those two new play types.
 
 
 v1.12 (June 22, 2016)
-Many new endpoints for Leaders statistics, including new aggregate offence, defence and special_teams endpoints.
+Complete - Many new endpoints for Leaders statistics, including new aggregate offence, defence and special_teams endpoints.
 
 
 v1.11 (June 20, 2016)

@@ -26,5 +26,8 @@ namespace mdryden.cflapi.v1.Models.Games
 
 		[JsonProperty("receive_long_touchdowns")]
 		public int ReceiveLongTouchdowns { get; set; }
+
+		[JsonProperty("receive_yards_after_catch")]
+		public int ReceiveYardsAfterCatch { get; set; }
 	}
 }
