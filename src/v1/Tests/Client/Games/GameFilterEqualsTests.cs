@@ -169,5 +169,22 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
+
+		[TestMethod]
+		public void FilterPlayByPlayGame2267Play120Test()
+		{
+			var client = GetClient();
+
+			var filterValue = 110;
+
+			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.PlayByPlaySequence.EqualTo(filterValue) } };
+
+			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
+
+			var expected = filterValue;
+			var actual = game.PlayByPlay?.FirstOrDefault()?.PlaySequence;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 	}
 }

@@ -63,13 +63,13 @@ Many new endpoints for Leaders statistics, including new aggregate offence, defe
 
 
 v1.11 (June 20, 2016)
-Update the Test Play-By-Play Data to use a new dataset as game -2275.
+n/a Update the Test Play-By-Play Data to use a new dataset as game -2275.
 
 
 v1.10 (June 16, 2016)
-Added a new filter for week to Team Leaders to allow for retrieval of team statistics at a certain point in a season. 
+Complete - Added a new filter for week to Team Leaders to allow for retrieval of team statistics at a certain point in a season. 
 
-Added a new filter for pbp to Play-by-Play data within Games to allow for retrieval of a subset of play-by-play data based on the sequence number of plays.
+Complete - Added a new filter for pbp to Play-by-Play data within Games to allow for retrieval of a subset of play-by-play data based on the sequence number of plays.
 
 
 v1.09 (June 11, 2016)

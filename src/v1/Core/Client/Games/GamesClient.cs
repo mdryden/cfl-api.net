@@ -52,10 +52,16 @@ namespace mdryden.cflapi.v1.Client.Games
 		}
 
 
-		public Game GetGame(int season, int gameId, bool includeBoxscore = false, bool includePlayByPlay = false, bool includeRosters = false)
+		public Game GetGame(int season, int gameId, bool includeBoxscore = false, bool includePlayByPlay = false, bool includeRosters = false, GamesRequestOptions options = null)
 		{
 			var path = $"/v1/games/{season}/game/{gameId}";
 			var url = GetUrl(path);
+			
+			if (options != null)
+			{
+				AppendFilters(ref url, options.Filters);
+				AppendSorts(ref url, options.Sorts);
+			}
 
 			var includes = new List<string>();
 			if (includeBoxscore)
