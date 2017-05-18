@@ -20,6 +20,6 @@ namespace mdryden.cflapi.v1.Client.Games
 		public static GamesFilterCreator<string> Team { get; private set; } = new Lazy<GamesFilterCreator<string>>(() => new GamesFilterCreator<string>("team")).Value;
 		public static GamesFilterCreator<string> Team1 { get; private set; } = new Lazy<GamesFilterCreator<string>>(() => new GamesFilterCreator<string>("team_1")).Value;
 		public static GamesFilterCreator<string> Team2 { get; private set; } = new Lazy<GamesFilterCreator<string>>(() => new GamesFilterCreator<string>("team_2")).Value;
-		public static GamesFilterCreator<int> EventTypeId { get; private set; } = new Lazy<GamesFilterCreator<int>>(() => new GamesFilterCreator<int>("EventTypeId")).Value;
+		public static GamesFilterCreator<int> EventTypeId { get; private set; } = new Lazy<GamesFilterCreator<int>>(() => new GamesFilterCreator<int>("event_type_id")).Value;
 	}
 }

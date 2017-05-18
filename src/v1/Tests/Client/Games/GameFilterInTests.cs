@@ -7,6 +7,7 @@ using mdryden.cflapi.v1.Client;
 using mdryden.cflapi.v1.Client.Games;
 using mdryden.cflapi.v1.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using mdryden.cflapi.v1.Models.Games;
 
 namespace mdryden.cflapi.v1.Tests.Client.Games
 {
@@ -37,6 +38,22 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 		}
 
+
+		[TestMethod]
+		public void FilterByEventTypeAllPlayoffsTest()
+		{
+			Assert.Inconclusive("This API method does not work correctly");
+			var client = GetClient();
+
+			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.EventTypeId.In(EventTypeIds.Playoffs, EventTypeIds.GreyCup) } };
+
+			var games = client.GetGames(season: 2015, options: options);
+
+			var expected = 5; // API only returns 4, which is incorrect.
+			var actual = games.Where(g => g.EventType.EventTypeId == EventTypeIds.GreyCup || g.EventType.EventTypeId == EventTypeIds.Playoffs).Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 
 
 	}

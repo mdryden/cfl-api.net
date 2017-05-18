@@ -73,11 +73,11 @@ Added a new filter for pbp to Play-by-Play data within Games to allow for retrie
 
 
 v1.09 (June 11, 2016)
-Added a new filter for event_type_id to Games to allow for retrieval of specifically pre-season, post-season or regular season games.
+Complete - Added a new filter for event_type_id to Games to allow for retrieval of specifically pre-season, post-season or regular season games.
 
 
 v1.08 (June 7, 2016)
-Added the /v1/standings/[season] endpoint to allow retrieval of Standings.
+Complete - Added the /v1/standings/[season] endpoint to allow retrieval of Standings.
 
 
 v1.07 (June 3, 2016)
@@ -85,9 +85,9 @@ Complete - To assist with determining the result of a play, added the play_succe
 
 
 v1.06 (May 31, 2016)
-Added the season filter parameter to Players. 
+Complete - Added the season filter parameter to Players. 
 
-Added the team filter parameter to Games.
+Complete - Added the team filter parameter to Games.
 
 
 v1.05 (May 27, 2016)
@@ -97,7 +97,7 @@ Complete - Added the include=rosters parameter to Games.
 
 
 v1.04 (May 26, 2016)
-Add the "in" filter to Games and Players.
+Complete - Add the "in" filter to Games and Players.
 
 
 v1.03 (Apr 28, 2016)

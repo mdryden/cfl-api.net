@@ -7,6 +7,7 @@ using mdryden.cflapi.v1.Client;
 using mdryden.cflapi.v1.Client.Games;
 using mdryden.cflapi.v1.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using mdryden.cflapi.v1.Models.Games;
 
 namespace mdryden.cflapi.v1.Tests.Client.Games
 {
@@ -150,6 +151,23 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
+		}
+
+		[TestMethod]
+		public void FilterByEventTypeGreyCupTest()
+		{
+			var client = GetClient();
+
+			var filterValue = EventTypeIds.GreyCup;
+
+			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.EventTypeId.EqualTo(filterValue) } };
+
+			var games = client.GetGames(season: 2015, options: options);
+
+			var expected = filterValue;
+			var actual = games.First()?.EventType?.EventTypeId;
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 	}
 }

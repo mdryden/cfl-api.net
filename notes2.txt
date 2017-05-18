@@ -14,3 +14,7 @@ Leaders - overview and detail view don't match for "return_yards", which is list
 	- kicking does not have a detailed entry or listing at the top - also, this seems to just be punting?  why not a more description name?
 
 Consistency between leaders and team_leaders endpoints - why can't I get the same data from both?
+
+EventType filtered with "In" does not work: 
+	http://api.cfl.ca/v1/games/2015?key=&filter[event_type_id][in]=2,3
+(only first value matches are returned)
