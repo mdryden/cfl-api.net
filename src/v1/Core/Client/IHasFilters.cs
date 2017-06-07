@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public interface IHasFilters
-	{
-		void AddFilter(string filter);
-		IEnumerable<string> GetFilters();
-	}
+//	public interface IHasFilters
+//	{
+//		void AddFilter(string filter);
+//		IEnumerable<string> GetFilters();
+//	}
 
-	public interface IHasFluentFilters<TFluentFilterFactory>
-	{
-		TFluentFilterFactory GetFluentFilterFactory();
-	}
+	//public interface IHasFluentFilters<TFluentFilterFactory>
+	//{
+	//	TFluentFilterFactory GetFluentFilterFactory();
+	//}
 }

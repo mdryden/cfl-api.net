@@ -8,8 +8,7 @@ namespace mdryden.cflapi.v1.Client.Players
 {
 
 	public sealed class FluentPlayersFilterCreator<TValue> : FluentFilterCreator<TValue, PlayersRequestOptions, IAdditionalFluentPlayersRequestOptions>,
-		IFluentPlayersFilterCreator<TValue>,
-		IFluentPlayersHeightFilterCreator
+		IFluentPlayersFilterCreator<TValue>
 
 	{
 		public FluentPlayersFilterCreator(PlayersRequestOptions options, IPlayersFilterCreator creator, string filterProperty)

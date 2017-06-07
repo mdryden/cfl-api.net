@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client.Games
 {
-	public interface IGamesFilterCreator :
-		IFilterCreator,
-		IEqualToFilter,
-		INotEqualToFilter,
-		IGreaterThanFilter,
-		ILessThanFilter,
-		IGreaterThanOrEqualToFilter,
-		ILessThanOrEqualToFilter,
-		IInFilter
+	public interface IGamesFilterCreator<T> :
+		//IFilterCreator,
+		IEqualToFilter<T>
+		//INotEqualToFilter,
+		//IGreaterThanFilter,
+		//ILessThanFilter,
+		//IGreaterThanOrEqualToFilter,
+		//ILessThanOrEqualToFilter,
+		//IInFilter
 	{
 	}
 }

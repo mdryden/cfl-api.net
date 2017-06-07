@@ -7,43 +7,45 @@ using System.Threading.Tasks;
 namespace mdryden.cflapi.v1.Client.Games
 {
 	public class GamesRequestOptions : //FilteredAndSortedRequestOptions<GamesFilterFactory, GamesSortFactory>
-		IGamesRequestOptions,
-		IHasFilters,
-		IHasFluentFilters<FluentGamesFilterFactory>
+		//IGamesRequestOptions,
+		//IHasFilters,
+		//IHasFluentFilters<FluentGamesFilterFactory>
 		//IFluentGamesRequestOptions,
 		//IAdditionalFluentGamesRequestOptions
+		IHasFluentFilters<IGamesFilterFactory>
 	{
-
-		private GamesFilterCreator filterCreator;
-		private ISortCreator sortCreator;
-
-
-		protected GamesRequestOptions(GamesFilterCreator filterCreator, ISortCreator sortCreator)
-		{
-			this.filterCreator = filterCreator;
-			this.sortCreator = sortCreator;
-		}
-		
-		public static IFluentGamesRequestOptions Create()
-		{
-			//return new GamesRequestOptions(new GamesFilterCreator(), new SortCreator());
-		}
-
-		FluentGamesFilterFactory IHasFluentFilters<FluentGamesFilterFactory>.GetFluentFilterFactory() => new FluentGamesFilterFactory(this, null);
 
 		private List<string> filters = new List<string>();
 		private List<string> sorts = new List<string>();
+
+		private IGamesFilterFactory filterFactory;
+		private ISortCreator sortCreator;
+
+
+		//protected GamesRequestOptions(GamesFilterCreator filterCreator, ISortCreator sortCreator)
+		//{
+		//	this.filterCreator = filterCreator;
+		//	this.sortCreator = sortCreator;
+		//}
+		
+		public static GamesRequestOptions Create()
+		{
+			//return new GamesRequestOptions(new GamesFilterCreator(), new SortCreator());
+		}
+		
+		IGamesFilterFactory IHasFilters<IGamesFilterFactory>.FilterFactory { get => filterFactory; set => filterFactory = value; }
+
 
 		//FluentGamesFilterFactory IFluentFilteredRequestOptions<FluentGamesFilterFactory>.WithFilter() => new FluentGamesFilterFactory(this, filterCreator);
 		//FluentGamesSortFactory IFluentSortedRequestOptions<FluentGamesSortFactory>.WithSort() => new FluentGamesSortFactory(this, sortCreator);
 		//FluentGamesFilterFactory IAdditionalFluentFilteredRequestOptions<FluentGamesFilterFactory>.AndFilter() => new FluentGamesFilterFactory(this, filterCreator);
 		//FluentGamesSortFactory IAdditionalFluentSortedRequestOptions<FluentGamesSortFactory>.AndSort() => new FluentGamesSortFactory(this, sortCreator);
 
-		void IHasFilters.AddFilter(string filter) => filters.Add(filter);
-		void ISortedRequestOptions.AddSort(string sort) => sorts.Add(sort);
-		IEnumerable<string> IHasFilters.GetFilters() => filters;
-		IEnumerable<string> ISortedRequestOptions.GetSorts() => sorts;
+		void IHasFilters<IGamesFilterFactory>.AddFilter(string filter) => filters.Add(filter);
+		//void ISortedRequestOptions.AddSort(string sort) => sorts.Add(sort);
+		IEnumerable<string> IHasFilters<IGamesFilterFactory>.GetFilters() => filters;
 		
+
 	}
 
 	public static class GamesRequestOptionsExtensions
@@ -52,14 +54,26 @@ namespace mdryden.cflapi.v1.Client.Games
 		//{
 		//	return options;
 		//}
-		public static FluentGamesFilterFactory WithFilter(this IFluentGamesRequestOptions options)
+
+		public static FluentFilterFactory<TFilterFactory> WithFilter<TFilterFactory>(this IHasFilters<TFilterFactory> options)
 		{
-			return new FluentGamesFilterFactory(options, new GamesFilterCreator());
+			return new FluentFilterFactory<TFilterFactory>(o)
 		}
+
+		public static FluentFilterCreator<T, TRequestOptions> EqualTo<T, TRequestOptions>(this FluentFilterFactory<TRequestOptions> filterCreator)
+		{
+			filterCreator
+		}
+
+		//public static object WithFilter(this IHasFilters options)
+		//{
+		//	return options.h
+		//}
 
 		public static void Test()
 		{
-			IGamesRequestOptions options = GamesRequestOptions.Create().WithFilter().Team.EqualTo("SSK").AndSort().Attendance.Ascending();
+			//IGamesRequestOptions options = GamesRequestOptions.Create().WithFilter().Team.EqualTo("SSK").AndSort().Attendance.Ascending();
+			var options = new GamesRequestOptions().WithFilter().GameId.
 		}
 	}
 }

@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public interface IEqualToFilter
+	public interface IFilter
 	{
-		string CreateEqualTo<TValue>(string filterProperty, TValue value);
+		string GetFilter()
+	}
+
+	public interface IEqualToFilter<TValue>
+	{
+		//string CreateEqualTo<TValue>(string filterProperty, TValue value);
+		 IFilter EqualTo(TValue value);
 	}
 
 	public interface IFluentEqualToFilter<TValue, TReturn>
