@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public interface ILessThanOrEqualToFilter<TValue>
+	public interface ILessThanOrEqualToFilter
 	{
-		string LessThanOrEqualTo(TValue value);
+		string CreateLessThanOrEqualTo<TValue>(string filterProperty, TValue value);
+	}
+	public interface IFluentLessThanOrEqualToFilter<TValue, TReturn>
+	{
+		TReturn LessThanOrEqualTo(TValue value);
 	}
 }

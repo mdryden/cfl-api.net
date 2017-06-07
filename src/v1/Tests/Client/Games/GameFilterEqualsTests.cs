@@ -20,20 +20,20 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			return new GamesClient(GetApiKey());
 		}
 
-		[Ignore] // filtering by date does not appear to work, I get no results here for "http://api.cfl.ca/v1/games?key=12345&filter[date_start][eq]=2015-06-08T19:30:00-04:00&page[number]=1&page[size]=20"
+		[Ignore] // filtering by date does not appear to work, reported as issue #1
 		[TestMethod]
 		public void FilterByDateStartTest()
 		{
 			var client = GetClient();
+			
+			var filterValue = new DateTime(2016, 6, 23);
 
-			var filterValue = DateTime.SpecifyKind(new DateTime(2015, 06, 08, 23, 30, 00), DateTimeKind.Utc);
-
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.DateStart.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.DateStart.EqualTo(filterValue) } };
 			
 			var games = client.GetGames(options: options);
 
 			var expected = true;
-			var actual = games.First().DateStart == filterValue && games.Last().DateStart == filterValue;
+			var actual = games.FirstOrDefault()?.DateStart == filterValue && games.LastOrDefault()?.DateStart == filterValue;
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
@@ -46,7 +46,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 2014;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Season.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Season.EqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -64,7 +64,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 5;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Week.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Week.EqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -75,7 +75,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 		}
 
-		[Ignore] // filtering by temp eq is broken http://api.cfl.ca/v1/games/2015?filter[temperature][eq]=21
+		[Ignore] // filtering by temp eq is broken.  Reported as issue #2
 		[TestMethod]
 		public void FilterByTemperatureTest()
 		{
@@ -83,7 +83,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 21;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Temperature.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Temperature.EqualTo(filterValue) } };
 
 			var games = client.GetGames(season: 2015, options: options);
 			var firstGame = games.FirstOrDefault();
@@ -106,7 +106,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 27279;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Attendance.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Attendance.EqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -124,7 +124,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Saskatchewan;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team1.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team1.EqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -142,7 +142,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Winnipeg;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team2.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team2.EqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -160,7 +160,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = EventTypeIds.GreyCup;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.EventTypeId.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.EventTypeId.EqualTo(filterValue) } };
 
 			var games = client.GetGames(season: 2015, options: options);
 
@@ -177,7 +177,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 110;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.PlayByPlaySequence.EqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.PlayByPlaySequence.EqualTo(filterValue) } };
 
 			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
 

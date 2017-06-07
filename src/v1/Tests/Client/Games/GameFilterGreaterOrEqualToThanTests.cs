@@ -27,7 +27,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = DateTime.SpecifyKind(new DateTime(2015, 06, 08, 23, 30, 00), DateTimeKind.Utc);
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.DateStart.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.DateStart.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -45,7 +45,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 2014;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Season.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Season.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -63,7 +63,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 5;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Week.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Week.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -81,7 +81,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 21;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Temperature.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Temperature.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -99,7 +99,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 27279;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Attendance.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Attendance.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -117,7 +117,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Saskatchewan;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team1.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team1.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -135,7 +135,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Edmonton;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team2.GreaterThanOrEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team2.GreaterThanOrEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -151,12 +151,29 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		{
 			var client = GetClient();
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.EventTypeId.GreaterThanOrEqualTo(EventTypeIds.Playoffs) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.EventTypeId.GreaterThanOrEqualTo(EventTypeIds.Playoffs) } };
 
 			var games = client.GetGames(season: 2015, options: options);
 
 			var expected = 5;
 			var actual = games.Where(g => g.EventType.EventTypeId == EventTypeIds.GreyCup || g.EventType.EventTypeId == EventTypeIds.Playoffs).Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[TestMethod]
+		public void FilterPlayByPlayTest()
+		{
+			var client = GetClient();
+
+			var filterValue = 110;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.PlayByPlaySequence.GreaterThanOrEqualTo(filterValue) } };
+
+			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
+
+			var expected = 59;
+			var actual = game.PlayByPlay?.Count(p => p.PlaySequence >= filterValue);
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}

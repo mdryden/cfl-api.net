@@ -47,5 +47,8 @@ namespace mdryden.cflapi.v1.Models.Players
 
 		[JsonProperty("extra_point_yards")]
 		public int ExtraPointYards { get; set; }
+
+		[JsonProperty("points")]
+		public int Points { get; set; }
 	}
 }

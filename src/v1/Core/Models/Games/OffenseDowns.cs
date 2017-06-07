@@ -9,7 +9,7 @@ namespace mdryden.cflapi.v1.Models.Games
 {
 	public class OffenseDowns
 	{
-		[JsonProperty("abbreviation")]
+		[JsonProperty("down")]
 		public int Down { get; set; }
 
 		[JsonProperty("attempts")]

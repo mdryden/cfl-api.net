@@ -23,8 +23,8 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		{
 			var client = GetClient();
 
-			var ascendingOptions = new PlayersRequestOptions { Sorts = new[] { new PlayerSort(PlayerSortTypes.CflCentralId, SortOrder.Ascending) } };
-			var descendingOptions = new PlayersRequestOptions { Sorts = new[] { new PlayerSort(PlayerSortTypes.CflCentralId, SortOrder.Descending) } };
+			var ascendingOptions = new PlayersRequestOptions { Sorts2 = new[] { FluentPlayersSortFactory.CflCentralId.Ascending } };
+			var descendingOptions = new PlayersRequestOptions { Sorts2 = new[] { FluentPlayersSortFactory.CflCentralId.Descending } };
 
 			var playersAscending = client.GetPlayers(1, 20, ascendingOptions);
 			var playersDecending = client.GetPlayers(1, 20, descendingOptions);

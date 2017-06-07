@@ -6,26 +6,36 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public abstract class FilterCreator<TValue>
-	{
-		protected string FilterProperty { get; private set; }
 
-		public FilterCreator(string filterProperty)
+	public class FilterCreator : IFilterCreator
+	{				
+		protected string GetValueString<TValue>(TValue value)
 		{
-			this.FilterProperty = filterProperty;
-		}
+			if (value == null)
+			{
+				return string.Empty;
+			}
 
-		protected string GetValueString(DateTime value)
-		{
-			return value.ToString("yyyy-MM-dd");
-		}
+			if (value is DateTime)
+			{
+				var date = value as DateTime?;
+				return date.Value.ToString("yyyy-MM-dd");
+			}
 
-		protected string GetValueString<T>(T value)
-		{
 			return value.ToString();
 		}
 
-		protected string GetValuesString<T>(T[] values)
+		public string CreateFilter<TValue>(string filterProperty, FilterOperators @operator, TValue value)
+		{
+			return CreateFilter(filterProperty, GetOperatorString(@operator), GetValueString(value));
+		}
+
+		public string CreateFilter<TValue>(string filterProperty, FilterOperators @operator, TValue[] values)
+		{
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.In), GetValuesString(values));
+		}
+
+		protected string GetValuesString<TValue>(TValue[] values)
 		{
 			return string.Join(",", values.Select(v => GetValueString(v)));
 		}
@@ -65,39 +75,39 @@ namespace mdryden.cflapi.v1.Client
 			}
 		}
 
-		protected string CreateEqualToFilter(TValue value)
+		protected string CreateEqualToFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.EqualTo), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.EqualTo), GetValueString(value));
 		}
 
-		protected string CreateNotEqualToFilter(TValue value)
+		protected string CreateNotEqualToFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.NotEqualTo), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.NotEqualTo), GetValueString(value));
 		}
 
-		protected string CreateGreaterThanFilter(TValue value)
+		protected string CreateGreaterThanFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.GreaterThan), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.GreaterThan), GetValueString(value));
 		}
 
-		protected string CreateLessThanFilter(TValue value)
+		protected string CreateLessThanFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.LessThan), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.LessThan), GetValueString(value));
 		}
 
-		protected string CreateGreaterThanOrEqualToFilter(TValue value)
+		protected string CreateGreaterThanOrEqualToFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.GreaterThanOrEqualTo), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.GreaterThanOrEqualTo), GetValueString(value));
 		}
 
-		protected string CreateLessThanOrEqualToFilter(TValue value)
+		protected string CreateLessThanOrEqualToFilter<TValue>(string filterProperty, TValue value)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.LessThanOrEqualTo), GetValueString(value));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.LessThanOrEqualTo), GetValueString(value));
 		}
 
-		protected string CreateInFilter(TValue[] values)
+		protected string CreateInFilter<TValue>(string filterProperty, TValue[] values)
 		{
-			return CreateFilter(FilterProperty, GetOperatorString(FilterOperators.In), GetValuesString(values));
+			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.In), GetValuesString(values));
 		}
 	}
 }

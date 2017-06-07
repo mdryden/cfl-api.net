@@ -31,9 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,13 +47,32 @@
     <Compile Include="Client\ClientBase.cs" />
     <Compile Include="Client\FilterCreator.cs" />
     <Compile Include="Client\FilterOperators.cs" />
-    <Compile Include="Client\Games\GamesFilterCreator.cs" />
-    <Compile Include="Client\Games\GamesFilterFactory.cs" />
+    <Compile Include="Client\FluentFilterCreator.cs" />
+    <Compile Include="Client\FluentSortCreator.cs" />
+    <Compile Include="Client\Games\FluentGamesFilterCreator.cs" />
+    <Compile Include="Client\Games\FluentGamesFilterFactory.cs" />
+    <Compile Include="Client\Games\FluentGamesSortCreator.cs" />
+    <Compile Include="Client\Games\FluentGamesSortFactory.cs" />
     <Compile Include="Client\Games\GamesClient.cs" />
-    <Compile Include="Client\Games\GameSort.cs" />
-    <Compile Include="Client\Games\GameSortTypes.cs" />
+    <Compile Include="Client\Games\GamesFilterCreator.cs" />
     <Compile Include="Client\Games\GamesRequestOptions.cs" />
     <Compile Include="Client\Games\IdSetter.cs" />
+    <Compile Include="Client\Games\IAdditionalFluentGamesRequestOptions.cs" />
+    <Compile Include="Client\Games\IFluentGamesFilterCreator.cs" />
+    <Compile Include="Client\Games\IFluentGamesRequestOptions.cs" />
+    <Compile Include="Client\Games\IFluentGamesSortCreator.cs" />
+    <Compile Include="Client\Games\IGamesFilterCreator.cs" />
+    <Compile Include="Client\Games\IGamesRequestOptions.cs" />
+    <Compile Include="Client\IAdditionalFluentFilteredAndSortedRequestOptions.cs" />
+    <Compile Include="Client\IAdditionalFluentFilteredRequestOptions.cs" />
+    <Compile Include="Client\IAdditionalFluentSortedRequestOptions.cs" />
+    <Compile Include="Client\IFilterCreator.cs" />
+    <Compile Include="Client\IFilteredRequestOptions.cs" />
+    <Compile Include="Client\IFluentFilterCreator.cs" />
+    <Compile Include="Client\IFluentFilteredAndSortedRequestOptions.cs" />
+    <Compile Include="Client\IFluentFilteredRequest.cs" />
+    <Compile Include="Client\IFluentSortCreator.cs" />
+    <Compile Include="Client\IFluentSortedRequestOptions.cs" />
     <Compile Include="Client\INotEqualToFilter.cs" />
     <Compile Include="Client\IGreaterThanFilter.cs" />
     <Compile Include="Client\ILessThanFilter.cs" />
@@ -63,9 +81,26 @@
     <Compile Include="Client\IInFilter.cs" />
     <Compile Include="Client\IEqualToFilter.cs" />
     <Compile Include="Client\InvalidResponseException.cs" />
+    <Compile Include="Client\ISortCreator.cs" />
+    <Compile Include="Client\ISortedRequestOptions.cs" />
     <Compile Include="Client\Leaders\LeadersFilterCreator.cs" />
+    <Compile Include="Client\Players\FluentPlayersFilterCreator.cs" />
+    <Compile Include="Client\Players\FluentPlayersFilterFactory.cs" />
+    <Compile Include="Client\Players\FluentPlayersSortCreator.cs" />
+    <Compile Include="Client\Players\FluentPlayersSortFactory.cs" />
+    <Compile Include="Client\Players\IAdditionalFluentPlayersRequestOptions.cs" />
+    <Compile Include="Client\Players\IFluentPlayersFilterCreator.cs" />
+    <Compile Include="Client\Players\IFluentPlayersHeightFilterCreator.cs" />
+    <Compile Include="Client\Players\IFluentPlayersRequestOptions.cs" />
+    <Compile Include="Client\Players\IPlayersFilterCreator.cs" />
+    <Compile Include="Client\Players\IPlayersFilterFactory.cs" />
+    <Compile Include="Client\Players\FluentPlayersHeightFilterCreator.cs" />
+    <Compile Include="Client\Players\IPlayersHeightFilterCreator.cs" />
+    <Compile Include="Client\Players\IPlayersRequestOptions.cs" />
     <Compile Include="Client\Players\PlayersHeightFilterCreator.cs" />
     <Compile Include="Client\Players\PlayersFilterCreator.cs" />
+    <Compile Include="Client\Players\PlayersSortCreator.cs" />
+    <Compile Include="Client\SortCreator.cs" />
     <Compile Include="Client\Standings\StandingsClient.cs" />
     <Compile Include="Client\Standings\StandingsFilterCreator.cs" />
     <Compile Include="Client\Standings\StandingsFilterFactory.cs" />
@@ -78,12 +113,8 @@
     <Compile Include="Client\Leaders\LeadersClient.cs" />
     <Compile Include="Client\Leaders\LeadersRequestOptions.cs" />
     <Compile Include="Client\Players\IdSetter.cs" />
-    <Compile Include="Client\Players\PlayersFilterFactory.cs" />
     <Compile Include="Client\Players\PlayersClient.cs" />
-    <Compile Include="Client\Players\PlayerSort.cs" />
-    <Compile Include="Client\Players\PlayerSortTypes.cs" />
     <Compile Include="Client\Players\PlayersRequestOptions.cs" />
-    <Compile Include="Client\RequestOptions.cs" />
     <Compile Include="Client\Sort.cs" />
     <Compile Include="Client\SortOrder.cs" />
     <Compile Include="CurrentVersion.cs" />
@@ -247,7 +278,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

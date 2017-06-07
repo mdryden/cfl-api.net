@@ -15,6 +15,9 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty("rush_yards")]
 		public int RushYards { get; set; }
 
+		[JsonProperty("rush_average")]
+		public decimal RushAverage { get; set; }
+
 		[JsonProperty("rush_long")]
 		public int RushLong { get; set; }
 

@@ -9,31 +9,34 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class Receiving
 	{
-		[JsonProperty("receieve_attempts")]
+		[JsonProperty("receive_attempts")]
 		public int ReceiveAttempts { get; set; }
 
-		[JsonProperty("receieve_caught")]
+		[JsonProperty("receive_caught")]
 		public int ReceiveCaught { get; set; }
 
-		[JsonProperty("receieve_yards")]
+		[JsonProperty("receive_average")]
+		public decimal ReceiveAverage { get; set; }
+
+		[JsonProperty("receive_yards")]
 		public int ReceiveYards { get; set; }
 
-		[JsonProperty("receieve_long")]
+		[JsonProperty("receive_long")]
 		public int ReceiveLong { get; set; }
 
-		[JsonProperty("receieve_touchdowns")]
+		[JsonProperty("receive_touchdowns")]
 		public int ReceiveTouchdowns { get; set; }
 
-		[JsonProperty("receieve_touchdowns_long")]
+		[JsonProperty("receive_touchdowns_long")]
 		public int ReceiveLongTouchdowns { get; set; }
 
-		[JsonProperty("receieve_second_down_conversions")]
+		[JsonProperty("receive_second_down_conversions")]
 		public int ReceiveSecondDownConversions { get; set; }
 
-		[JsonProperty("receieve_yards_after_catch")]
+		[JsonProperty("receive_yards_after_catch")]
 		public int ReceiveYardsAfterCatch { get; set; }
 
-		[JsonProperty("receieve_min_30")]
+		[JsonProperty("receive_min_30")]
 		public int ReceiveMin30 { get; set; }
 	}
 }

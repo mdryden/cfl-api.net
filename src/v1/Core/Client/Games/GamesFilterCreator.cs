@@ -1,61 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace mdryden.cflapi.v1.Client.Games
+﻿namespace mdryden.cflapi.v1.Client.Games
 {
-
-	public class GamesFilterCreator<TValue> :
-		FilterCreator<TValue>,
-		IEqualToFilter<TValue>,
-		INotEqualToFilter<TValue>,
-		IGreaterThanFilter<TValue>,
-		ILessThanFilter<TValue>,
-		IGreaterThanOrEqualToFilter<TValue>,
-		ILessThanOrEqualToFilter<TValue>,
-		IInFilter<TValue>
+	public class GamesFilterCreator : FilterCreator, IGamesFilterCreator
 	{
-		public GamesFilterCreator(string filterProperty)
-			: base(filterProperty)
-		{
-
-		}
-
-		public string EqualTo(TValue value)
-		{
-			return CreateEqualToFilter(value);
-		}
-
-		public string NotEqualTo(TValue value)
-		{
-			return CreateNotEqualToFilter(value);
-		}
-
-		public string GreaterThan(TValue value)
-		{
-			return CreateGreaterThanFilter(value);
-		}
-
-		public string LessThan(TValue value)
-		{
-			return CreateLessThanFilter(value);
-		}
-
-		public string GreaterThanOrEqualTo(TValue value)
-		{
-			return CreateGreaterThanOrEqualToFilter(value);
-		}
-
-		public string LessThanOrEqualTo(TValue value)
-		{
-			return CreateLessThanOrEqualToFilter(value);
-		}
-
-		public string In(params TValue[] values)
-		{
-			return CreateInFilter(values);
-		}
+		public string CreateEqualTo<TValue>(string filterProperty, TValue value) => CreateEqualToFilter(filterProperty, value);
+		public string CreateGreaterThan<TValue>(string filterProperty, TValue value) => CreateGreaterThanFilter(filterProperty, value);
+		public string CreateGreaterThanOrEqualTo<TValue>(string filterProperty, TValue value) => CreateGreaterThanOrEqualToFilter(filterProperty, value);
+		public string CreateIn<TValue>(string filterProperty, params TValue[] values) => CreateInFilter(filterProperty, values);
+		public string CreateLessThan<TValue>(string filterProperty, TValue value) => CreateLessThanFilter(filterProperty, value);
+		public string CreateLessThanOrEqualTo<TValue>(string filterProperty, TValue value) => CreateLessThanOrEqualToFilter(filterProperty, value);
+		public string CreateNotEqualTo<TValue>(string filterProperty, TValue value) => CreateNotEqualToFilter(filterProperty, value);
 	}
 }

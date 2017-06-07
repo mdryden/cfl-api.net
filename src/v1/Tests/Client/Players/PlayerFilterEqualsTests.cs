@@ -25,7 +25,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 
 			var filterValue = 148636;
 
-			var options = new PlayersRequestOptions { Filters = new[] { PlayersFilterFactory.CflCentralId.EqualTo(filterValue) } };
+			var options = PlayersRequestOptions.Create().WithFilter().CflCentralId.EqualTo(filterValue);
 
 			var players = client.GetPlayers(1, 20, options);
 
@@ -116,7 +116,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var players = client.GetPlayers(1, 20, options);
 
 			var expected = $"{feet}.{inches.ToString("00")}"; ;
-            var actual = players.First().Height;
+			var actual = players.First().Height;
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
@@ -240,7 +240,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
 
-		[Ignore] // broken = http://api.cfl.ca/v1/players?filter[offence_defence_or_special][eq]=O
+		[Ignore] //Issue #6
 		[TestMethod]
 		public void OffenceDefenceOrSpecialTest()
 		{
@@ -253,7 +253,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var players = client.GetPlayers(1, 20, options);
 
 			var expected = filterValue;
-			var actual = players.First().Position.OffenceDefenceOrSpecial;
+			var actual = players.FirstOrDefault()?.Position?.OffenceDefenceOrSpecial;
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
@@ -273,6 +273,21 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var actual = players.First().CflCentralId;
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[Ignore] // Issue #7
+		[TestMethod]
+		public void PlayersPage77Test()
+		{
+			var client = GetClient();
+
+			var players = client.GetPlayers(pageNumber: 77, options: new PlayersRequestOptions { Sorts2 = new[] { FluentPlayersSortFactory.CflCentralId.Ascending } });
+
+			var expected = 20;
+			var actual = players.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
 		}
 
 	}

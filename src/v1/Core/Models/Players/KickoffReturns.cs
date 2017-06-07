@@ -9,7 +9,7 @@ namespace mdryden.cflapi.v1.Models.Players
 {
 	public class KickoffReturns
 	{
-		[JsonProperty("punt_returns")]
+		[JsonProperty("kickoff_returns")]
 		public int KickoffReturnsCount { get; set; }
 
 		[JsonProperty("yards")]
@@ -18,13 +18,13 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty("average")]
 		public decimal KickoffReturnsAverage { get; set; }
 
-		[JsonProperty("receieve_long")]
+		[JsonProperty("long")]
 		public int KickoffReturnsLong { get; set; }
 
-		[JsonProperty("receieve_touchdowns")]
+		[JsonProperty("touchdowns")]
 		public int KickoffReturnsTouchdowns { get; set; }
 
-		[JsonProperty("receieve_touchdowns_long")]
+		[JsonProperty("touchdowns_long")]
 		public int KickoffReturnsLongTouchdowns { get; set; }
 	}
 }

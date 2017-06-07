@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client.Games
 {
-	public enum GameSortTypes
+	public interface IGamesRequestOptions :
+		IHasFilters,
+		
+		//IAdditionalFluentGamesRequestOptions
 	{
-		DateStart,
-		Season,
-		Week,
-		Temperature,
-		Attendance,
-		Team1,
-		Team2
 	}
 }

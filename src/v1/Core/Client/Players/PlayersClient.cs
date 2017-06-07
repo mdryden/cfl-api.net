@@ -15,11 +15,6 @@ namespace mdryden.cflapi.v1.Client.Players
 
 		}
 
-		public IEnumerable<Player> GetPlayers(int pageNumber, int pageSize)
-		{
-			return GetPlayers(pageNumber, pageSize, new PlayersRequestOptions());
-		}
-
 		public IEnumerable<Player> GetPlayers(int pageNumber = 1, int? pageSize = null, PlayersRequestOptions options  = null)
 		{
 			const string path = "/v1/players";

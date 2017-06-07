@@ -6,53 +6,19 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client.Players
 {
-	public class PlayersHeightFilterCreator : 
-		FilterCreator<string>
+	public class PlayersHeightFilterCreator : FilterCreator, IPlayersHeightFilterCreator
 	{
-		public PlayersHeightFilterCreator(string filterProperty)
-			: base(filterProperty)
-		{
 
-		}
+		const string filterProperty = "height";
+
+		public string FormatHeight(int feet, int inches) => $"{feet}.{inches.ToString("00")}";
+		public string CreateEqualTo(int feet, int inches) => CreateEqualToFilter(filterProperty, FormatHeight(feet, inches));
+		public string CreateGreaterThan(int feet, int inches) => CreateGreaterThanFilter(filterProperty, FormatHeight(feet, inches));
+		public string CreateGreaterThanOrEqualTo(int feet, int inches) => CreateGreaterThanOrEqualToFilter("height", FormatHeight(feet, inches));
+		public string CreateIn(params string[] formattedHeights) => CreateInFilter(filterProperty, formattedHeights);
+		public string CreateLessThan(int feet, int inches) => CreateLessThanFilter(filterProperty, FormatHeight(feet, inches));
+		public string CreateLessThanOrEqualTo(int feet, int inches) => CreateLessThanOrEqualToFilter(filterProperty, FormatHeight(feet, inches));
+		public string CreateNotEqualTo(int feet, int inches) => CreateNotEqualToFilter(filterProperty, FormatHeight(feet, inches));
 		
-		private string FormatHeight(int feet, int inches)
-		{
-			return $"{feet}.{inches.ToString("00")}";
-		}
-
-		public string EqualTo(int feet, int inches)
-		{
-			return CreateEqualToFilter(FormatHeight(feet, inches));
-		}
-
-		public string NotEqualTo(int feet, int inches)
-		{
-			return CreateNotEqualToFilter(FormatHeight(feet, inches));
-		}
-
-		public string GreaterThan(int feet, int inches)
-		{
-			return CreateGreaterThanFilter(FormatHeight(feet, inches));
-		}
-
-		public string LessThan(int feet, int inches)
-		{
-			return CreateLessThanFilter(FormatHeight(feet, inches));
-		}
-
-		public string GreaterThanOrEqualTo(int feet, int inches)
-		{
-			return CreateGreaterThanOrEqualToFilter(FormatHeight(feet, inches));
-		}
-
-		public string LessThanOrEqualTo(int feet, int inches)
-		{
-			return CreateLessThanOrEqualToFilter(FormatHeight(feet, inches));
-		}
-
-		public string In(params string[] formattedHeights)
-		{
-			return CreateInFilter(formattedHeights);
-		}
 	}
 }

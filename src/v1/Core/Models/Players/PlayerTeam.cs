@@ -33,5 +33,8 @@ namespace mdryden.cflapi.v1.Models.Players
 
 		[JsonProperty("season")]
 		public int Season { get; set; }
+
+		[JsonProperty("uniform")]
+		public int? Uniform { get; set; }
 	}
 }

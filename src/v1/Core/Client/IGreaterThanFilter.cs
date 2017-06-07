@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public interface IGreaterThanFilter<TValue>
+	public interface IGreaterThanFilter
 	{
-		string GreaterThan(TValue value);
+		string CreateGreaterThan<TValue>(string filterProperty, TValue value);
 	}
+
+	public interface IFluentGreaterThanFilter<TValue, TReturn>
+	{
+		TReturn GreaterThan(TValue value);
+	}
+
 }

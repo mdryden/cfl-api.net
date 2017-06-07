@@ -34,19 +34,19 @@ namespace mdryden.cflapi.v1.Models.Players
 		/// Added in v1.17
 		/// </summary>
 		[JsonProperty("punt_returns")]
-		public IList<SeasonPunts> PuntReturns { get; set; }
+		public IList<SeasonPuntReturns> PuntReturns { get; set; }
 
 		/// <summary>
 		/// Added in v1.17
 		/// </summary>
 		[JsonProperty("kickoff_returns")]
-		public IList<SeasonPunts> KickoffReturns { get; set; }
+		public IList<SeasonKickoffReturns> KickoffReturns { get; set; }
 
 		/// <summary>
 		/// Added in v1.17
 		/// </summary>
 		[JsonProperty("missed_fg_returns")]
-		public IList<SeasonPunts> MissedFieldGoalReturns { get; set; }
+		public IList<SeasonMissedFieldGoalReturns> MissedFieldGoalReturns { get; set; }
 
 
 

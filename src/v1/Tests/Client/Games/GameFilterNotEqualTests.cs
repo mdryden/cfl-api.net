@@ -7,6 +7,7 @@ using mdryden.cflapi.v1.Client;
 using mdryden.cflapi.v1.Client.Games;
 using mdryden.cflapi.v1.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using mdryden.cflapi.v1.Models.Games;
 
 namespace mdryden.cflapi.v1.Tests.Client.Games
 {
@@ -26,7 +27,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = DateTime.SpecifyKind(new DateTime(2015, 06, 08, 23, 30, 00), DateTimeKind.Utc);
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.DateStart.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.DateStart.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -44,7 +45,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 2014;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Season.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Season.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -62,7 +63,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 5;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Week.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Week.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -80,7 +81,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 21;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Temperature.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Temperature.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -98,7 +99,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = 27279;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Attendance.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Attendance.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -116,7 +117,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Saskatchewan;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team1.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team1.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -134,7 +135,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 			var filterValue = TeamAbbreviations.Winnipeg;
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Team2.NotEqualTo(filterValue) } };
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team2.NotEqualTo(filterValue) } };
 
 			var games = client.GetGames(options: options);
 
@@ -144,7 +145,38 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 
 		}
+		
+		[TestMethod]
+		public void FilterByEventTypeTest()
+		{
+			var client = GetClient();
 
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.EventTypeId.NotEqualTo(EventTypeIds.Preseason) } };
+
+			var games = client.GetGames(season: 2015, options: options);
+
+			var expected = 86;
+			var actual = games.Where(g => g.EventType.EventTypeId != EventTypeIds.Preseason).Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
+
+		[TestMethod]
+		public void FilterPlayByPlayTest()
+		{
+			var client = GetClient();
+
+			var filterValue = 110;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.PlayByPlaySequence.NotEqualTo(filterValue) } };
+
+			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
+
+			var expected = 0;
+			var actual = game.PlayByPlay?.Count(p => p.PlaySequence == filterValue);
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		}
 
 
 	}

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-	public interface IInFilter<TValue>
+	public interface IInFilter
 	{
-		string In(params TValue[] values);
+		string CreateIn<TValue>(string filterProperty, params TValue[] values);
+	}
+	public interface IFluentInFilter<TValue, TReturn>
+	{
+		TReturn In(params TValue[] values);
 	}
 }

@@ -15,6 +15,9 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty("pass_completions")]
 		public int PassCompletions { get; set; }
 
+		[JsonProperty("pass_percentage")]
+		public decimal PassPercentage { get; set; }
+
 		[JsonProperty("pass_net_yards")]
 		public int NetYards { get; set; }
 
@@ -29,5 +32,11 @@ namespace mdryden.cflapi.v1.Models.Players
 		
 		[JsonProperty("pass_interceptions")]
 		public int PassInterceptions { get; set; }
+
+		[JsonProperty("pass_efficiency")]
+		public decimal PassEfficiency { get; set; }
+
+		[JsonProperty("pass_interceptions_percentage")]
+		public decimal PassInterceptionsPercentage { get; set; }
 	}
 }

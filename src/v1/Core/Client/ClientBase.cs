@@ -42,21 +42,15 @@ namespace mdryden.cflapi.v1.Client
 			}
 		}
 
-		protected void AppendSorts(ref string url, IEnumerable<Sort> sorts)
+		protected void AppendSorts(ref string url, IEnumerable<string> sorts)
 		{
-			var sortStrings = new List<string>();
-			foreach (var sort in sorts)
-			{
-				sortStrings.Add(sort.GetSortString());
-			}
-
-			if (sortStrings.Count == 0)
+			if (sorts.Count() == 0)
 			{
 				return;
 			}
 			else
 			{
-				url += $"&sort={string.Join(",", sortStrings)}";
+				url += $"&sort={string.Join(",", sorts)}";
 			}
 		}
 

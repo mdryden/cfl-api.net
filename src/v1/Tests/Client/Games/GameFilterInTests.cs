@@ -20,13 +20,51 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			return new GamesClient(GetApiKey());
 		}
 
+		[Ignore] // Issue #3
+		[TestMethod]
+		public void FilterByDateStartTest()
+		{
+			var client = GetClient();
+
+			var date1 = new DateTime(2015, 06, 23);
+			var date2 = new DateTime(2015, 06, 24);
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.DateStart.In(date1, date2) } };
+
+			var games = client.GetGames(options: options);
+
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
+
+		[TestMethod]
+		public void FilterBySeasonTest()
+		{
+			var client = GetClient();
+
+			var season1 = 2014;
+			var season2 = 2015;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Season.In(season1, season2), FluentGamesFilterFactory.EventTypeId.EqualTo(EventTypeIds.GreyCup) } };
+
+			var games = client.GetGames(options: options);
+
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
 
 		[TestMethod]
 		public void WeekInTest()
 		{
 			var client = GetClient();
-			
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.Week.In(2, 9) } };
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Week.In(2, 9) } };
 
 			var games = client.GetGames(options: options);
 
@@ -38,22 +76,119 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 
 		}
 
-
+		[Ignore]
 		[TestMethod]
-		public void FilterByEventTypeAllPlayoffsTest()
+		public void FilterByTemperatureTest()
 		{
-			Assert.Inconclusive("This API method does not work correctly");
 			var client = GetClient();
 
-			var options = new GamesRequestOptions { Filters = new[] { GamesFilterFactory.EventTypeId.In(EventTypeIds.Playoffs, EventTypeIds.GreyCup) } };
+			var temp1 = 21;
+			var temp2 = 24;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Temperature.In(temp1, temp2) } };
+
+			var games = client.GetGames(options: options);
+
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
+
+		[TestMethod]
+		public void FilterByAttendanceTest()
+		{
+			var client = GetClient();
+
+			var value1 = 27279;
+			var value2 = 19452;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Attendance.In(value1, value2) } };
+
+			var games = client.GetGames(options: options);
+
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
+
+		[TestMethod]
+		public void FilterByTeam1Test()
+		{
+			var client = GetClient();
+
+			var team1 = TeamAbbreviations.Saskatchewan;
+			var team2 = TeamAbbreviations.Winnipeg;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team1.In(team1, team2), FluentGamesFilterFactory.EventTypeId.EqualTo(EventTypeIds.Preseason) } };
 
 			var games = client.GetGames(season: 2015, options: options);
 
-			var expected = 5; // API only returns 4, which is incorrect.
-			var actual = games.Where(g => g.EventType.EventTypeId == EventTypeIds.GreyCup || g.EventType.EventTypeId == EventTypeIds.Playoffs).Count();
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
+
+		[TestMethod]
+		public void FilterByTeam2Test()
+		{
+			var client = GetClient();
+
+			var team1 = TeamAbbreviations.Saskatchewan;
+			var team2 = TeamAbbreviations.Winnipeg;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.Team2.In(team1, team2), FluentGamesFilterFactory.EventTypeId.EqualTo(EventTypeIds.Preseason) } };
+
+			var games = client.GetGames(season: 2015, options: options);
+
+			var expected = 2;
+			var actual = games.Count();
+
+			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+
+		}
+
+		[Ignore] // Issue #5
+		[TestMethod]
+		public void FilterByEventTypeTest()
+		{
+			var client = GetClient();
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.EventTypeId.In(EventTypeIds.Playoffs, EventTypeIds.GreyCup) } };
+
+			var games = client.GetGames(season: 2015, options: options);
+
+			var expected = 5;
+			var actual = games.Count();
 
 			Assert.AreEqual(expected, actual, client.LastRequestUrl);
 		}
+
+		[TestMethod]
+		public void FilterPlayByPlayTest()
+		{
+			var client = GetClient();
+
+			var expected1 = 10;
+			var expected2 = 50;
+
+			var options = new GamesRequestOptions { Filters = new[] { FluentGamesFilterFactory.PlayByPlaySequence.In(expected1, expected2) } };
+
+			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
+
+			var play1 = game.PlayByPlay?.FirstOrDefault(p => p.PlaySequence == expected1);
+			Assert.IsNotNull(play1, client.LastRequestUrl);
+
+			var play2 = game.PlayByPlay?.FirstOrDefault(p => p.PlaySequence == expected2);
+			Assert.IsNotNull(play2, client.LastRequestUrl);
+		}
+		
+
 
 
 	}
