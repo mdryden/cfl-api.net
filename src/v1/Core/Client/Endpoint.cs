@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-
-	public class Test
-	{
-		public void TestM()
-		{
-			//var games = Endpoint.Games.GetGames().WithFilter().DateStart()
-		}
-	}
-
-	public static class Endpoint
+		public static class Endpoint
 	{
 		public static IRequestClient RequestClient { get; private set; }
 
