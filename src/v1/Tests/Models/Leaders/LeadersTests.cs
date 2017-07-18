@@ -90,7 +90,7 @@ namespace mdryden.cflapi.v1.Tests.Models.Leaders
 
 			client.GetInterceptions(2015);
 
-			TryDeserialize<DataArrayContainer<PlayerInterceptions>>(client.LastResponse);
+			TryDeserialize<DataArrayContainer<Offence>>(client.LastResponse);
 		}
 
 		[TestMethod]
@@ -190,7 +190,7 @@ namespace mdryden.cflapi.v1.Tests.Models.Leaders
 
 			client.GetReceivingTouchdowns(2015);
 
-			TryDeserialize<DataArrayContainer<PlayerReceivingTouchdowns>>(client.LastResponse);
+			TryDeserialize<DataArrayContainer<PlayerReceivingYards>>(client.LastResponse);
 		}
 
 		[TestMethod]

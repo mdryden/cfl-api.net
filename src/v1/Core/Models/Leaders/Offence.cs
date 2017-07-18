@@ -25,7 +25,7 @@ namespace mdryden.cflapi.v1.Models.Leaders
 		public IList<PlayerReceivingYards> ReceivingYards { get; set; }
 
 		[JsonProperty("receiving_touchdowns")]
-		public IList<PlayerReceivingTouchdowns> ReceivingTouchdowns { get; set; }
+		public IList<PlayerReceivingYards> ReceivingTouchdowns { get; set; }
 
 		[JsonProperty("receiving_caught")]
 		public IList<PlayerReceivingCaught> ReceivingCaught { get; set; }

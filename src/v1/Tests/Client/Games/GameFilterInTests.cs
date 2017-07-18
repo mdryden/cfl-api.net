@@ -36,7 +36,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -55,7 +55,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -71,8 +71,8 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var week2 = games.FirstOrDefault(g => g.Week == 2);
 			var week9 = games.FirstOrDefault(g => g.Week == 9);
 
-			Assert.IsNotNull(week2, client.LastRequestUrl);
-			Assert.IsNotNull(week9, client.LastRequestUrl);
+			Assert.IsNotNull(week2, Endpoint.RequestClient.LastRequestUrl);
+			Assert.IsNotNull(week9, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -92,7 +92,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -111,7 +111,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -130,7 +130,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -149,7 +149,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 2;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -166,7 +166,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 5;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -182,10 +182,10 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var game = client.GetGame(2016, 2267, includePlayByPlay: true, options: options);
 
 			var play1 = game.PlayByPlay?.FirstOrDefault(p => p.PlaySequence == expected1);
-			Assert.IsNotNull(play1, client.LastRequestUrl);
+			Assert.IsNotNull(play1, Endpoint.RequestClient.LastRequestUrl);
 
 			var play2 = game.PlayByPlay?.FirstOrDefault(p => p.PlaySequence == expected2);
-			Assert.IsNotNull(play2, client.LastRequestUrl);
+			Assert.IsNotNull(play2, Endpoint.RequestClient.LastRequestUrl);
 		}
 		
 

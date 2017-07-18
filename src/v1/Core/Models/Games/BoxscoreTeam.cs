@@ -51,6 +51,9 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonProperty("kicking")]
 		public TeamKicking Kicking { get; set; }
 
+		[JsonProperty("converts")]
+		public TeamConverts Converts { get; set; }
+
 		[JsonProperty("defence")]
 		public TeamDefence Defence { get; set; }
 

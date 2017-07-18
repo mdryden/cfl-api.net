@@ -2,7 +2,6 @@
 {
 	public interface ISortCreator
 	{
-		string CreateAscending(string sortType);
-		string CreateDescending(string sortType);
+		string Create(string sortProperty, SortOrder order);
 	}
 }

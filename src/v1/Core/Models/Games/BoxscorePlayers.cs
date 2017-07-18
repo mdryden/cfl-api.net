@@ -42,6 +42,12 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonProperty("kicking")]
 		public IList<PlayerKicking> Kicking { get; set; }
 
+		[JsonProperty("one_point_converts")]
+		public IList<PlayerConverts1> OnePointConverts { get; set; }
+
+		[JsonProperty("two_point_converts")]
+		public IList<PlayerConverts2> TwoPointConverts { get; set; }
+
 		[JsonProperty("defence")]
 		public IList<PlayerDefence> Defence { get; set; }
 	}

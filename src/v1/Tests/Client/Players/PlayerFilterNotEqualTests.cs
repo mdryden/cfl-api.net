@@ -255,7 +255,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = filterValue;
 			var actual = players.First().Position.OffenceDefenceOrSpecial;
 
-			Assert.AreNotEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreNotEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 	}
 }

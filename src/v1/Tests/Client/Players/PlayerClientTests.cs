@@ -42,7 +42,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 20;
 			var actual = players.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -55,7 +55,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 20;
 			var actual = players.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -68,7 +68,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 15850;
 			var actual = player.CflCentralId;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -178,7 +178,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = 25875;
 			var actual = player.StatsIncId;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 	}

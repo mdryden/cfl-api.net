@@ -32,8 +32,8 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var durant = players.FirstOrDefault(p => string.Equals(p.LastName, "Durant", StringComparison.InvariantCultureIgnoreCase));
 			var muamba = players.FirstOrDefault(p => string.Equals(p.LastName, "Muamba", StringComparison.InvariantCultureIgnoreCase));
 
-			Assert.IsNotNull(durant, client.LastRequestUrl);
-			Assert.IsNotNull(muamba, client.LastRequestUrl);
+			Assert.IsNotNull(durant, Endpoint.RequestClient.LastRequestUrl);
+			Assert.IsNotNull(muamba, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -49,8 +49,8 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var player99 = players.FirstOrDefault(p => p.RookieYear == 1999);
 			var player00 = players.FirstOrDefault(p => p.RookieYear == 2000);
 
-			Assert.IsNotNull(player99, client.LastRequestUrl);
-			Assert.IsNotNull(player00, client.LastRequestUrl);
+			Assert.IsNotNull(player99, Endpoint.RequestClient.LastRequestUrl);
+			Assert.IsNotNull(player00, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 

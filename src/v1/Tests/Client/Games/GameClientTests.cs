@@ -3,7 +3,6 @@ using System.Configuration;
 using mdryden.cflapi.v1.Client;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using mdryden.cflapi.v1.Client.Games;
 using mdryden.cflapi.v1.Models.Games;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,78 +12,64 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 	[TestClass]
 	public class GameClientTests : ClientTestsBase
 	{
-
-		private GamesClient GetClient()
-		{
-			return new GamesClient(GetApiKey());
-		}
-
+		
 		[TestMethod]
 		[Ignore]
 		public void RateLimitTest()
 		{
-			var client = GetClient();
 			var start = DateTime.Now;
 			var expected = 60;
 			var actual = 0;
 
 			for (var x = 1; x <= expected; x++)
 			{
-				var games = client.GetGames(pageNumber: x, pageSize: 1);
+				var games = Endpoint.Games.GetGames().PageNumber(x).PageSize(1).Invoke();
 				actual++;
 
 			}
 			var end = DateTime.Now;
 			var duration = start - end;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetFirst20GamesTest()
 		{
-			var client = GetClient();
-
-			var games = client.GetGames(pageNumber: 1, pageSize: 20);
+			var games = Endpoint.Games.GetGames().PageNumber(1).PageSize(20).Invoke();
 
 			var expected = 20;
 			var actual = games.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetNext20GamesTest()
 		{
-			var client = GetClient();
-
-			var games = client.GetGames(pageNumber: 2, pageSize: 20);
+			var games = Endpoint.Games.GetGames().PageNumber(2).PageSize(20).Invoke();
 
 			var expected = 40;
 			var actual = games.Last().GameNumber;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetGame2221Test()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, false, false, false);
+			var game = Endpoint.Games.GetGame(2015, 2221).Invoke();
 
 			var expected = 2221;
 			var actual = game.GameId;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetGame2221BoxscoreTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, includeBoxscore: true);
+			var game = Endpoint.Games.GetGame(2015, 2221).WithBoxscore().Invoke();
 
 			Assert.IsNotNull(game.Boxscore);
 		}
@@ -92,9 +77,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		[TestMethod]
 		public void GetGame2221PlayByPlayTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, includePlayByPlay: true);
+			var game = Endpoint.Games.GetGame(2015, 2221).WithPlayByPlay().Invoke();
 
 			Assert.IsNotNull(game.PlayByPlay);
 		}
@@ -102,9 +85,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		[TestMethod]
 		public void GetGame2221RostersTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, includeRosters: true);
+			var game = Endpoint.Games.GetGame(2015, 2221).WithRosters().Invoke();
 
 			Assert.IsNotNull(game.Rosters);
 		}
@@ -112,9 +93,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		[TestMethod]
 		public void GetGame2221AllDataTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
+			var game = Endpoint.Games.GetGame(2015, 2221).WithBoxscore().WithPlayByPlay().WithRosters().Invoke();
 
 			Assert.IsNotNull(game.Boxscore);
 			Assert.IsNotNull(game.PlayByPlay);
@@ -123,11 +102,9 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		[TestMethod]
 		public void ManualIdsTest()
 		{
-			var client = GetClient();
-
 			var gameId = 2221;
 
-			var game = client.GetGame(2015, gameId, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
+			var game = Endpoint.Games.GetGame(2015, gameId).WithBoxscore().WithPlayByPlay().WithRosters().Invoke();
 
 			Assert.AreEqual(gameId, game.Team1.GameId);
 			Assert.AreEqual(gameId, game.Team2.GameId);
@@ -186,61 +163,51 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 		[TestMethod]
 		public void TestGame2267()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2016, 2267, includeBoxscore: true, includePlayByPlay: true, includeRosters: true);
+			var game = Endpoint.Games.GetGame(2016, 2267).WithBoxscore().WithPlayByPlay().WithRosters().Invoke();
 		}
 
 		[TestMethod]
 		public void GetGame2221DefensiveTouchdownsTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2221, includeBoxscore: true);
+			var game = Endpoint.Games.GetGame(2015, 2221).WithBoxscore().Invoke();
 
 			var expected = 1;
 			var actual = game.Boxscore.Teams.Team1.Defence.DefensiveTouchdowns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetGame2225DefensiveSafetiesTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2015, 2225, includeBoxscore: true);
+			var game = Endpoint.Games.GetGame(2015, 2225).WithBoxscore().Invoke();
 
 			var expected = 1;
 			var actual = game.Boxscore.Teams.Team1.Defence.DefensiveSafeties;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetGame2361EventTitleTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2016, 2361);
+			var game = Endpoint.Games.GetGame(2016, 2361).Invoke();
 
 			var expected = "104th Grey Cup";
 			var actual = game.EventType.Title;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
 		public void GetGame2361Team1YACTest()
 		{
-			var client = GetClient();
-
-			var game = client.GetGame(2016, 2361, includeBoxscore: true);
+			var game = Endpoint.Games.GetGame(2016, 2361).WithBoxscore().Invoke();
 
 			var expected = 163;
 			var actual = game.Boxscore.Teams.Team1.Receiving.ReceiveYardsAfterCatch;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 	}
 }

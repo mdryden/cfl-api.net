@@ -10,15 +10,24 @@ namespace mdryden.cflapi.v1.Client
 
 	public class SortCreator : ISortCreator
 	{
-
-		public string CreateAscending(string sortType)
+		public string Create(string sortProperty, SortOrder order)
 		{
-			return $"{sortType}";
+			return $"{SortOrderToString(order)}{sortProperty}";
 		}
 
-		public string CreateDescending(string sortType)
+		protected string SortOrderToString(SortOrder order)
 		{
-			return $"-{sortType}";
+			switch (order)
+			{
+				case SortOrder.Ascending:
+					return "";
+
+				case SortOrder.Descending:
+					return "-";
+
+				default:
+					throw new NotSupportedException($"Unknown SortOrder value '{order}'.");
+			}
 		}
 	}
 }

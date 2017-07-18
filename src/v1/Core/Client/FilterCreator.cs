@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace mdryden.cflapi.v1.Client
 {
 
-	public class FilterCreator : IFilterCreator
+	public abstract class FilterCreator<TOperators> : IFilterCreator<TOperators>
 	{				
 		protected string GetValueString<TValue>(TValue value)
 		{
@@ -25,14 +25,14 @@ namespace mdryden.cflapi.v1.Client
 			return value.ToString();
 		}
 
-		public string CreateFilter<TValue>(string filterProperty, FilterOperators @operator, TValue value)
+		public string CreateFilter<TValue>(string filterProperty, TOperators @operator, TValue value)
 		{
-			return CreateFilter(filterProperty, GetOperatorString(@operator), GetValueString(value));
+			return FormatFilter(filterProperty, GetOperatorString(@operator), GetValueString(value));
 		}
 
-		public string CreateFilter<TValue>(string filterProperty, FilterOperators @operator, TValue[] values)
+		public string CreateFilter<TValue>(string filterProperty, TOperators @operator, TValue[] values)
 		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.In), GetValuesString(values));
+			return FormatFilter(filterProperty, GetOperatorString(@operator), GetValuesString(values));
 		}
 
 		protected string GetValuesString<TValue>(TValue[] values)
@@ -40,74 +40,11 @@ namespace mdryden.cflapi.v1.Client
 			return string.Join(",", values.Select(v => GetValueString(v)));
 		}
 
-		protected string CreateFilter(string filterProperty, string @operator, string value)
+		protected string FormatFilter(string filterProperty, string @operator, string value)
 		{
 			return $"filter[{filterProperty}][{@operator}]={value}";
 		}
 
-		protected string GetOperatorString(FilterOperators @operator)
-		{
-			switch (@operator)
-			{
-				case FilterOperators.EqualTo:
-					return "eq";
-
-				case FilterOperators.GreaterThan:
-					return "gt";
-
-				case FilterOperators.GreaterThanOrEqualTo:
-					return "ge";
-
-				case FilterOperators.LessThan:
-					return "lt";
-
-				case FilterOperators.LessThanOrEqualTo:
-					return "le";
-
-				case FilterOperators.NotEqualTo:
-					return "ne";
-
-				case FilterOperators.In:
-					return "in";
-
-				default:
-					throw new NotSupportedException($"Unknown FilterOperators value '{@operator}'.");
-			}
-		}
-
-		protected string CreateEqualToFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.EqualTo), GetValueString(value));
-		}
-
-		protected string CreateNotEqualToFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.NotEqualTo), GetValueString(value));
-		}
-
-		protected string CreateGreaterThanFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.GreaterThan), GetValueString(value));
-		}
-
-		protected string CreateLessThanFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.LessThan), GetValueString(value));
-		}
-
-		protected string CreateGreaterThanOrEqualToFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.GreaterThanOrEqualTo), GetValueString(value));
-		}
-
-		protected string CreateLessThanOrEqualToFilter<TValue>(string filterProperty, TValue value)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.LessThanOrEqualTo), GetValueString(value));
-		}
-
-		protected string CreateInFilter<TValue>(string filterProperty, TValue[] values)
-		{
-			return CreateFilter(filterProperty, GetOperatorString(FilterOperators.In), GetValuesString(values));
-		}
+		protected abstract string GetOperatorString(TOperators @operator);
 	}
 }

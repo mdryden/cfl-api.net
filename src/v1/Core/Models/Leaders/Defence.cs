@@ -16,7 +16,7 @@ namespace mdryden.cflapi.v1.Models.Leaders
 		public IList<PlayerSacks> Sacks { get; set; }
 
 		[JsonProperty("interceptions")]
-		public IList<PlayerInterceptions> Interceptions { get; set; }
+		public IList<Offence> Interceptions { get; set; }
 
 		[JsonProperty("fumbles_forced")]
 		public IList<PlayerFumblesForced> FumblesForced { get; set; }

@@ -36,7 +36,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -56,7 +56,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -76,7 +76,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -94,13 +94,13 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var highest = gamesDescending.FirstOrDefault()?.Weather?.Temperature;
 			var lowest = gamesAscending.FirstOrDefault()?.Weather?.Temperature;
 
-			Assert.IsNotNull(highest, client.LastRequestUrl);
-			Assert.IsNotNull(lowest, client.LastRequestUrl);
+			Assert.IsNotNull(highest, Endpoint.RequestClient.LastRequestUrl);
+			Assert.IsNotNull(lowest, Endpoint.RequestClient.LastRequestUrl);
 
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -120,7 +120,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -140,7 +140,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -160,7 +160,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 

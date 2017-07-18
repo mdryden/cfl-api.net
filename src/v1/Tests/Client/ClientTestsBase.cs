@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mdryden.cflapi.v1.Client;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace mdryden.cflapi.v1.Tests.Client
 {
 	public abstract class ClientTestsBase
 	{
+
+		public ClientTestsBase()
+		{
+			Endpoint.Setup(GetApiKey());
+		}
 
 		protected string GetApiKey()
 		{

@@ -35,7 +35,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -55,7 +55,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -75,7 +75,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -95,7 +95,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -115,7 +115,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		//[TestMethod]
@@ -135,7 +135,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		//	var expected = true;
 		//	var actual = highest > lowest;
 
-		//	Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		//	Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		//}
 
 		[TestMethod]
@@ -155,7 +155,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -175,7 +175,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest > lowest || (highest != null && lowest == null);
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -195,7 +195,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest != lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -215,7 +215,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -235,7 +235,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -255,7 +255,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest > lowest;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -275,7 +275,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -295,7 +295,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = highest.CompareTo(lowest) == 1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 	}
 }

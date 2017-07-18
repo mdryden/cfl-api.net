@@ -28,7 +28,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 49;
 			var actual = leaders.First().Converts1;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -41,7 +41,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 9;
 			var actual = leaders.First().Converts2;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -54,7 +54,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 42;
 			var actual = leaders.First().FieldGoals;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 			Assert.IsNotNull(leaders.First().ExtendedData);
 		}
 
@@ -68,7 +68,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 179;
 			var actual = leaders.First().FieldMissedGoalReturnYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -81,7 +81,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 4;
 			var actual = leaders.First().FumblesForced;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -94,7 +94,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 7;
 			var actual = leaders.First().FumblesRecoveries;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -107,7 +107,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 6;
 			var actual = leaders.First().Interceptions;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -120,7 +120,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 6118;
 			var actual = leaders.First().Kicking;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -133,7 +133,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 1168;
 			var actual = leaders.First().KickoffReturnYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -146,7 +146,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 5212;
 			var actual = leaders.First().KickoffYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -159,7 +159,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 1;
 			var actual = leaders.First().KicksBlocked;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -172,7 +172,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 33;
 			var actual = leaders.First().PassingTouchdowns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -185,7 +185,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 5693;
 			var actual = leaders.First().PassingYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -198,7 +198,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 10;
 			var actual = leaders.First().ReceivingTouchdowns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -211,7 +211,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 9;
 			var actual = leaders.First().ReceivingTouchdowns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -224,7 +224,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 160253; // Eric Rogers
 			var actual = leaders.First().CflCentralId;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -237,7 +237,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 1448;
 			var actual = leaders.First().ReceivingYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -250,7 +250,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 160;
 			var actual = leaders.First().ReceivingTargeted;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -263,7 +263,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 93;
 			var actual = leaders.First().Returns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -276,7 +276,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 1073;
 			var actual = leaders.First().ReturnYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -289,7 +289,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 9;
 			var actual = leaders.First().RushingTouchdowns;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -302,7 +302,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 1059;
 			var actual = leaders.First().RushingYards;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -315,7 +315,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 19;
 			var actual = leaders.First().Sacks;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -328,7 +328,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 114;
 			var actual = leaders.First().TacklesDefensive;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -341,7 +341,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 2;
 			var actual = leaders.Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -354,7 +354,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Leaders
 			var expected = 24;
 			var actual = leaders.First().TacklesSpecialTeams;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]

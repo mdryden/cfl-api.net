@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Models.Leaders
 {
-	public class PlayerFumblesForced: PlayerLeader
+	public class PlayerFumblesForced : PlayerLeader
 	{
 		[JsonProperty("fumbles_forced")]
 		public int FumblesForced { get; set; }

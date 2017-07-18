@@ -32,7 +32,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().CflCentralId <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -49,7 +49,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().FirstName.CompareTo(filterValue) <= 0;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -66,7 +66,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().MiddleName.CompareTo(filterValue) <= 0;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -83,7 +83,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().LastName.CompareTo(filterValue) <= 0;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -100,7 +100,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = DateTime.Parse(players.First().BirthDate) <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		//[TestMethod]
@@ -118,7 +118,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 		//	var expected = true;
   //          var actual = players.First().Height <= decimal.Parse($"{feet}.{inches.ToString("00")}");
 
-		//	Assert.AreEqual(expected, actual, client.LastRequestUrl);
+		//	Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		//}
 
 		[TestMethod]
@@ -135,7 +135,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().Weight <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -152,7 +152,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First(p => p.RookieYear != null).RookieYear <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 		
 		[TestMethod]
@@ -169,7 +169,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().ForeignPlayer == filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -186,7 +186,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().School.SchoolId <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -203,7 +203,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().School.Name.CompareTo(filterValue) <= 0;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -220,7 +220,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().Position.PositionId <= filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -237,7 +237,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			var expected = true;
 			var actual = players.First().Position.Abbreviation.CompareTo(filterValue) <= 0;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[Ignore] // broken = http://api.cfl.ca/v1/players?filter[offence_defence_or_special][eq]=O
@@ -255,7 +255,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Players
 			//var expected = true;
 			//var actual = players.First().Position.OffenceDefenceOrSpecial <= filterValue;
 
-			//Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			//Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 	}
 }

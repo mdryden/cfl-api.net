@@ -34,7 +34,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().DateStart != filterValue && games.Last().DateStart != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -52,7 +52,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Season != filterValue && games.Last().Season != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -70,7 +70,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Week != filterValue && games.Last().Week != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -88,7 +88,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Weather.Temperature != filterValue && games.Last().Weather.Temperature != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -106,7 +106,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Attendance != filterValue && games.Last().Attendance != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -124,7 +124,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Team1.Abbreviation != filterValue && games.Last().Team1.Abbreviation != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 
@@ -142,7 +142,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = true;
 			var actual = games.First().Team2.Abbreviation != filterValue && games.Last().Team2.Abbreviation != filterValue;
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 
 		}
 		
@@ -158,7 +158,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 86;
 			var actual = games.Where(g => g.EventType.EventTypeId != EventTypeIds.Preseason).Count();
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 		[TestMethod]
@@ -175,7 +175,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Games
 			var expected = 0;
 			var actual = game.PlayByPlay?.Count(p => p.PlaySequence == filterValue);
 
-			Assert.AreEqual(expected, actual, client.LastRequestUrl);
+			Assert.AreEqual(expected, actual, Endpoint.RequestClient.LastRequestUrl);
 		}
 
 

@@ -26,7 +26,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Standings
 
 			var standings = client.GetStandings(expected);
 
-			Assert.IsNotNull(standings.East?.Standings, client.LastRequestUrl);
+			Assert.IsNotNull(standings.East?.Standings, Endpoint.RequestClient.LastRequestUrl);
 
 			var actual = standings.East.Standings[0].Season;
 
@@ -42,7 +42,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Standings
 
 			var standings = client.GetStandings(expected);
 
-			Assert.IsNotNull(standings.East?.Standings, client.LastRequestUrl);
+			Assert.IsNotNull(standings.East?.Standings, Endpoint.RequestClient.LastRequestUrl);
 
 			var actual = standings.East.Standings[0].Season;
 
@@ -58,7 +58,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Standings
 
 			var standings = client.GetCrossoverStandings(season);
 
-			Assert.IsNotNull(standings.Crossover?.Standings, client.LastRequestUrl);
+			Assert.IsNotNull(standings.Crossover?.Standings, Endpoint.RequestClient.LastRequestUrl);
 
 			var expected = "Edmonton";
 			var actual = standings.Crossover.Standings[0].Location;
@@ -75,7 +75,7 @@ namespace mdryden.cflapi.v1.Tests.Client.Standings
 
 			var standings = client.GetCrossoverStandings(season);
 
-			Assert.IsNotNull(standings.OutOfPlayoffs?.Standings, client.LastRequestUrl);
+			Assert.IsNotNull(standings.OutOfPlayoffs?.Standings, Endpoint.RequestClient.LastRequestUrl);
 
 			var expected = 3;
 			var actual = standings.OutOfPlayoffs.Standings.Count();
