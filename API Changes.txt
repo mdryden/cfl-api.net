@@ -1,0 +1,116 @@
+
+
+v1.24 (April 16, 2017)
+Added receive_yards_after_catch to the team and player box scores of Games.
+
+
+v1.23 (April 6, 2017)
+The team element for Players is now more accurate; previously the team a Player was on was determined by the last Game they played in; now we examine their current contract status and check what team it's with. 
+
+Added an stats_inc_id element to Players to signify the unique numeric identifier Stats Inc uses for CFL players; this data is retrieved once a day from the file Stats Inc provides to the league.
+
+
+v1.22 (March 27, 2017)
+Added game_date to the list of filters that can be passed to a Player; this allows for the retrieval of game-by-game or season statistics for a player but limited to a specified date range.
+
+
+v1.21 (October 26, 2016)
+Complete - Added title to the event_type of each Game; this provides the formal title for a game (eg. "Eastern Semi-Final").
+
+
+v1.20 (October 7, 2016)
+Complete - Added defensive_touchdowns and defensive_safeties elements to the team box scores of Games.
+
+
+v1.19 (September 19, 2016)
+Updated the endpoint at /
+
+v1/standings/crossover/YYYY , adding an out_of_playoffs "division" that always contains the teams currently outside of a playoff berth, and removed the now unnecessary qualifies_for_playoffs elements. See the Endpoint example at Standings for more information.
+
+
+v1.18 (September 13, 2016)
+Added a new endpoint at /
+
+v1/standings/crossover/YYYY , returning league standings with the crossover rule factored in (and with an additional qualifies_for_playoffs Boolean value to make it easy to tell who's in and who isn't). See the Endpoint example at Standings for more information.
+
+
+v1.17 (September 6, 2016)
+Complete - Added punt_returns, kickoff_returns and missed_fg_returns arrays to Players within both the seasons and game_by_game elements.
+
+
+v1.16 (August 9, 2016)
+Complete - Added downs elements to the team box scores of Games, listing the attempts the team had at that down and the yards gained at it.
+
+
+v1.15 (July 19, 2016)
+N/A - Updated the height attributes of Players to change it to a string that's always expressed with 2 decimal places. 
+
+Complete - If a Player's rookie_year has not yet occurred, it'll now output a null value instead of 0. 
+
+Complete - Added field_goal_missed_list to the field_goals element of a Game's box score - for individuals only. It will list the distances for which the field goal kicker missed the FG. The attempts are separated by a comma, and if no field goals were missed the value is a blank string.
+
+
+v1.14 (July 12, 2016)
+Updated documentation for Play-by-Play, adding four new play_success_id values (900 through 903). Also added a play_success_id of 78 so a quarterback sack can be identified in the list of Team Losses.
+
+
+v1.13 (July 5, 2016)
+Updated documentation for Play-by-Play, adding two new play_type_id values and updating the logic for play_success_id to ensure a value gets set for those two new play types.
+
+
+v1.12 (June 22, 2016)
+Many new endpoints for Leaders statistics, including new aggregate offence, defence and special_teams endpoints.
+
+
+v1.11 (June 20, 2016)
+Update the Test Play-By-Play Data to use a new dataset as game -2275.
+
+
+v1.10 (June 16, 2016)
+Added a new filter for week to Team Leaders to allow for retrieval of team statistics at a certain point in a season. 
+
+Added a new filter for pbp to Play-by-Play data within Games to allow for retrieval of a subset of play-by-play data based on the sequence number of plays.
+
+
+v1.09 (June 11, 2016)
+Added a new filter for event_type_id to Games to allow for retrieval of specifically pre-season, post-season or regular season games.
+
+
+v1.08 (June 7, 2016)
+Added the /v1/standings/[season] endpoint to allow retrieval of Standings.
+
+
+v1.07 (June 3, 2016)
+Complete - To assist with determining the result of a play, added the play_success_id and play_success_description attributes to Play by Play data.
+
+
+v1.06 (May 31, 2016)
+Added the season filter parameter to Players. 
+
+Added the team filter parameter to Games.
+
+
+v1.05 (May 27, 2016)
+Complete - Added the is_in_red_zone attribute to Play-By-Play objects within Games. 
+
+Complete - Added the include=rosters parameter to Games.
+
+
+v1.04 (May 26, 2016)
+Add the "in" filter to Games and Players.
+
+
+v1.03 (Apr 28, 2016)
+N/A - Add the Play-by-Play test system and documentation.
+
+
+v1.02 (Apr 6, 2016)
+Complete - Add the Team Leaders endpoint.
+
+
+v1.01 (Apr 1, 2016)
+Complete - Add the Leaders endpoint.
+
+
+v1.00 (Mar 15, 2016)
+Complete - Initial release of the CFL API with the Games and Players endpoints.

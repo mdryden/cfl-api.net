@@ -1,0 +1,16 @@
+Filter games temp = value, not working - update - they work, but only when searching within a specific season.  
+http://api.cfl.ca/v1/games?key=<key>&filter[temperature][eq]=11&page[number]=1&page[size]=20
+
+When I do "lt" 11, it works, but not eq.
+
+
+PlaySuccessId - is there a list?
+
+EventType.title - not retroactive
+
+Leaders - overview and detail view don't match for "return_yards", which is listed at the top as "Kick Return Yards"
+	- tackles_special_teams does not have a detailed entry
+	- returns does not have a detailed entry or a listing at the top
+	- kicking does not have a detailed entry or listing at the top - also, this seems to just be punting?  why not a more description name?
+
+Consistency between leaders and team_leaders endpoints - why can't I get the same data from both?

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
-namespace mdryden.cflapi.v1.Models
+namespace mdryden.cflapi.v1.Client
 {
-	public class DataArrayContainer<T> : DataContainer<T[]>
+	public interface IInFilter<TValue>
 	{
+		string In(params TValue[] values);
 	}
 }
