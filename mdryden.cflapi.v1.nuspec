@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>mdryden.cflapi.v1</id>
+    <version>$version$</version>
+    <title>cfl-api.Net</title>
+    <authors>Michael Dryden</authors>
+    <owners>Michael Dryden</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/pudds/cfl-api.net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.Net implementation of the Canadian Football League's public API</description>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+    <copyright>Copyright 2017 Michael Dryden</copyright>
+    <tags>cfl .net canadian football</tags>	
+	<dependencies>
+		<dependency id="NewtonSoft.Json" version="8.0.3" />
+	</dependencies>
+  </metadata>  
+  <files>
+    <file src="release\mdryden.cflapi.v1.dll" target="lib\net45" />
+  </files>
+</package>

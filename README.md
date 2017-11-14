@@ -7,6 +7,10 @@ For information on the underlying API, see http://api.cfl.ca/docs
 
 https://www.nuget.org/packages/mdryden.cflapi.v1/
 
+## GitHub
+
+https://github.com/pudds/cfl-api.net
+
 Install-Package mdryden.cflapi.v1
 
 ## Requirements
@@ -16,8 +20,9 @@ Install-Package mdryden.cflapi.v1
 
 ## Versioning
 
-- The last 2 digits of the version number for this project will match with the version number of the CFL API it fully supports.  See the release notes at http://api.cfl.ca/release-notes to determine which features are available.
+- The minor and build digits of the version number for this project will match with the version number of the CFL API it fully supports.  See the release notes at http://api.cfl.ca/release-notes to determine which features are available.
 - The first digit of the version number represents the major version within this project.  It will only be incremented when the library API is updated with a breaking change.
+- The last digit represents a revision, and will usually be 1 unless a bug fix has been released.
 
 ## Reporting issues
 

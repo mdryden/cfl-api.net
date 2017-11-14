@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael Dryden")]
 [assembly: AssemblyProduct("cfl-api.Net")]
-[assembly: AssemblyCopyright("Copyright Michael Dryden ©  2016")]
+[assembly: AssemblyCopyright("Copyright Michael Dryden ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
