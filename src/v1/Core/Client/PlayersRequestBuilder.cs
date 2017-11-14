@@ -11,6 +11,7 @@ namespace mdryden.cflapi.v1.Client
 	public class PlayersRequestBuilder : RequestBuilder<IList<Player>>, IPlayersRequestBuilder
 	{
 		public static IPlayersFilterFactory<IPlayersRequestBuilder> FilterFactory { get; set; }
+		public static IPlayersInFilterFactory<IPlayersRequestBuilder> InFilterFactory { get; set; }
 		public static IPlayersSortFactory<IPlayersRequestBuilder> SortFactory { get; set; }
 
 		public void AddFilter(string filter)

@@ -17,6 +17,11 @@
 			request.AddFilter(GetFilterCreator().CreateFilter(filterProperty, @operator, value));
 			return request;
 		}
+		protected TRequest CreateFilter<TValue>(string filterProperty, TFilterOperators @operator, TValue[] value)
+		{
+			request.AddFilter(GetFilterCreator().CreateFilter(filterProperty, @operator, value));
+			return request;
+		}
 
 	}
 }

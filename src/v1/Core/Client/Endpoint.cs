@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mdryden.cflapi.v1.Client
 {
-		public static class Endpoint
+	public static class Endpoint
 	{
 		public static IRequestClient RequestClient { get; private set; }
 

@@ -19,7 +19,7 @@ namespace mdryden.cflapi.v1.Client
 
 		protected override IFilterCreator<PlayersFilterOperators> GetFilterCreator() => FilterCreator;
 
-		public TRequest CflCentralId(PlayersFilterOperators @operator, int value) => CreateFilter("cfl_central_id", @operator, value);
+		public TRequest CflCentralId(PlayersFilterOperators @operator, params int[] value) => CreateFilter("cfl_central_id", @operator, value);
 		public TRequest FirstName(PlayersFilterOperators @operator, string value) => CreateFilter("first_name", @operator, value);
 		public TRequest MiddleName(PlayersFilterOperators @operator, string value) => CreateFilter("middle_name", @operator, value);
 		public TRequest LastName(PlayersFilterOperators @operator, string value) => CreateFilter("last_name", @operator, value);

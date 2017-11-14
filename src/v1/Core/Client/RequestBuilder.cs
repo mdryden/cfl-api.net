@@ -63,6 +63,7 @@ namespace mdryden.cflapi.v1.Client
 		}
 
 		public abstract TResponse CleanResponse(TApiResponse apiResponse);
+		
 	}
 
 	public abstract class RequestBuilder<TResponse> : RequestBuilder<TResponse, TResponse>
