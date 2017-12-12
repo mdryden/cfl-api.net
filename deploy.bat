@@ -1,10 +1,10 @@
 @ECHO OFF
 
-set /p version=Enter version #:
-set /p notes=Enter release notes:
+rem set /p version=Enter version #:
+rem set /p notes=Enter release notes:
 
-nuget pack .\mdryden.cflapi.v1.nuspec -Properties version="%version%";releaseNotes="%notes%"
+rem nuget pack .\mdryden.cflapi.v1.nuspec -Properties version="%version%";releaseNotes="%notes%"
 
-nuget push mdryden.cflapi.v1.%version%.nupkg -Source https://www.nuget.org/api/v2/package
+nuget push src\v1\Core\bin\Release\mdryden.cflapi.v1.*.nupkg -Source https://www.nuget.org/api/v2/package
 
 PAUSE
