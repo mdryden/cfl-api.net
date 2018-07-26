@@ -4,8 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Configuration;
-using mdryden.cflapi.v1.Client.Leaders;
 using mdryden.cflapi.v1.Models.Leaders;
+using mdryden.cflapi.v1.Client;
+using System.Collections.Generic;
 
 namespace mdryden.cflapi.v1.Tests.Models.Leaders
 {
@@ -16,271 +17,170 @@ namespace mdryden.cflapi.v1.Tests.Models.Leaders
 		[TestMethod]
 		public void Convert1Test()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerConverts1> leaders = Endpoint.Leaders.Convert1s(2015).Invoke();
 
-			client.GetConvert1(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerConverts1>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void Convert2Test()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerConverts2> leaders = Endpoint.Leaders.Convert2s(2015).Invoke();
 
-			client.GetConvert2(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerConverts2>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
-
-		[TestMethod]
-		public void DefenceLeadersTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetDefence(2015);
-
-			TryDeserialize<DataContainer<Defence>>(client.LastResponse);
-		}
-
+		
 		[TestMethod]
 		public void FieldGoalMissedReturnYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerFieldGoalMissedReturnYards> leaders = Endpoint.Leaders.FieldGoalMissedReturnYards(2015).Invoke();
 
-			client.GetFieldGoalMissedReturnYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerFieldGoalMissedReturnYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void FieldGoalsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerFieldGoals> leaders = Endpoint.Leaders.FieldGoals(2015).Invoke();
 
-			client.GetFieldGoals(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerFieldGoals>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void FumblesForcedTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerFumblesForced> leaders = Endpoint.Leaders.FumblesForced(2015).Invoke();
 
-			client.GetFumblesForced(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerFumblesForced>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void FumblesRecoveriesTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerFumblesRecoveries> leaders = Endpoint.Leaders.FumblesRecoveries(2015).Invoke();
 
-			client.GetFumblesRecoveries(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerFumblesRecoveries>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void InterceptionsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerInterceptions> leaders = Endpoint.Leaders.Interceptions(2015).Invoke();
 
-			client.GetInterceptions(2015);
-
-			TryDeserialize<DataArrayContainer<Offence>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
-
-		[TestMethod]
-		public void KickingTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetKicking(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerKicking>>(client.LastResponse);
-		}
+		
 
 		[TestMethod]
 		public void KickoffReturnYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerKickoffReturnYards> leaders = Endpoint.Leaders.KickoffReturnYards(2015).Invoke();
 
-			client.GetKickoffReturnYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerKickoffReturnYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void KickoffYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerKickoffYards> leaders = Endpoint.Leaders.KickoffYards(2015).Invoke();
 
-			client.GetKickoffYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerKickoffYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void KicksBlockedTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerKicksBlocked> leaders = Endpoint.Leaders.KicksBlocked(2015).Invoke();
 
-			client.GetKicksBlocked(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerKicksBlocked>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
-
-		[TestMethod]
-		public void OffenceLeadersTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetOffence(2015);
-
-			TryDeserialize<DataContainer<Offence>>(client.LastResponse);
-		}
-
+		
 		[TestMethod]
 		public void PassingTouchdownsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerPassingTouchdowns> leaders = Endpoint.Leaders.PassingTouchdowns(2015).Invoke();
 
-			client.GetPassingTouchdowns(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerPassingTouchdowns>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void PassingYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerPassingYards> leaders = Endpoint.Leaders.PassingYards(2015).Invoke();
 
-			client.GetPassingYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerPassingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void ReceivingCaughtTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerReceivingCaught> leaders = Endpoint.Leaders.ReceivingCaught(2015).Invoke();
 
-			client.GetReceivingCaught(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReceivingCaught>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void ReceivingTargetedTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerReceivingTargeted> leaders = Endpoint.Leaders.ReceivingTargeted(2015).Invoke();
 
-			client.GetReceivingTargeted(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReceivingTargeted>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void ReceivingTouchdownsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerReceivingTouchdowns> leaders = Endpoint.Leaders.ReceivingTouchdowns(2015).Invoke();
 
-			client.GetReceivingTouchdowns(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReceivingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void ReceivingYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerReceivingYards> leaders = Endpoint.Leaders.ReceivingYards(2015).Invoke();
 
-			client.GetReceivingYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReceivingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
-
-		[TestMethod]
-		public void ReturnsTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetReturns(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReturns>>(client.LastResponse);
-		}
-
-		[TestMethod]
-		public void ReturnYardsTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetReturnYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerReturnYards>>(client.LastResponse);
-		}
-
+		
 		[TestMethod]
 		public void RushingTouchdownsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerRushingTouchdowns> leaders = Endpoint.Leaders.RushingTouchdowns(2015).Invoke();
 
-			client.GetRushingTouchdowns(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerRushingTouchdowns>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void RushingYardsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerRushingYards> leaders = Endpoint.Leaders.RushingYards(2015).Invoke();
 
-			client.GetRushingYards(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerRushingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void SacksTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerSacks> leaders = Endpoint.Leaders.Sacks(2015).Invoke();
 
-			client.GetSacks(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerSacks>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
-
-		[TestMethod]
-		public void SpecialTeamsLeadersTest()
-		{
-			var client = new LeadersClient(GetApiKey());
-
-			client.GetSpecialTeams(2015);
-
-			TryDeserialize<DataContainer<SpecialTeams>>(client.LastResponse);
-		}
-
+		
 		[TestMethod]
 		public void TacklesDefensiveTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerTacklesDefensive> leaders = Endpoint.Leaders.TacklesDefensive(2015).Invoke();
 
-			client.GetTacklesDefensive(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerTacklesDefensive>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void TacklesSpecialTeamsTest()
 		{
-			var client = new LeadersClient(GetApiKey());
+			IList<PlayerTacklesSpecialTeams> leaders = Endpoint.Leaders.TacklesSpecialTeams(2015).Invoke();
 
-			client.GetTacklesSpecialTeams(2015);
-
-			TryDeserialize<DataArrayContainer<PlayerTacklesSpecialTeams>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 	}

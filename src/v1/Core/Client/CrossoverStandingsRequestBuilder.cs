@@ -9,7 +9,7 @@ namespace mdryden.cflapi.v1.Client
 {
 	
 
-	public class CrossoverStandingsRequestBuilder : RequestBuilder<SeasonStandings>, ICrossoverStandingsRequestBuilder
+	public class CrossoverStandingsRequestBuilder : RequestBuilder<CrossoverStandings>, ICrossoverStandingsRequestBuilder
 	{
 		private int season;
 

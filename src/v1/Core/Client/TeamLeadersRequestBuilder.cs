@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 namespace mdryden.cflapi.v1.Client
 {
 
-	public class TeamLeadersRequestBuilder<TRequestBuilder, TResponse> : RequestBuilder<TResponse>, ILeadersRequestBuilder<TRequestBuilder, TResponse>
+	public class TeamLeadersRequestBuilder<TRequestBuilder, TResponse> : RequestBuilder<IList<TResponse>>, ITeamLeadersRequestBuilder<TRequestBuilder, TResponse>
 		where TRequestBuilder : class, IFilteredRequest
 	{
 
@@ -14,10 +15,10 @@ namespace mdryden.cflapi.v1.Client
 
 		private string leaderType;
 		private int season;
-		private TRequestBuilder requestBuilder;
 
 		public TeamLeadersRequestBuilder(string leaderType, int season)
 		{
+			this.leaderType = leaderType;
 			this.season = season;
 		}
 

@@ -4,10 +4,9 @@ using mdryden.cflapi.v1.Models.Games;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using mdryden.cflapi.v1.Client.Standings;
 using System.Configuration;
-using mdryden.cflapi.v1.Client.Games;
 using System.Collections.Generic;
+using mdryden.cflapi.v1.Client;
 
 namespace mdryden.cflapi.v1.Tests.Models.Games
 {
@@ -17,20 +16,18 @@ namespace mdryden.cflapi.v1.Tests.Models.Games
 		
 		[TestMethod]
 		public void FullGameTest()
-		{
-			var client = new GamesClient(GetApiKey());
-			client.GetGame(2015, 2266, true, true, true);
+		{			
+			var game = Endpoint.Games.GetGame(2015, 2266).WithBoxscore().WithRosters().WithPlayByPlay().Invoke();
 
-			TryDeserialize<DataArrayContainer<Game>>(client.LastResponse);
+			Assert.IsNotNull(game);
 		}
 
 		[TestMethod]
 		public void ListOfGamesTest()
 		{
-			var client = new GamesClient(GetApiKey());
-			client.GetGames(season: 2015);
+			var games = Endpoint.Games.GetGames().Season(2015).Invoke();
 
-			TryDeserialize<DataArrayContainer<Game>>(client.LastResponse);
+			Assert.IsNotNull(games);
 		}
 	}
 }

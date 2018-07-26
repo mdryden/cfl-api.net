@@ -14,10 +14,10 @@ namespace mdryden.cflapi.v1.Client
 
 		private string leaderType;
 		private int season;
-		private TRequestBuilder requestBuilder;
 
 		public LeadersRequestBuilder(string leaderType, int season)
 		{
+			this.leaderType = leaderType;
 			this.season = season;
 		}
 

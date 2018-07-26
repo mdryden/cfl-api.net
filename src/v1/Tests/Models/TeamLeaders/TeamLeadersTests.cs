@@ -1,11 +1,9 @@
 ﻿using System;
 using mdryden.cflapi.v1.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System.Configuration;
-using mdryden.cflapi.v1.Client.TeamLeaders;
 using mdryden.cflapi.v1.Models.TeamLeaders;
+using mdryden.cflapi.v1.Client;
+using System.Collections.Generic;
 
 namespace mdryden.cflapi.v1.Tests.Models.TeamLeaders
 {
@@ -15,101 +13,81 @@ namespace mdryden.cflapi.v1.Tests.Models.TeamLeaders
 		[TestMethod]
 		public void AllCategoriesTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamAll> leaders = Endpoint.TeamLeaders.AllCategories(2015).Invoke();
 
-			client.GetAllCategories(2015);
-
-			TryDeserialize<DataContainer<TeamAll>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void FumblesForcedTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamFumblesForced> leaders = Endpoint.TeamLeaders.FumblesForced(2015).Invoke();
 
-			client.GetFumblesForced(2015);
-
-			TryDeserialize<DataArrayContainer<TeamFumblesForced>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void InterceptionsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamInterceptions> leaders = Endpoint.TeamLeaders.Interceptions(2015).Invoke();
 
-			client.GetInterceptions(2015);
-
-			TryDeserialize<DataArrayContainer<TeamInterceptions>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void PassesDefendedTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamPassesDefended> leaders = Endpoint.TeamLeaders.PassesDefended(2015).Invoke();
 
-			client.GetPassesDefended(2015);
-
-			TryDeserialize<DataArrayContainer<TeamPassesDefended>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void PassingTouchdownsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamPassingTouchdowns> leaders = Endpoint.TeamLeaders.PassingTouchdowns(2015).Invoke();
 
-			client.GetPassingTouchdowns(2015);
-
-			TryDeserialize<DataArrayContainer<TeamPassingTouchdowns>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void PassingYardsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamPassingYards> leaders = Endpoint.TeamLeaders.PassingYards(2015).Invoke();
 
-			client.GetPassingYards(2015);
-
-			TryDeserialize<DataArrayContainer<TeamPassingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void RushingTouchdownsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamRushingTouchdowns> leaders = Endpoint.TeamLeaders.RushingTouchdowns(2015).Invoke();
 
-			client.GetRushingTouchdowns(2015);
-
-			TryDeserialize<DataArrayContainer<TeamRushingTouchdowns>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void RushingYardsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamRushingYards> leaders = Endpoint.TeamLeaders.RushingYards(2015).Invoke();
 
-			client.GetRushingYards(2015);
-
-			TryDeserialize<DataArrayContainer<TeamRushingYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void SacksTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamSacks> leaders = Endpoint.TeamLeaders.Sacks(2015).Invoke();
 
-			client.GetSacks(2015);
-
-			TryDeserialize<DataArrayContainer<TeamSacks>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 		[TestMethod]
 		public void TotalYardsTest()
 		{
-			var client = new TeamLeadersClient(GetApiKey());
+			IList<TeamTotalYards> leaders = Endpoint.TeamLeaders.TotalYards(2015).Invoke();
 
-			client.GetTotalYards(2015);
-
-			TryDeserialize<DataArrayContainer<TeamTotalYards>>(client.LastResponse);
+			Assert.IsNotNull(leaders);
 		}
 
 	}

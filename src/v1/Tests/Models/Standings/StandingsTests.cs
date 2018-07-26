@@ -3,9 +3,9 @@ using mdryden.cflapi.v1.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using mdryden.cflapi.v1.Client.Standings;
 using System.Configuration;
 using mdryden.cflapi.v1.Models.Standings;
+using mdryden.cflapi.v1.Client;
 
 namespace mdryden.cflapi.v1.Tests.Models.Standings
 {
@@ -17,21 +17,18 @@ namespace mdryden.cflapi.v1.Tests.Models.Standings
 		[TestMethod]
 		public void StandingsTest()
 		{
-			var client = new StandingsClient(GetApiKey());
+			SeasonStandings standings = Endpoint.Standings.GetStandings(2015).Invoke();
 
-			client.GetStandings(2015);
-
-			TryDeserialize<DataContainer<SeasonContainer>>(client.LastResponse);
+			Assert.IsNotNull(standings);
 		}
 
 		[TestMethod]
 		public void CrossoverStandingsTest()
 		{
-			var client = new StandingsClient(GetApiKey());
+			CrossoverStandings standings = Endpoint.Standings.GetCrossoverStandings(2015).Invoke();
 
-			client.GetCrossoverStandings(2015);
+			Assert.IsNotNull(standings);
 
-			TryDeserialize<DataContainer<CrossoverContainer>>(client.LastResponse);
 		}
 	}
 }

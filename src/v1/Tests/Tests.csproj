@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>mdryden.cflapi.v1.Tests</RootNamespace>
     <AssemblyName>mdryden.cflapi.v1.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,11 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,28 +56,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Client\ClientTestsBase.cs" />
-    <Compile Include="Client\Games\GameClientTests.cs" />
-    <Compile Include="Client\Games\GameFilterInTests.cs" />
-    <Compile Include="Client\Games\GameFilterEqualsTests.cs" />
-    <Compile Include="Client\Games\GameFilterGreaterOrEqualToThanTests.cs" />
-    <Compile Include="Client\Games\GameFilterGreaterThanTests.cs" />
-    <Compile Include="Client\Games\GameFilterLessThanOrEqualToTests.cs" />
-    <Compile Include="Client\Games\GameFilterLessThanTests.cs" />
-    <Compile Include="Client\Games\GameFilterNotEqualTests.cs" />
-    <Compile Include="Client\Games\GameSortTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterInTests.cs" />
-    <Compile Include="Client\Standings\StandingsClientTests.cs" />
-    <Compile Include="Client\TeamLeaders\TeamLeadersClientTests.cs" />
-    <Compile Include="Client\Leaders\LeadersClientTests.cs" />
-    <Compile Include="Client\Players\PlayerClientTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterEqualsTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterGreaterThanOrEqualToTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterGreaterThanTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterLessThanOrEqualToTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterLessThanTests.cs" />
-    <Compile Include="Client\Players\PlayerFilterNotEqualTests.cs" />
-    <Compile Include="Client\Players\PlayerSortTests.cs" />
     <Compile Include="Models\DeserializationTestsBase.cs" />
     <Compile Include="Models\Games\GamesTests.cs" />
     <Compile Include="Models\Leaders\LeadersTests.cs" />
@@ -96,9 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="appSettings.template.config" />
     <None Include="appSettings.config" />
+    <None Include="appSettings.template.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
