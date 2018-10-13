@@ -30,10 +30,5 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty("punts")]
 		public IList<Punts> Punts { get; set; }
 
-
-
-
-
-
 	}
 }

@@ -249,6 +249,9 @@
     <Compile Include="Models\Games\VenueIds.cs" />
     <Compile Include="Models\Games\Weather.cs" />
     <Compile Include="Models\InterfaceConverter.cs" />
+    <Compile Include="Models\Players\Kickoffs.cs" />
+    <Compile Include="Models\Players\GameKickoffs.cs" />
+    <Compile Include="Models\Players\SeasonKickoffs.cs" />
     <Compile Include="Models\Standings\Division.cs" />
     <Compile Include="Models\Standings\CrossoverStandings.cs" />
     <Compile Include="Models\Standings\CrossoverContainer.cs" />

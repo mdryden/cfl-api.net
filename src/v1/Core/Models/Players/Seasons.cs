@@ -48,7 +48,8 @@ namespace mdryden.cflapi.v1.Models.Players
 		[JsonProperty("missed_fg_returns")]
 		public IList<SeasonMissedFieldGoalReturns> MissedFieldGoalReturns { get; set; }
 
-
+		[JsonProperty("kickoffs")]
+		public IList<SeasonKickoffs> Kickoffs { get; set; }
 
 
 
