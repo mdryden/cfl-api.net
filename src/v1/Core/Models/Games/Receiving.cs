@@ -29,5 +29,8 @@ namespace mdryden.cflapi.v1.Models.Games
 
 		[JsonProperty("receive_yards_after_catch")]
 		public int ReceiveYardsAfterCatch { get; set; }
+
+		[JsonProperty("receive_fumbles")]
+		public int ReceiveFumbles { get; set; }
 	}
 }

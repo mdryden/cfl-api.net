@@ -33,5 +33,8 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonProperty("pass_interceptions")]
 		public int PassInterceptions { get; set; }
 
+		[JsonProperty("pass_fumbles")]
+		public int PassFumbles { get; set; }
+
 	}
 }
