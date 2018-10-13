@@ -350,9 +350,7 @@
     <Compile Include="Client\RequestToken.cs" />
     <Compile Include="Client\RequestBuffer.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\Implementations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
