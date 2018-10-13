@@ -17,7 +17,12 @@ namespace mdryden.cflapi.v1.Tests.Models.Games
 		[TestMethod]
 		public void FullGameTest()
 		{			
-			var game = Endpoint.Games.GetGame(2015, 2266).WithBoxscore().WithRosters().WithPlayByPlay().Invoke();
+			var game = Endpoint.Games.GetGame(2015, 2266)
+				.WithBoxscore()
+				.WithRosters()
+				.WithPlayByPlay()
+				.WithPenalties()
+				.Invoke();
 
 			Assert.IsNotNull(game);
 		}

@@ -53,6 +53,12 @@ namespace mdryden.cflapi.v1.Client
 			return this;
 		}
 
+		public IGameRequestBuilder WithPenalties()
+		{
+			Includes.Add("penalties");
+			return this;
+		}
+
 		public override Game CleanResponse(IList<Game> games)
 		{
 			return games.FirstOrDefault();
