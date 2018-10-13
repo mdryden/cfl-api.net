@@ -28,6 +28,9 @@ namespace mdryden.cflapi.v1.Models.Games
 		[JsonProperty("attendance")]
 		public int Attendance { get; set; }
 
+		[JsonProperty("game_duration")]
+		public int GameDuration { get; set; }
+
 		[JsonProperty("event_type")]
 		public EventType EventType { get; set; }
 
