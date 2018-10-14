@@ -13,7 +13,7 @@ namespace mdryden.cflapi.v1.Tests.Models
 
 		public DeserializationTestsBase()
 		{
-			var apiKey = ConfigurationManager.AppSettings["apiKey"];
+			var apiKey = ApiKeyLoader.GetApiKey();
 			Endpoint.Setup(apiKey);
 		}
 	}
