@@ -59,6 +59,12 @@ namespace mdryden.cflapi.v1.Client
 			return this;
 		}
 
+		public IGameRequestBuilder WithPlayReviews()
+		{
+			Includes.Add("play_reviews");
+			return this;
+		}
+
 		public override Game CleanResponse(IList<Game> games)
 		{
 			return games.FirstOrDefault();

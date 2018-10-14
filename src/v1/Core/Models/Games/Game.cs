@@ -69,5 +69,8 @@ namespace mdryden.cflapi.v1.Models.Games
 
 		[JsonProperty("penalties")]
 		public IList<GamePenalty> Penalties { get; set; }
+
+		[JsonProperty("play_reviews")]
+		public IList<PlayReview> PlayReviews { get; set; }
 	}
 }

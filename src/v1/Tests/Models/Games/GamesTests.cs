@@ -16,12 +16,13 @@ namespace mdryden.cflapi.v1.Tests.Models.Games
 		
 		[TestMethod]
 		public void FullGameTest()
-		{			
+		{
 			var game = Endpoint.Games.GetGame(2015, 2266)
 				.WithBoxscore()
 				.WithRosters()
 				.WithPlayByPlay()
 				.WithPenalties()
+				.WithPlayReviews()
 				.Invoke();
 
 			Assert.IsNotNull(game);
@@ -33,6 +34,21 @@ namespace mdryden.cflapi.v1.Tests.Models.Games
 			var games = Endpoint.Games.GetGames().Season(2015).Invoke();
 
 			Assert.IsNotNull(games);
+		}
+
+		[TestMethod]
+		public void PenaltiesTest()
+		{
+			var game = Endpoint.Games.GetGame(2018, 2475).WithPenalties().Invoke();
+
+			Assert.IsTrue(game.Penalties.Count > 0);
+		}
+
+		[TestMethod]
+		public void PlayReviewsTest()
+		{
+			var game = Endpoint.Games.GetGame(2018, 2475).WithPlayReviews().Invoke();
+			Assert.IsTrue(game.PlayReviews.Count > 0);
 		}
 	}
 }

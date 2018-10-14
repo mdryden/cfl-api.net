@@ -18,11 +18,14 @@ namespace mdryden.cflapi.v1.Tests
 			{
 				lock (_lock)
 				{
-					apiKey = File.ReadAllText(@".\cfl_api_key.txt");
+					if (File.Exists(@".\cfl_api_key.txt"))
+					{
+						apiKey = File.ReadAllText(@".\cfl_api_key.txt");
+					}
 
 					if (string.IsNullOrEmpty(apiKey))
 					{
-						throw new Exception("Unable to load API key.  To run tests, create a file named 'cfl_api_key.txt' at the root which contains only your API key.");
+						throw new Exception("Unable to load API key.  See app.config for instructions");
 					}
 				}
 			}

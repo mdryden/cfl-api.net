@@ -11,5 +11,6 @@ namespace mdryden.cflapi.v1.Client
 		IGameRequestBuilder WithPlayByPlay();
 		IGameRequestBuilder WithRosters();
 		IGameRequestBuilder WithPenalties();
+		IGameRequestBuilder WithPlayReviews();
 	}
 }

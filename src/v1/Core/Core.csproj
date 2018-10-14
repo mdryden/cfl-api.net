@@ -199,6 +199,7 @@
     <Compile Include="Models\Games\Game.cs" />
     <Compile Include="Models\Games\FieldGoals.cs" />
     <Compile Include="Models\Games\Converts1.cs" />
+    <Compile Include="Models\Games\PlayReview.cs" />
     <Compile Include="Models\Games\GamePenalty.cs" />
     <Compile Include="Models\Games\Kicking.cs" />
     <Compile Include="Models\Games\KickReturns.cs" />
